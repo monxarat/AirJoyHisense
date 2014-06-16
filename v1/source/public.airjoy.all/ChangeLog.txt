@@ -1,0 +1,594 @@
+2014-3-4
+    0. AirPlayNsd.hpp中，增加取消发布服务的接口：
+        bool unpublishService();
+
+2013-9-23
+    0. 接口不变，airplay支持ios7.0
+
+2013-5-28
+    0. 接口不变，修正Plist在幻灯片模式下解析错误导致崩溃的问题。
+
+2013-5-21
+    0. AirPlayNsd.hpp中
+       由:
+           void discoveryService(const std::string &serviceType, AirPlayNsdDiscoveryListener *listener);
+           void stopServiceDiscovery(void);
+           void publishService(AirPlayServiceInfo &serviceInfo, AirPlayNsdPublishListener *listener);
+           void publishService(AirTunesServiceInfo &serviceInfo, AirPlayNsdPublishListener *listener);
+       修改为：
+           bool discoveryService(const std::string &serviceType, AirPlayNsdDiscoveryListener *listener);
+           bool stopServiceDiscovery(void);
+           bool publishService(AirPlayServiceInfo &serviceInfo, AirPlayNsdPublishListener *listener);
+           bool publishService(AirTunesServiceInfo &serviceInfo, AirPlayNsdPublishListener *listener);
+
+2013-5-16
+    0. 重新编译AirPlay。
+    1. AirPlayServer.hpp中，增加一个幻灯片事件。
+       由
+        // 事件分类
+        typedef enum _EventCategory
+        {
+            EventUnknown     = -1,
+            EventPhoto       = 0,    // 图片
+            EventVideo       = 1,    // 视频
+        } EventCategory;
+       修改为：
+		// 事件分类
+        typedef enum _EventCategory
+        {
+            EventUnknown     = -1,
+            EventPhoto       = 0,    // 图片
+            EventVideo       = 1,    // 视频
+            EventSlideshow   = 2,    // 幻灯片
+        } EventCategory;
+     2. 测试程序testAirPlayServer.hpp中
+        回调函数didStartSlideshows() 中，保存当前的媒体类型为幻灯片
+        gPlayingMediaType = AirPlayServer::EventSlideshow;
+	 
+2013-3-20
+    0. 重新编译airplay & airtunes，调整内部参数。
+
+2013-3-19
+    0. 重新编译airtunes，增加airtunes多设备切换逻辑。
+       AirTunesServerListener.hpp中，以下接口增加一个参数：const std::string &clientIp
+       virtual void didStartPlayAudio(const std::string &clientIp) = 0;
+       virtual void didPause(const std::string &clientIp) = 0;
+       virtual void didStop(const std::string &clientIp) = 0;
+       virtual void didSetVolume(float value, const std::string &clientIp) = 0;
+       virtual void didSetImage(const char *data, std::size_t length, const std::string &clientIp) = 0;
+       virtual void didSetAudioInfo(const std::string &name, const std::string &artist, const std::string &album, const std::string &clientIp) = 0;
+
+2013-3-18
+    0. 重新编译airplay & airtunes，内部参数做了微调。
+
+2013-3-16
+    0. Android平台，修改文件名称：
+        libbonjour.so
+        libcrypto.so
+        libdl.so
+        libdns_sd.so
+        libssl.so
+      为
+        libbonjour_aj.so
+        libcrypto_aj.so
+        libdl_aj.so
+        libdns_sd_aj.so
+        libssl_aj.so
+
+2013-3-14
+    0. AirTunesServiceInfo.hpp中，增加接口：
+       void setDeviceId(const std::string &id);
+       用法与AirPlayServiceInfo::setDeviceId()完全一致。
+    1. 重现编译所有库。
+
+2013-3-12
+    0. AirTunesServerListener.hpp中(Mac和Android平台)，
+       修改:
+       void didAudioDriverInit(int sampleRateInHz, int channelConfig, int audioFormat);
+       为:
+       void didAudioDriverInit(int sampleRateInHz, int channelConfig, int audioFormat, int fmtp[12], size_t fmtpLen);
+
+2013-3-11
+    0. Mac版的AirTunes和Android版一样，开放音频播放接口给上层。
+
+2013-3-8
+    0. 更新Bonjour for android库。
+       包名称修改为cn.airjoy.android.service
+
+2013-3-4
+    0. AirPlay模块增加幻灯片逻辑
+       (1)当iPhone开启幻灯片播放时，接收方会受到请求：
+            AirPlayServerListener::didStartSlideshows();
+       (2)当iPhone关闭幻灯片播放时，接收方会受到请求：
+            AirPlayServerListener::didStopSlideshows();
+       (3)接收方发起请求，获取一张幻灯片用的图片：
+            AirPlayServer::getSlideshowsPicture();
+       (4)获取一张幻灯片用的照片: 成功
+            AirPlayServerListener::didGetSlideshowsPicture();
+       (5)获取一张幻灯片用的照片: 失败
+            AirPlayServerListener::didGetSlideshowsPictureFailed();
+    1. AirPlayServer.hpp中，增加一个接口：
+       (1) 向客户端发送请求，获取一张幻灯片用的图片
+          void getSlideshowsPicture(const std::string &clientIp);
+    2. AirPlayServerListener.hpp中，增加4个接口:
+       (1) 开始幻灯片播放
+          void didStartSlideshows();
+       (2) 停止幻灯片播放
+          void didStopSlideshows();
+       (3) 获取到一张幻灯片播放的图片
+          void didGetSlideshowsPicture();
+       (4) 获取幻灯片图片失败
+          void didGetSlideshowsPictureFailed();
+
+2013-3-4
+    0. 增加AirTunes库和头文件，解决音频播放问题。
+    1. 增加AirTunes需要用到的openssl库。
+    2. 如果OSX和Android4.1使用系统库发布服务，则
+       ------------------------------------------------------
+       AirPlay需要发布的服务信息如下：
+       ------------------------------------------------------
+       name: W500							// 设备名称
+       type: _airplay._tcp
+       port: 7000							// AirPlay监听端口
+       txt:
+         deviceid=00:21::6a:b8:a7:34		// 设备ID，其实就是网卡地址
+         features=0x221b					// 单独跑AirPlay，features=0x201b 
+                                            // 如果和AirTunes一起跑，features=0x221b 
+         model=AppleTV3,1
+         srcvers=150.33
+       ------------------------------------------------------
+       AirTunes需要发布的服务信息如下：
+       ------------------------------------------------------
+       name: 00216ab8a734@W500				// 设备ID@设备名称
+       type: _raop._tcp
+       port: 5000							// AirTunes监听端口
+       txt:
+         ch=2
+         cn=0,1
+         da=true
+         ek=1
+         et=0,1
+         md=0,1,2
+         pw=false
+         sf=0x4
+         sm=false
+         sr=44100
+         ss=16
+         sv=false
+         tp=TCP,UDP
+         txtvers=1
+         vn=3
+         vs=130.14
+         am=AppleTV3,1			// 和AirPlay一起跑，需要此信息
+                                // 如果单独跑，则不需要此信息
+         ------------------------------------------------------
+       注意：有两个地方要保持一致：
+        (1). AirTunes中的设备ID和AirPlay中的设备ID要一致;
+             只是AirTunes中的设备ID无冒号分割;
+        (2). AirTunes中的设备名称和AirPlay中的设备名称要一样;
+
+2013-2-29
+    0. 更新AirPlay库，解决AirPlay单独跑不能自动发现的问题。
+
+2013-2-28
+    0. 更新AirJoy库，接口不变。解决AirJoy自动发现端口和海信大转小的冲突问题。
+
+2013-2-20
+    0. 更新AirPlay库，接口不变，解决图片推送花屏的问题。
+
+2013-1-25
+    0. 更新AirJoy库，解决GetPlayVideoInfo和GetPlayAudioInfo回调时崩溃的问题。
+    1. AirJoyTypeDef.hpp中
+       修改
+           // 回放信息
+           typedef struct _AirJoyPlayBackInfo
+           {
+               std::string     id;             // 视频/音频ID
+               std::string 	   url;            // 地址
+               std::string     name;           // 名称（可选）
+               float           rate;           // 0:暂停, 1:播放
+               float           position;       // 当前播放/暂停时间点，单位为秒。
+               float           duration;       // 2012-10-31添加，视频总长度，单位：秒；
+           } AirJoyPlayBackInfo;
+        为：
+           // 回放信息
+           typedef struct _AirJoyPlayBackInfo
+           {
+               char            id[128 + 1];    // 视频/音频ID
+               char            url[1024 + 1];  // 地址
+               char            name[128 + 1];  // 名称（可选）
+               float           rate;           // 0:暂停, 1:播放
+               float           position;       // 当前播放/暂停时间点，单位为秒。
+               float           duration;       // 2012-10-31添加，视频总长度，单位：秒；
+           } AirJoyPlayBackInfo;
+       修改原因：在Android NDK回调时，如果修改std::string参数值，会崩溃，只能使用简单数据类型。
+    2. AirMediaListener.hpp中
+       修改（第一个参数为指针）
+        virtual ResultCode getPlayVideoInfo       (AirJoyPlayBackInfo *info,
+                                                   const std::string &fromIp)
+       为：(第一个参数为引用)	
+        virtual ResultCode getPlayVideoInfo       (AirJoyPlayBackInfo &info,
+                                                   const std::string &fromIp)
+    3. AirMediaListener.hpp中
+       修改
+        virtual bool didReceiveRequest			   (const std::string &appAction,
+                                                    const std::string &appParam,
+                                                    std::string &appResult,
+                                                    const std::string &fromIp)
+       为：
+        virtual bool didReceiveRequest			   (const std::string &appAction,
+                                                    const std::string &appParam,
+                                                    char *appResult,
+                                                    size_t appResultLen,
+                                                    const std::string &fromIp)
+
+2013-1-24
+    0. 更新AirPlay库，修正参数解析算法，支持ios4.3。
+    1. 更新AirJoy库，GetPlayVideoInfo 和 GetPlayAudioInfo中，修正音视频总长度获取不到的问题
+
+2013-1-22
+    0. AirJoy发布事件中，新增加一个init事件（初始状态）:
+       type为"init", action为"init"，其他参数为空字符串。
+    1. 在发布stop事件之后，必须发布init事件。
+
+2013-1-21
+    0. AirPlayServerListener.hpp增加接口（接收mp3音频）：
+        /**
+         * 开始播放音频
+         *  @contentLocation    [in] 音频位置，如：http://10.0.1.2:7002/123.mp3
+         *  @startPosition      [in] 从startPostion所指的时间点开始播放（单位为百分比: 当前位置/总长度）
+         *  @clientIp           [in] 客户端ip
+         */
+       virtual void didStartPlayMusic(const std::string &contentLocation, double startPosition, const std::string &clientIp) = 0;
+
+2013-1-16
+    0. 修正一个崩溃的问题：
+       airplay接收到图片或视频时，服务端如果不发布stop事件，直接关闭程序，会崩溃。
+	
+2013-1-15
+    0. 修改AirMediaListener.hpp，所有回调接口增加一个参数：const std::string &fromIp
+    1. 修改AirJoyServer.hpp，publishMediaEvent增加一个参数：const std::string &fromIp
+
+2013-1-11
+    0. 调整AirPlay多设备切换算法。
+    1. 修改AirPlayServer.hpp
+       将
+          void publishEvent(EventCategory type, EventAction action, const std::string &sessionId);
+       修改为
+          void publishEvent(EventCategory type, EventAction action, const std::string &clientIp);
+    2. 修改AirPlayServerListener.hpp
+       (1) 所有接口都增加最后一个参数，const std::string &clientIp
+       (2) 将 
+             virtual void didStopPlayback(void) = 0;
+             virtual void didStopPhotoOrSlideshow(void)  = 0;
+           合并为
+             virtual void didStop(const std::string &clientIp) = 0;
+       (3) 修改发布事件逻辑，请见 testAirPlayServer.cpp
+    3. 修改AirJoyTypeDef.hpp
+       将
+       typedef enum _PhotoDirectionType
+       {
+           PhotoDirectionOriginal     = 0,    // 图片原始方向
+           PhotoDirectionRight        = 1,    // 相对原始方向，逆时针旋转90度
+           PhotoDirectionUp           = 2,    // 相对原始方向，逆时针旋转180度
+           PhotoDirectionLeft         = 3,    // 相对原始方向，逆时针旋转270度
+       } PhotoDirectionType;
+      修改为	   
+      typedef enum _PhotoDirectionType
+      {
+           PhotoDirectionRight        = 1,    // 向右旋转
+           PhotoDirectionLeft         = 3,    // 向左旋转
+       } PhotoDirectionType;
+
+2013-1-7
+    0. 修改AirJoy请求发送策略：
+       第一个请求发送后，收到应答，再发送第二个请求。
+
+2013-1-6
+    0. 接口不变，更新库，修正airjoy丢包问题。
+
+2013-1-5
+    0. 接口不变：修改AirJoy协议的订阅逻辑:
+       订阅服务端B时，如果当前已经订阅了服务端A，会自动取消对A的订阅，再订阅B。
+
+2012-12-31
+    0. 修改AirMediaClientQueryListener.hpp:
+       将
+        virtual void didSubscribeEvent(void) = 0;
+        virtual void didUnsubscribeEvent() = 0;
+       修改为：
+        virtual void didSubscribeEvent(const std::string &serverIp) = 0;
+        virtual void didUnsubscribeEvent(const std::string &serverIp) = 0;
+
+2012-12-29
+    0. 修正mac下设备掉线不能发现的bug
+
+2012-12-28
+    0. 修改AirJoy自动发现逻辑，增强异常断线处理
+    1. 调整AirPlay快速移动图片算法
+    2. 调整AirJoy服务端组包算法，解决丢包问题
+
+2012-12-26
+    0. 修改AirPlay多设备切换逻辑，主要体现在修改AirPlayServer.hpp和AirPlayServerListener.hpp：
+    1. 修改AirPlayServer.hpp
+       (1) 增加事件分类：
+        typedef enum _EventCategory
+        {
+            EventUnknown     = -1,
+            EventPhoto       = 0,    // 图片
+            EventVideo       = 1,    // 视频
+        } EventCategory;
+       (2)修改EventState为EventAction
+       (3)删除接口
+          void updatePlayerEvent(const std::string &senderIp, EventState state);
+          void send(int sessionId, const std::string &message);
+          void closeSession(int sessionId);
+       (4)增加接口：
+         // 发布媒体事件
+         void publishEvent(EventCategory type, EventAction action, const std::string &sessionId);
+     2. 修改AirPlayServerListener.hpp
+       (0)删除接口:
+          virtual void didCreateEventSession(int eventSessionId, const std::string &senderIp) = 0;
+       (1)增加2个接口:
+          // 订阅事件
+          virtual void didSubscribeEvent(const std::string &clientIp) {}
+          //* 取消订阅事件
+          virtual void didUnsubscribeEvent(const std::string &clientIp) {}
+       注：以下修改, 主要是删除senderIp参数，某些接口增加sessionId参数
+       (2)修改
+          virtual void willPutPhoto(const std::string &photoId, const std::string &senderIp) = 0;
+          为:
+          virtual void willPutPhoto(const std::string &photoId) = 0;
+       (3)修改
+          virtual void didPutPhoto(const std::string &photoId, const char *data, std::size_t length) = 0;
+          为:
+          virtual void didPutPhoto(const std::string &photoId, const std::string &sessionId, const char *data, std::size_t length) = 0;
+       (4)修改
+          virtual void willPutPhotoCacheOnly(const std::string &photoId, const std::string &senderIp) = 0;
+          为:
+          virtual void willPutPhotoCacheOnly(const std::string &photoId) = 0;
+       (5)修改
+          virtual void didPutPhotoCacheOnly(const std::string &photoId, const char *data, std::size_t length) = 0;
+          为:
+          virtual void didPutPhotoCacheOnly(const std::string &photoId, const std::string &sessionId, const char *data, std::size_t length) = 0;
+       (6)修改
+          virtual void didDisplayCachedPhoto(const std::string &photoId) = 0;
+          为:
+          virtual void didDisplayCachedPhoto(const std::string &photoId, const std::string &sessionId) = 0;
+       (7)修改
+          virtual void didStopPhotoOrSlideshow(const std::string &senderIp)  = 0;
+          为:
+          virtual void didStopPhotoOrSlideshow(void)  = 0;
+       (8)修改
+          virtual void didStartPlayVideo(const std::string &contentLocation, double startPosition, const std::string &senderIp) = 0;
+          为:
+          virtual void didStartPlayVideo(const std::string &contentLocation, double startPosition, const std::string &sessionId) = 0; 
+       (9)修改
+          virtual void didStopPlayback(const std::string &senderIp) = 0;
+          为:
+          virtual void didStopPlayback(void) = 0;
+
+2012-12-25
+    0. 更新互动设计文档，所有接口不变。
+    1. 显示一张图片，再切换到另一张图片，服务端只发送一个change事件。
+
+2012-12-18
+    0. fix bug: 推送照片或视频时，文件名若是中文，则出现错误。
+
+2012-12-17
+    0. 修改逻辑，将pub/sub和query/ack逻辑封装在一个连接上，发送任何请求前，先订阅。
+    1. 删除文件： AirMediaClientEventListener.hpp
+    2. 在AirMediaClient中，
+       (1). 修改接口:
+         void setListener(AirMediaClientEventListener *eventListener,
+                         AirMediaClientQueryListener *queryListener);
+       为：
+         void setListener(AirMediaClientQueryListener *listener);
+       (2). 删除接口：
+         bool send(const std::string &bytes);
+       (3). 修改接口:
+         AirJoySessionId send(const std::string &ip,
+                             uint16_t port,
+                             const std::string &appAction,
+                             const std::string &appParam,
+                             MessageType type = MessageSet);
+       为:
+         AirJoySessionId send(const std::string &appAction,
+                              const std::string &appParam);
+     3. 在AirMediaClientPhoto.hpp
+          AirMediaClientAudio.hpp
+          AirMediaClientVideo.hpp
+          AirMediaClientVolume.hpp中
+        所有请求接口去掉ip和port两个参数。
+     4. 在AirMediaClientQueryListenr.hpp中，增加3个接口
+        (此3个接口来自AirMediaClientEventListener.hpp)
+        // 订阅事件成功
+        virtual void didSubscribeEvent(void) = 0;
+        // 取消订阅事件成功
+        virtual void didUnsubscribeEvent(void) = 0;
+        // 收到事件
+        virtual void recvEvent(const std::string &type,
+                               const std::string &action,
+                               const std::string &id,
+                               const std::string &url,
+                               const std::string &name) = 0;
+
+
+2012-12-11
+    0. 增加文档：AirJoy互动模型设计.pdf
+    1. 将AirMediaClientListener.hpp修改名称为： AirMediaClientQueryListener.hpp
+       将AirMediaClientListener类修改为：AirMediaClientQueryListener
+    2. 增加文件：AirMediaClientEventListener.hpp
+    3. AirJoyClient.hpp中删除接口：
+        AirJoySessionId send(const std::string &fromId,
+                             const std::string &toId,
+                             const std::string &toIp,
+                             uint16_t toPort,
+                             const std::string &xmlns,
+                             const std::string &appAction,
+                             const std::string &appParam,
+                             MessageType type = MessageSet);
+    4. AirJoyDefault.hpp中增加常量：
+        extern const std::string AIRJOY_TOPIC_AIRMEDIA;
+        extern const std::string AIRMEDIA_PHOTO_MOVE;
+    5.  AirJoyServer.hpp中增加接口：发布媒体事件
+        bool publishMediaEvent(const std::string &mediaType, 
+                               const std::string &action, 
+                               const std::string &id,
+                               const std::string &url,
+                               const std::string &name);
+    6. AirJoyTypeDef.hpp中删除：
+         typedef enum _AirJoyStatus
+         {
+           DISCONNECT     = 0,     // 未连接到任何设备
+           CONNECTED      = 1,     // 已连接到某个设备
+           INITSESSION    = 2,     // 正在初始化会话
+           SESSION        = 3,     // 正在会话
+           CLOSESESSION   = 4,     // 正在关闭
+         } AirJoyStatus;
+     7. AirMediaClient.hpp中，
+        (1)修改接口：
+          void setListener(AirMediaClientListener *listener);
+          为:
+          void setListener(AirMediaClientEventListener *listener,
+                           AirMediaClientQueryListener *listener);
+        (2)删除接口：
+           bool connectToServer(const std::string &ip, uint16_t port);
+           bool disconnect(void);
+        (3)增加接口：
+           bool unsubscribeEvent(void); // 取消订阅
+        (4)修改接口（发送自定义消息） 
+           AirJoySessionId send(const std::string &xmlns,
+                             const std::string &appAction,
+                             const std::string &appParam,
+                             MessageType type = MessageSet);
+           为:
+           AirJoySessionId send(const std::string &ip,
+                             uint16_t port,
+                             const std::string &appAction,
+                             const std::string &appParam,
+                             MessageType type = MessageSet);
+     8. AirMediaListener.hpp中，
+        (1)删除接口:
+           virtual void initSession(const std::string &peerIp);
+           virtual void closeSession(const std::string &peerIp);
+        (2)增加接口:
+           virtual void didSubscribeEvent(const std::string &fromIp, const std::string &topic);
+           virtual void didUnsubscribeEvent(const std::string &fromIp, const std::string &topic);
+        (3)增加接口：(接收到移动照片消息)
+           virtual ResultCode movePhoto (const std::string &photoId, float x, float y);
+        (3)增加接口：(接收自定义消息)
+           virtual bool didReceiveRequest (const std::string &appAction,
+                                           const std::string &appParam,
+                                           std::string &appResult);
+     9. AirMediaClientPhoto.hpp / AirMediaClientVideo.hpp / AirMediaClientAudio.hpp 中,
+        所有发送消息接口，均增加2个参数：
+           const std::string &ip, 
+           uint16_t port
+     10. AirMediaClientPhoto.hpp中，增加接口：送移动照片信息
+          AirJoySessionId    movePhoto                    (const std::string &ip,
+                                                           uint16_t port,
+                                                           const std::string &photoId,
+                                                           float x,
+                                                           float y);
+
+2012-11-27
+    0. 修正自动发现算法
+    1. 发布airjoy sdk for osx
+
+2012-11-22
+    0. 删除文件：AirJoyNsdPublishListener.hpp
+    1. 修改AirJoyNsdDiscoveryListener.hpp, 删除以下接口：
+         onDiscoveryStarted
+         onStartDiscoveryFailed
+         onDiscoveryStopped
+         onStopDiscoveryFailed
+    2. 修改AirJoyNsd::discoveryService()，返回类型为bool。
+    3. 修改AirJoyNsd::publishService()，删除最后一个参数，返回类型为bool。
+
+2012-11-8
+    0. AirPlayServerListener.hpp中
+       以下接口增加一个参数：const std::string &senderIp
+           willPutPhoto()
+           willPutPhotoCacheOnly()
+           didStopPhotoOrSlideshow()
+           didStartPlayVideo()
+           didStopPlayback()
+       注：
+          (1) 收到stop命令时，注意判断以下senderIp是否和发送图片（视频）时的IP是否一致，如果不一致，则忽略stop命令。 
+          (2) 播放器主动结束播放时，最好主动调用一次:
+              AirPlayServer::updatePlayerEvent()
+
+2012-11-7
+    0. AirPlayServer.hpp中:
+       删除接口：
+           void sendEvent();
+       增加接口:
+           void updatePlayerEvent() // 更新播放器事件，播放器主动更改状态时，调用此接口
+           void send(); // 服务端主动发送消息
+     1. AirPlayServerListener.hpp中：
+        以下接口增加一个参数：const std::string &senderIp
+            void willPutPhoto()
+            void willPutPhotoCacheOnly()
+            void didStopPhotoOrSlideshow()
+            void didStartPlayVideo()
+            void didStopPlayback()
+
+2012-11-1
+    0. 增加头文件：AirTunesServiceInfo.hpp 
+    1. 删除AirMediaClientListener.hpp和AirMediaListener.hpp中的PlayInfo类型。
+    2. AirJoyTypeDef.hpp文件中增加类型：
+        // 回放信息
+        typedef struct _AirJoyPlayBackInfo
+        {
+            std::string     id;         // 视频/音频ID
+            std::string     url;        // 地址
+            std::string     name;       // 名称（可选）
+            float           rate;       // 0:暂停, 1:播放
+            float           position;   // 当前播放/暂停时间点，单位为秒。
+            float           duration;   // 2012-10-31添加，视频总长度，单位：秒；
+        } AirJoyPlayBackInfo;
+    3. 将AirMediaListener.hpp和AirMediaListener.hpp中的PlayInfo类型，用AirJoyPlayBackInfo取代。
+    4. AirPlayNsd.hpp中，将：
+        void discoveryService(AirPlayNsdDiscoveryListener *listener);
+       修改为：
+        void discoveryService(const std::string &serviceType, AirPlayNsdDiscoveryListener *listener);
+    5. AirPlayNsd.hpp中，增加发布AirTunes服务接口：
+        // 发布AirTunes服务
+        void publishService(AirTunesServiceInfo &serviceInfo, AirPlayNsdPublishListener *listener);
+    6. AirPlayNsdDiscoveryListener.hpp中
+      (1). 修改:
+              virtual void onServiceLost(AirPlayServiceInfo &serviceInfo) = 0;
+           为：
+              virtual void onServiceLost(const std::string serviceType, 
+                                         const std::string serviceName, 
+                                         const std::string serviceIp,
+                                         uint16_t servicePort) = 0;
+      (2). 修改：
+              virtual void onServiceFound(AirPlayServiceInfo &serviceInfo) = 0;
+           为：
+              virtual void onServiceFound(const std::string serviceType,
+                                          const std::string serviceName,
+                                          const std::string serviceIp,
+                                          uint16_t servicePort) = 0;
+    8. AirPlayNsdPublishListener.hpp中
+       所有以下参数：
+          AirPlayServiceInfo & serviceInfo
+       修改为：
+          const std::string & servicetype, const std::string & serviceName
+    9. AirPlayServerListener.hpp中
+       (1). 增加接口：
+        virtual void willPutPhoto(const std::string &photoId) = 0; // 即将接收照片
+        virtual void willPutPhotoCacheOnly(const std::string &photoId) = 0; // 即将缓存照片
+       (2). 修改
+              virtual void didPutPhoto(const std::string &photoId, const char *data, std::size_t length) = 0;
+            为：
+              virtual void didPutPhoto(int playSessionId, const std::string &photoId, const char *data, std::size_t length) = 0;
+       (3). 修改
+              virtual void didStartPlayVideo(const std::string &contentLocation, double startPosition) = 0;
+            为：
+              virtual void didStartPlayVideo(int playSessionId, const std::string &contentLocation, double startPosition) = 0;
+       (4). 注意：如果接收方主动关闭视频或照片，应该主动关闭会话: AirPlayServer::closeSession(playSessionId);
+
+2012-10-18
+    0. 重构部分代码，分离airplay和airjoy，发布新版本

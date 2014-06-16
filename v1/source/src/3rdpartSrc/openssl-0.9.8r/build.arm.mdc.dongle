@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export ARM_PATH=/scratch/nathan/arm-lite/install/arm-none-linux-gnueabi/bin
+export PATH=$PATH:$ARM_PATH
+
+export CC=$ARM_PATH/arm-none-linux-gnueabi-gcc
+export AR=$ARM_PATH/arm-none-linux-gnueabi-ar
+export RANLIB=$ARM_PATH/arm-none-linux-gnueabi-ranlib
+
+./config no-asm shared --prefix=/scratch/nathan/arm-lite/install/arm-none-linux-gnueabi/openssl
+
+#make

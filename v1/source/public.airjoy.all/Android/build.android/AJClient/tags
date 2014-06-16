@@ -1,0 +1,65 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+AJClientEntry	.\AJClientEntry.h	/^class AJClientEntry$/;"	c
+AJDiscoveryListener	.\AJDiscoveryListener.h	/^class AJDiscoveryListener: public AirJoyNsdDiscoveryListener $/;"	c
+AJMediaClientListener	.\AJMediaClientListener.cpp	/^    AJMediaClientListener() {}$/;"	f	class:AJMediaClientListener
+AJMediaClientListener	.\AJMediaClientListener.cpp	/^class AJMediaClientListener: public AirMediaClientListener$/;"	c	file:
+AJMediaClientListener	.\AJMediaClientListener.h	/^    AJMediaClientListener() {}$/;"	f	class:AJMediaClientListener
+AJMediaClientListener	.\AJMediaClientListener.h	/^class AJMediaClientListener: public AirMediaClientListener$/;"	c
+JNI_OnLoad	.\AJClient.cpp	/^JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_displayCachedPhoto	.\MediaPhoto.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_airjoy_client_MediaPhoto_displayCachedPhoto$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_displayPhoto	.\MediaPhoto.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_airjoy_client_MediaPhoto_displayPhoto$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_rotatePhoto	.\MediaPhoto.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_airjoy_client_MediaPhoto_rotatePhoto$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_stopDisplayPhoto	.\MediaPhoto.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_airjoy_client_MediaPhoto_stopDisplayPhoto$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_zoomPhoto	.\MediaPhoto.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_airjoy_client_MediaPhoto_zoomPhoto$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoInfo	.\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoInfo$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoProgress	.\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoProgress$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_playVideo	.\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_playVideo(JNIEnv *env, jobject obj, jstring videoUrl, jstring videoId, jstring encoding, jfloat startPositon)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoProgress	.\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoProgress$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoRate	.\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoRate$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_stopPlayVideo	.\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_stopPlayVideo$/;"	f
+LOGE	.\AJClient.cpp	13;"	d	file:
+LOGE	.\AJClientEntry.h	17;"	d
+LOGE	.\MediaPhoto.cpp	11;"	d	file:
+LOGI	.\AJClient.cpp	12;"	d	file:
+LOGI	.\AJClientEntry.h	16;"	d
+LOGI	.\MediaPhoto.cpp	10;"	d	file:
+LOG_TAG	.\AJClient.cpp	10;"	d	file:
+LOG_TAG	.\AJClientEntry.h	14;"	d
+LOG_TAG	.\MediaPhoto.cpp	8;"	d	file:
+_Included_com_fqx_airjoy_client_AJClient	.\com_fqx_airjoy_client_AJClient.h	6;"	d
+_Included_com_fqx_airjoy_client_MediaAudio	.\com_fqx_airjoy_client_MediaAudio.h	6;"	d
+_Included_com_fqx_airjoy_client_MediaPhoto	.\com_fqx_airjoy_client_MediaPhoto.h	6;"	d
+_Included_com_fqx_airjoy_client_MediaVideo	.\com_fqx_airjoy_client_MediaVideo.h	6;"	d
+__AJCLIENTENTRY_H__	.\AJClientEntry.h	3;"	d
+__AJDISCOVERYLISTENER_H__	.\AJDiscoveryListener.h	3;"	d
+__AJMEDIACLIENTLISTENER_H__	.\AJMediaClientListener.cpp	3;"	d	file:
+__AJMEDIACLIENTLISTENER_H__	.\AJMediaClientListener.h	3;"	d
+discoveryBodyString	.\AJDiscoveryListener.cpp	/^void discoveryBodyString(const std::string fun, const std::string serviceType)$/;"	f
+discoveryBodyStringInt	.\AJDiscoveryListener.cpp	/^void discoveryBodyStringInt(const std::string fun, const std::string serviceType, int errorCode)$/;"	f
+m_AJDiscoveryListener	.\AJClientEntry.h	/^		AJDiscoveryListener 	*m_AJDiscoveryListener;$/;"	m	class:AJClientEntry
+m_AJMediaListener	.\AJClientEntry.h	/^		AJMediaListener 		*m_AJMediaListener;$/;"	m	class:AJClientEntry
+m_AJPublishListener	.\AJClientEntry.h	/^		AJPublishListener 		*m_AJPublishListener;$/;"	m	class:AJClientEntry
+m_AirFileServer	.\AJClientEntry.h	/^		AirFileServer 			*m_AirFileServer;$/;"	m	class:AJClientEntry
+m_AirJoyNsd	.\AJClientEntry.h	/^		AirJoyNsd 				*m_AirJoyNsd;$/;"	m	class:AJClientEntry
+m_AirMediaClient	.\AJClientEntry.h	/^		AirMediaClient 			*m_AirMediaClient;$/;"	m	class:AJClientEntry
+m_connect_server_listener	.\AJClientEntry.h	/^		jobject 				m_connect_server_listener;$/;"	m	class:AJClientEntry
+m_discovery_listener	.\AJClientEntry.h	/^		jobject 				m_discovery_listener;$/;"	m	class:AJClientEntry
+m_env	.\AJClientEntry.h	/^		JNIEnv 					*m_env;$/;"	m	class:AJClientEntry
+m_jvm	.\AJClientEntry.h	/^		JavaVM 					*m_jvm;$/;"	m	class:AJClientEntry
+m_media_result_listener	.\AJClientEntry.h	/^		jobject 				m_media_result_listener;$/;"	m	class:AJClientEntry
+m_obj	.\AJClientEntry.h	/^		jobject 				m_obj;$/;"	m	class:AJClientEntry
+m_serverinfo_cls	.\AJClientEntry.h	/^		jclass 					m_serverinfo_cls;$/;"	m	class:AJClientEntry
+onDiscoveryStarted	.\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onDiscoveryStarted(const std::string serviceType)$/;"	f	class:AJDiscoveryListener
+onDiscoveryStopped	.\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onDiscoveryStopped(const std::string serviceType)$/;"	f	class:AJDiscoveryListener
+onServerLostOrFound	.\AJDiscoveryListener.cpp	/^void onServerLostOrFound(const std::string fun, AirJoyServiceInfo &serviceInfo)$/;"	f
+onServiceFound	.\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onServiceFound(AirJoyServiceInfo &serviceInfo)$/;"	f	class:AJDiscoveryListener
+onServiceLost	.\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onServiceLost(AirJoyServiceInfo &serviceInfo)$/;"	f	class:AJDiscoveryListener
+onStartDiscoveryFailed	.\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onStartDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:AJDiscoveryListener
+onStopDiscoveryFailed	.\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:AJDiscoveryListener
+~AJMediaClientListener	.\AJMediaClientListener.cpp	/^    virtual ~AJMediaClientListener() {}$/;"	f	class:AJMediaClientListener
+~AJMediaClientListener	.\AJMediaClientListener.h	/^    virtual ~AJMediaClientListener() {}$/;"	f	class:AJMediaClientListener

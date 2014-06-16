@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export ARM_PATH=/home/ouyang/CodeSourcery/Sourcery_G++_Lite/bin
+export PATH=$PATH:$ARM_PATH
+
+export CC=/home/ouyang/CodeSourcery/Sourcery_G++_Lite/bin/arm-none-linux-gnueabi-gcc
+export AR=/home/ouyang/CodeSourcery/Sourcery_G++_Lite/bin/arm-none-linux-gnueabi-ar
+export RANLIB=/home/ouyang/CodeSourcery/Sourcery_G++_Lite/bin/arm-none-linux-gnueabi-ranlib
+
+./config no-asm shared --prefix=/usr/local/arm/openssl

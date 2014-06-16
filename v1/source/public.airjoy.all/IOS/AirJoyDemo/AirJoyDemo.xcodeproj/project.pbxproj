@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B77BE842180C35BA00D4F5CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77BE841180C35BA00D4F5CD /* UIKit.framework */; };
+		B77BE844180C35BA00D4F5CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77BE843180C35BA00D4F5CD /* Foundation.framework */; };
+		B77BE846180C35BA00D4F5CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77BE845180C35BA00D4F5CD /* CoreGraphics.framework */; };
+		B77BE84C180C35BA00D4F5CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B77BE84A180C35BA00D4F5CD /* InfoPlist.strings */; };
+		B77BE84E180C35BA00D4F5CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B77BE84D180C35BA00D4F5CD /* main.m */; };
+		B77BE852180C35BA00D4F5CD /* AJAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = B77BE851180C35BA00D4F5CD /* AJAppDelegate.mm */; };
+		B77BE854180C35BA00D4F5CD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B77BE853180C35BA00D4F5CD /* Default.png */; };
+		B77BE856180C35BA00D4F5CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B77BE855180C35BA00D4F5CD /* Default@2x.png */; };
+		B77BE858180C35BA00D4F5CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B77BE857180C35BA00D4F5CD /* Default-568h@2x.png */; };
+		B77BE85B180C35BA00D4F5CD /* AJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B77BE85A180C35BA00D4F5CD /* AJViewController.m */; };
+		B77BE85E180C35BA00D4F5CD /* AJViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77BE85C180C35BA00D4F5CD /* AJViewController_iPhone.xib */; };
+		B77BE861180C35BA00D4F5CD /* AJViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77BE85F180C35BA00D4F5CD /* AJViewController_iPad.xib */; };
+		B77BE86B180C35E700D4F5CD /* libairjoy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77BE86A180C35E700D4F5CD /* libairjoy.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B77BE83E180C35BA00D4F5CD /* AirJoyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirJoyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77BE841180C35BA00D4F5CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B77BE843180C35BA00D4F5CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B77BE845180C35BA00D4F5CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B77BE849180C35BA00D4F5CD /* AirJoyDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirJoyDemo-Info.plist"; sourceTree = "<group>"; };
+		B77BE84B180C35BA00D4F5CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B77BE84D180C35BA00D4F5CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B77BE84F180C35BA00D4F5CD /* AirJoyDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirJoyDemo-Prefix.pch"; sourceTree = "<group>"; };
+		B77BE850180C35BA00D4F5CD /* AJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJAppDelegate.h; sourceTree = "<group>"; };
+		B77BE851180C35BA00D4F5CD /* AJAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AJAppDelegate.mm; sourceTree = "<group>"; };
+		B77BE853180C35BA00D4F5CD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B77BE855180C35BA00D4F5CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B77BE857180C35BA00D4F5CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B77BE859180C35BA00D4F5CD /* AJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJViewController.h; sourceTree = "<group>"; };
+		B77BE85A180C35BA00D4F5CD /* AJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJViewController.m; sourceTree = "<group>"; };
+		B77BE85D180C35BA00D4F5CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AJViewController_iPhone.xib; sourceTree = "<group>"; };
+		B77BE860180C35BA00D4F5CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AJViewController_iPad.xib; sourceTree = "<group>"; };
+		B77BE86A180C35E700D4F5CD /* libairjoy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libairjoy.a; sourceTree = "<group>"; };
+		B77BE86C180C362E00D4F5CD /* AirFileListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirFileListener.hpp; sourceTree = "<group>"; };
+		B77BE86D180C362E00D4F5CD /* AirJoyApi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyApi.hpp; sourceTree = "<group>"; };
+		B77BE86E180C362E00D4F5CD /* AirJoyClient.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyClient.hpp; sourceTree = "<group>"; };
+		B77BE86F180C362E00D4F5CD /* AirJoyDefault.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyDefault.hpp; sourceTree = "<group>"; };
+		B77BE870180C362E00D4F5CD /* AirJoyNsd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyNsd.hpp; sourceTree = "<group>"; };
+		B77BE871180C362E00D4F5CD /* AirJoyNsdDiscoveryListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyNsdDiscoveryListener.hpp; sourceTree = "<group>"; };
+		B77BE872180C362E00D4F5CD /* AirJoyServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyServer.hpp; sourceTree = "<group>"; };
+		B77BE873180C362E00D4F5CD /* AirJoyServiceInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyServiceInfo.hpp; sourceTree = "<group>"; };
+		B77BE874180C362E00D4F5CD /* AirJoyTypeDef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirJoyTypeDef.hpp; sourceTree = "<group>"; };
+		B77BE875180C362E00D4F5CD /* AirMediaClient.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaClient.hpp; sourceTree = "<group>"; };
+		B77BE876180C362E00D4F5CD /* AirMediaClientAudio.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaClientAudio.hpp; sourceTree = "<group>"; };
+		B77BE877180C362E00D4F5CD /* AirMediaClientPhoto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaClientPhoto.hpp; sourceTree = "<group>"; };
+		B77BE878180C362E00D4F5CD /* AirMediaClientQueryListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaClientQueryListener.hpp; sourceTree = "<group>"; };
+		B77BE879180C362E00D4F5CD /* AirMediaClientVideo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaClientVideo.hpp; sourceTree = "<group>"; };
+		B77BE87A180C362E00D4F5CD /* AirMediaClientVolume.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaClientVolume.hpp; sourceTree = "<group>"; };
+		B77BE87B180C362E00D4F5CD /* AirMediaListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AirMediaListener.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B77BE83B180C35BA00D4F5CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77BE842180C35BA00D4F5CD /* UIKit.framework in Frameworks */,
+				B77BE844180C35BA00D4F5CD /* Foundation.framework in Frameworks */,
+				B77BE846180C35BA00D4F5CD /* CoreGraphics.framework in Frameworks */,
+				B77BE86B180C35E700D4F5CD /* libairjoy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B77BE835180C35BA00D4F5CD = {
+			isa = PBXGroup;
+			children = (
+				B77BE867180C35C700D4F5CD /* Airjoy */,
+				B77BE847180C35BA00D4F5CD /* AirJoyDemo */,
+				B77BE840180C35BA00D4F5CD /* Frameworks */,
+				B77BE83F180C35BA00D4F5CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B77BE83F180C35BA00D4F5CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE83E180C35BA00D4F5CD /* AirJoyDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B77BE840180C35BA00D4F5CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE841180C35BA00D4F5CD /* UIKit.framework */,
+				B77BE843180C35BA00D4F5CD /* Foundation.framework */,
+				B77BE845180C35BA00D4F5CD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B77BE847180C35BA00D4F5CD /* AirJoyDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE850180C35BA00D4F5CD /* AJAppDelegate.h */,
+				B77BE851180C35BA00D4F5CD /* AJAppDelegate.mm */,
+				B77BE859180C35BA00D4F5CD /* AJViewController.h */,
+				B77BE85A180C35BA00D4F5CD /* AJViewController.m */,
+				B77BE85C180C35BA00D4F5CD /* AJViewController_iPhone.xib */,
+				B77BE85F180C35BA00D4F5CD /* AJViewController_iPad.xib */,
+				B77BE848180C35BA00D4F5CD /* Supporting Files */,
+			);
+			path = AirJoyDemo;
+			sourceTree = "<group>";
+		};
+		B77BE848180C35BA00D4F5CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE849180C35BA00D4F5CD /* AirJoyDemo-Info.plist */,
+				B77BE84A180C35BA00D4F5CD /* InfoPlist.strings */,
+				B77BE84D180C35BA00D4F5CD /* main.m */,
+				B77BE84F180C35BA00D4F5CD /* AirJoyDemo-Prefix.pch */,
+				B77BE853180C35BA00D4F5CD /* Default.png */,
+				B77BE855180C35BA00D4F5CD /* Default@2x.png */,
+				B77BE857180C35BA00D4F5CD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B77BE867180C35C700D4F5CD /* Airjoy */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE869180C35D800D4F5CD /* lib */,
+				B77BE868180C35D100D4F5CD /* include */,
+			);
+			name = Airjoy;
+			sourceTree = "<group>";
+		};
+		B77BE868180C35D100D4F5CD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE86C180C362E00D4F5CD /* AirFileListener.hpp */,
+				B77BE86D180C362E00D4F5CD /* AirJoyApi.hpp */,
+				B77BE86E180C362E00D4F5CD /* AirJoyClient.hpp */,
+				B77BE86F180C362E00D4F5CD /* AirJoyDefault.hpp */,
+				B77BE870180C362E00D4F5CD /* AirJoyNsd.hpp */,
+				B77BE871180C362E00D4F5CD /* AirJoyNsdDiscoveryListener.hpp */,
+				B77BE872180C362E00D4F5CD /* AirJoyServer.hpp */,
+				B77BE873180C362E00D4F5CD /* AirJoyServiceInfo.hpp */,
+				B77BE874180C362E00D4F5CD /* AirJoyTypeDef.hpp */,
+				B77BE875180C362E00D4F5CD /* AirMediaClient.hpp */,
+				B77BE876180C362E00D4F5CD /* AirMediaClientAudio.hpp */,
+				B77BE877180C362E00D4F5CD /* AirMediaClientPhoto.hpp */,
+				B77BE878180C362E00D4F5CD /* AirMediaClientQueryListener.hpp */,
+				B77BE879180C362E00D4F5CD /* AirMediaClientVideo.hpp */,
+				B77BE87A180C362E00D4F5CD /* AirMediaClientVolume.hpp */,
+				B77BE87B180C362E00D4F5CD /* AirMediaListener.hpp */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		B77BE869180C35D800D4F5CD /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				B77BE86A180C35E700D4F5CD /* libairjoy.a */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B77BE83D180C35BA00D4F5CD /* AirJoyDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B77BE864180C35BA00D4F5CD /* Build configuration list for PBXNativeTarget "AirJoyDemo" */;
+			buildPhases = (
+				B77BE83A180C35BA00D4F5CD /* Sources */,
+				B77BE83B180C35BA00D4F5CD /* Frameworks */,
+				B77BE83C180C35BA00D4F5CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirJoyDemo;
+			productName = AirJoyDemo;
+			productReference = B77BE83E180C35BA00D4F5CD /* AirJoyDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B77BE836180C35BA00D4F5CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AJ;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = ouyang;
+			};
+			buildConfigurationList = B77BE839180C35BA00D4F5CD /* Build configuration list for PBXProject "AirJoyDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B77BE835180C35BA00D4F5CD;
+			productRefGroup = B77BE83F180C35BA00D4F5CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B77BE83D180C35BA00D4F5CD /* AirJoyDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B77BE83C180C35BA00D4F5CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77BE84C180C35BA00D4F5CD /* InfoPlist.strings in Resources */,
+				B77BE854180C35BA00D4F5CD /* Default.png in Resources */,
+				B77BE856180C35BA00D4F5CD /* Default@2x.png in Resources */,
+				B77BE858180C35BA00D4F5CD /* Default-568h@2x.png in Resources */,
+				B77BE85E180C35BA00D4F5CD /* AJViewController_iPhone.xib in Resources */,
+				B77BE861180C35BA00D4F5CD /* AJViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B77BE83A180C35BA00D4F5CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77BE84E180C35BA00D4F5CD /* main.m in Sources */,
+				B77BE852180C35BA00D4F5CD /* AJAppDelegate.mm in Sources */,
+				B77BE85B180C35BA00D4F5CD /* AJViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B77BE84A180C35BA00D4F5CD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B77BE84B180C35BA00D4F5CD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B77BE85C180C35BA00D4F5CD /* AJViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B77BE85D180C35BA00D4F5CD /* en */,
+			);
+			name = AJViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		B77BE85F180C35BA00D4F5CD /* AJViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B77BE860180C35BA00D4F5CD /* en */,
+			);
+			name = AJViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B77BE862180C35BA00D4F5CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B77BE863180C35BA00D4F5CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B77BE865180C35BA00D4F5CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirJoyDemo/AirJoyDemo-Prefix.pch";
+				INFOPLIST_FILE = "AirJoyDemo/AirJoyDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B77BE866180C35BA00D4F5CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirJoyDemo/AirJoyDemo-Prefix.pch";
+				INFOPLIST_FILE = "AirJoyDemo/AirJoyDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B77BE839180C35BA00D4F5CD /* Build configuration list for PBXProject "AirJoyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B77BE862180C35BA00D4F5CD /* Debug */,
+				B77BE863180C35BA00D4F5CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B77BE864180C35BA00D4F5CD /* Build configuration list for PBXNativeTarget "AirJoyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B77BE865180C35BA00D4F5CD /* Debug */,
+				B77BE866180C35BA00D4F5CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B77BE836180C35BA00D4F5CD /* Project object */;
+}

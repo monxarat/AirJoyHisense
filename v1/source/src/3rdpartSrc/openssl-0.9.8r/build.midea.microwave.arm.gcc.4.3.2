@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export ARM_PATH=/usr/local/arm/4.3.2/bin
+export PATH=$PATH:$ARM_PATH
+
+export CC=/usr/local/arm/4.3.2/bin/arm-linux-gcc
+export AR=/usr/local/arm/4.3.2/bin/arm-linux-ar
+export RANLIB=/usr/local/arm/4.3.2/bin/arm-linux-ranlib
+
+./config no-asm shared --prefix=/usr/local/arm/openssl
