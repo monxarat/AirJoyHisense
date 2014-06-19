@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/main_setView" android:background="@drawable/main_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_weight="1.0">
+        <TextView android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RelativeLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="60.0dip" android:layout_marginRight="60.0dip" android:layout_centerInParent="true">
+            <ImageView android:id="@id/hp_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hp_pic_iphone" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="60.0dip" android:layout_weight="1.0">
+        <TextView android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <TextView android:textSize="36.0sp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/help_title" android:singleLine="true" />
+            <ListView android:id="@id/setting_list" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:drawSelectorOnTop="false" android:fastScrollEnabled="true" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

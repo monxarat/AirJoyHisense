@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fileSuffixImage">
+        <item>.png</item>
+        <item>.gif</item>
+        <item>.jpg</item>
+        <item>.jpeg</item>
+        <item>.bmp</item>
+    </string-array>
+    <string-array name="fileSuffixAudio">
+        <item>.mp3</item>
+        <item>.wav</item>
+        <item>.ogg</item>
+        <item>.midi</item>
+        <item>.wma</item>
+        <item>.amr</item>
+        <item>.3gpp</item>
+    </string-array>
+    <string-array name="fileSuffixPackage">
+        <item>.jar</item>
+        <item>.zip</item>
+        <item>.rar</item>
+        <item>.gz</item>
+    </string-array>
+    <string-array name="fileSuffixApk">
+        <item>.apk</item>
+    </string-array>
+    <string-array name="fileSuffixWebText">
+        <item>.htm</item>
+        <item>.html</item>
+        <item>.php</item>
+    </string-array>
+    <string-array name="fileSuffixVideo">
+        <item>.mp4</item>
+        <item>.rm</item>
+        <item>.wmv</item>
+        <item>.mpg</item>
+        <item>.mkv</item>
+        <item>.mov</item>
+        <item>.avi</item>
+        <item>.mpeg</item>
+        <item>.flv</item>
+        <item>.rmvb</item>
+        <item>.3gp</item>
+    </string-array>
+    <string-array name="fileSuffixDoc">
+        <item>.txt</item>
+        <item>.doc</item>
+        <item>.pdf</item>
+        <item>.ppt</item>
+        <item>.umd</item>
+    </string-array>
+    <string-array name="fileSuffixWord">
+        <item>.doc</item>
+        <item>.docx</item>
+    </string-array>
+    <string-array name="MediaImage">
+        <item>.jpg</item>
+        <item>.png</item>
+    </string-array>
+    <string-array name="MediaVideo">
+        <item>.3gp</item>
+        <item>.mp4</item>
+    </string-array>
+    <string-array name="MediaMusic">
+        <item>.mp3</item>
+        <item>.wav</item>
+        <item>.ogg</item>
+        <item>.midi</item>
+        <item>.wma</item>
+        <item>.amr</item>
+        <item>.3gpp</item>
+    </string-array>
+</resources>

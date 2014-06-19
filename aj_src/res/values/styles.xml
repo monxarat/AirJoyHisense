@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Light" />
+    <style name="MediaController_Text">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="transparent_all">
+        <item name="android:windowBackground">@color/transparent_all</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="Setting_Text">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="Setting_min">
+        <item name="android:textSize">26.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="my_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="Sbutton">
+        <item name="android:textSize">26.0sp</item>
+        <item name="android:textColor">@drawable/hs_btn_color</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_marginLeft">20.0dip</item>
+        <item name="android:layout_marginRight">20.0dip</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="btn_style">
+        <item name="android:textSize">26.0sp</item>
+        <item name="android:textColor">@drawable/btn_color</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_marginLeft">20.0dip</item>
+        <item name="android:layout_marginRight">20.0dip</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+</resources>

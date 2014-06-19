@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    android:orientation="horizontal" 
+    android:id="@id/main_setView" 
+    android:background="@drawable/hs_main_bg" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+    android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout 
+        android:layout_width="0.0dip" 
+        android:layout_height="fill_parent" 
+        android:layout_marginLeft="20.0dip" 
+        android:layout_marginRight="20.0dip" 
+        android:layout_weight="4.0">
+        <TextView 
+            android:visibility="gone" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" />
+        <RelativeLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="60.0dip" 
+            android:layout_marginTop="120.0dip" 
+            android:layout_marginRight="60.0dip" 
+            android:layout_centerHorizontal="true">
+            <ImageView 
+                android:id="@id/simg" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:src="@drawable/hs_sketch_map" 
+                android:layout_centerHorizontal="true" 
+                android:contentDescription="@string/app_name" />
+            <TextView 
+                android:textSize="18.0sp" 
+                android:visibility="gone" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="20.0dip" 
+                android:text="@string/murl" 
+                android:singleLine="false" 
+                android:layout_centerHorizontal="true" style="@style/Setting_min" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout 
+        android:orientation="vertical" 
+        android:layout_width="0.0dip" 
+        android:layout_height="fill_parent" 
+        android:layout_marginLeft="30.0dip" 
+        android:layout_marginRight="60.0dip" 
+        android:layout_weight="3.0">
+        <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="30.0dip" 
+            android:layout_marginTop="120.0dip" 
+            android:layout_marginRight="30.0dip">
+            <TextView 
+                android:textSize="18.0sp" 
+                android:textColor="#ffe5e5e5" 
+                android:layout_gravity="center_horizontal" 
+                android:visibility="gone" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:text="@string/app_name" 
+                android:singleLine="false" 
+                android:drawableLeft="@drawable/hs_icon" />
+            <ImageView 
+                android:layout_gravity="center_horizontal" 
+                android:id="@id/hs_title" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:src="@drawable/logo" 
+                android:contentDescription="@string/app_name" />
+            <ImageView 
+                android:id="@id/hs_line" 
+                android:background="@drawable/hs_line2" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="36.0dip" 
+                android:contentDescription="@string/app_name" />
+            <LinearLayout 
+                android:orientation="horizontal" 
+                android:id="@id/hs_set_offon" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="36.0dip">
+                <TextView 
+                    android:textSize="32.0sp" 
+                    android:textColor="#ffb9bbbf" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:text="@string/set_onoff" 
+                    android:singleLine="false" />
+                <TextView 
+                    android:textSize="32.0sp" 
+                    android:textColor="#ffffffff" 
+                    android:id="@id/lab_onoff" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginLeft="10.0dip" 
+                    android:text="@string/close" 
+                    android:singleLine="false" />
+            </LinearLayout>
+            <Button 
+                android:textSize="32.0sp" 
+                android:textColor="@drawable/hs_btn_color" 
+                android:id="@id/btn_onoff" 
+                android:background="@drawable/hs_btn" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="18.0dip" 
+                android:text="@string/open" />
+            <LinearLayout 
+                android:orientation="horizontal" 
+                android:id="@id/btn_set_name" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="36.0dip">
+                <TextView 
+                    android:textSize="32.0sp" 
+                    android:textColor="#ffb9bbbf" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:text="@string/set_name" 
+                    android:singleLine="false" />
+                <TextView 
+                    android:textSize="32.0sp" 
+                    android:textColor="#ffffffff" 
+                    android:id="@id/lab_dev_name" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginLeft="10.0dip" 
+                    android:text="@string/app_name" 
+                    android:singleLine="false" />
+            </LinearLayout>
+            <Button 
+                android:textSize="32.0sp" 
+                android:textColor="@drawable/hs_btn_color" 
+                android:id="@id/btn_dev_name" 
+                android:background="@drawable/hs_btn" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="18.0dip" 
+                android:text="@string/modefy" />
+        </LinearLayout>
+        <LinearLayout 
+            android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="20.0dip" 
+            android:layout_marginRight="20.0dip" 
+            android:layout_marginBottom="36.0dip" 
+            android:layout_alignParentBottom="true">
+            <ImageView 
+                android:background="@drawable/hs_line2" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:contentDescription="@string/app_name" />
+            <TextView 
+                android:textSize="18.0sp" 
+                android:layout_gravity="center_horizontal" 
+                android:id="@id/hs_ver_info" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="20.0dip" 
+                android:text="@string/hs_url" 
+                android:singleLine="false" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
