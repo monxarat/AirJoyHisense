@@ -1,0 +1,936 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AIRJOY_API	.\include\AirJoyApi.hpp	42;"	d
+AIRJOY_API	.\include\AirJoyApi.hpp	44;"	d
+AIRPLAY_SERVER_PORT	.\include\AirPlayServerDefault.hpp	22;"	d
+AJClientEntry	.\build.android\AJClient\AJClientEntry.cpp	/^AJClientEntry::AJClientEntry(JNIEnv *env, jobject obj)$/;"	f	class:AJClientEntry
+AJClientEntry	.\build.android\AJClient\AJClientEntry.h	/^class AJClientEntry$/;"	c
+AJClientEventListener	.\build.android\AJClient\AJClientEventListener.cpp	/^AJClientEventListener::AJClientEventListener()$/;"	f	class:AJClientEventListener
+AJClientEventListener	.\build.android\AJClient\AJClientEventListener.h	/^class AJClientEventListener : public AirMediaClientEventListener$/;"	c
+AJDiscoveryListener	.\build.android\AJClient\AJDiscoveryListener.h	/^class AJDiscoveryListener: public AirJoyNsdDiscoveryListener $/;"	c
+AJDiscoveryListener	.\build.android\AJServer\AJDiscoveryListener.h	/^class AJDiscoveryListener: public AirJoyNsdDiscoveryListener $/;"	c
+AJMediaClientListener	.\build.android\AJClient\AJMediaClientListener.h	/^    AJMediaClientListener() {}$/;"	f	class:AJMediaClientListener
+AJMediaClientListener	.\build.android\AJClient\AJMediaClientListener.h	/^class AJMediaClientListener: public AirMediaClientQueryListener$/;"	c
+AJMediaListener	.\build.android\AJServer\AJMediaListener.h	/^class AJMediaListener: public AirMediaListener$/;"	c
+AJPublishListener	.\build.android\AJServer\AJPublishListener.h	/^class AJPublishListener: public AirJoyNsdPublishListener$/;"	c
+AJServer	.\build.android\AJServer\AJServer.cpp	/^AJServer::AJServer(JNIEnv *env, jobject obj)$/;"	f	class:AJServer
+AJServer	.\build.android\AJServer\AJServer.h	/^class AJServer$/;"	c
+AJState	.\build.android\AJServer\AJState.cpp	/^AJState::AJState()$/;"	f	class:AJState
+AJState	.\build.android\AJServer\AJState.h	/^class AJState $/;"	c
+APController	.\build.android\jni\APController.cpp	/^		APController(JNIEnv *env, jobject obj)$/;"	f	class:APController
+APController	.\build.android\jni\APController.cpp	/^class APController$/;"	c	file:
+AirFileListener	.\include\AirFileListener.hpp	/^        AirFileListener() {}$/;"	f	class:airjoy::AirFileListener
+AirFileListener	.\include\AirFileListener.hpp	/^    class AIRJOY_API AirFileListener$/;"	c	namespace:airjoy
+AirFileServer	.\include\AirFileServer.hpp	/^    class AIRJOY_API AirFileServer$/;"	c	namespace:airjoy
+AirJoyClient	.\include\AirJoyClient.hpp	/^    class AIRJOY_API AirJoyClient$/;"	c	namespace:airjoy
+AirJoyNsd	.\include\AirJoyNsd.hpp	/^    class AIRJOY_API AirJoyNsd$/;"	c	namespace:airjoy
+AirJoyNsdDiscoveryListener	.\include\AirJoyNsdDiscoveryListener.hpp	/^        AirJoyNsdDiscoveryListener() {}$/;"	f	class:airjoy::AirJoyNsdDiscoveryListener
+AirJoyNsdDiscoveryListener	.\include\AirJoyNsdDiscoveryListener.hpp	/^    class AIRJOY_API AirJoyNsdDiscoveryListener$/;"	c	namespace:airjoy
+AirJoyPlayBackInfo	.\include\AirJoyTypeDef.hpp	/^    } AirJoyPlayBackInfo;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_AirJoyPlayBackInfo
+AirJoyServer	.\include\AirJoyServer.hpp	/^    class AIRJOY_API AirJoyServer$/;"	c	namespace:airjoy
+AirJoyServiceInfo	.\include\AirJoyServiceInfo.hpp	/^        AirJoyServiceInfo()$/;"	f	class:airjoy::AirJoyServiceInfo
+AirJoyServiceInfo	.\include\AirJoyServiceInfo.hpp	/^    class AIRJOY_API AirJoyServiceInfo$/;"	c	namespace:airjoy
+AirJoySessionId	.\include\AirJoyTypeDef.hpp	/^typedef uint32_t            AirJoySessionId;$/;"	t
+AirMediaClient	.\include\AirMediaClient.hpp	/^    class AIRJOY_API AirMediaClient : public AirJoyClient$/;"	c	namespace:airjoy
+AirMediaClientAudio	.\include\AirMediaClientAudio.hpp	/^    class AIRJOY_API AirMediaClientAudio$/;"	c	namespace:airjoy
+AirMediaClientPhoto	.\include\AirMediaClientPhoto.hpp	/^    class AIRJOY_API AirMediaClientPhoto$/;"	c	namespace:airjoy
+AirMediaClientQueryListener	.\include\AirMediaClientQueryListener.hpp	/^        AirMediaClientQueryListener() {}$/;"	f	class:airjoy::AirMediaClientQueryListener
+AirMediaClientQueryListener	.\include\AirMediaClientQueryListener.hpp	/^    class AIRJOY_API AirMediaClientQueryListener$/;"	c	namespace:airjoy
+AirMediaClientVideo	.\include\AirMediaClientVideo.hpp	/^    class AIRJOY_API AirMediaClientVideo$/;"	c	namespace:airjoy
+AirMediaClientVolume	.\include\AirMediaClientVolume.hpp	/^    class AIRJOY_API AirMediaClientVolume$/;"	c	namespace:airjoy
+AirMediaListener	.\include\AirMediaListener.hpp	/^        AirMediaListener() {}$/;"	f	class:airjoy::AirMediaListener
+AirMediaListener	.\include\AirMediaListener.hpp	/^    class AIRJOY_API AirMediaListener$/;"	c	namespace:airjoy
+AirPlayNsd	.\include\AirPlayNsd.hpp	/^    class AIRJOY_API AirPlayNsd$/;"	c	namespace:airjoy
+AirPlayNsdDiscoveryListener	.\include\AirPlayNsdDiscoveryListener.hpp	/^        AirPlayNsdDiscoveryListener() {}$/;"	f	class:airjoy::AirPlayNsdDiscoveryListener
+AirPlayNsdDiscoveryListener	.\include\AirPlayNsdDiscoveryListener.hpp	/^    class AIRJOY_API AirPlayNsdDiscoveryListener$/;"	c	namespace:airjoy
+AirPlayNsdPublishListener	.\include\AirPlayNsdPublishListener.hpp	/^        AirPlayNsdPublishListener() {}$/;"	f	class:airjoy::AirPlayNsdPublishListener
+AirPlayNsdPublishListener	.\include\AirPlayNsdPublishListener.hpp	/^    class AIRJOY_API AirPlayNsdPublishListener$/;"	c	namespace:airjoy
+AirPlayServer	.\include\AirPlayServer.hpp	/^    class AIRJOY_API AirPlayServer$/;"	c	namespace:airjoy
+AirPlayServerListener	.\include\AirPlayServerListener.hpp	/^        AirPlayServerListener() {}$/;"	f	class:airjoy::AirPlayServerListener
+AirPlayServerListener	.\include\AirPlayServerListener.hpp	/^    class AIRJOY_API AirPlayServerListener$/;"	c	namespace:airjoy
+AirPlayServiceInfo	.\include\AirPlayServiceInfo.hpp	/^    class AIRJOY_API AirPlayServiceInfo$/;"	c	namespace:airjoy
+AirTunesServer	.\include\AirTunesServer.hpp	/^    class AIRJOY_API AirTunesServer$/;"	c	namespace:airjoy
+AirTunesServerListener	.\include\AirTunesServerListener.hpp	/^        AirTunesServerListener() {}$/;"	f	class:airjoy::AirTunesServerListener
+AirTunesServerListener	.\include\AirTunesServerListener.hpp	/^    class AIRJOY_API AirTunesServerListener$/;"	c	namespace:airjoy
+AirTunesServiceInfo	.\include\AirTunesServiceInfo.hpp	/^    class AIRJOY_API AirTunesServiceInfo$/;"	c	namespace:airjoy
+AirplayJniListener	.\build.android\jni\AirplayJniListener.h	/^class AirplayJniListener:public AirPlayServerListener $/;"	c
+BonjourAirTunesDiscoveryListener	.\build.android\jni\APController.cpp	/^    BonjourAirTunesDiscoveryListener() {}$/;"	f	class:BonjourAirTunesDiscoveryListener
+BonjourAirTunesDiscoveryListener	.\build.android\jni\APController.cpp	/^class BonjourAirTunesDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+BonjourAirTunesDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    BonjourAirTunesDiscoveryListener() {}$/;"	f	class:BonjourAirTunesDiscoveryListener
+BonjourAirTunesDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^class BonjourAirTunesDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+BonjourAirTunesPublishListener	.\build.android\jni\APController.cpp	/^    BonjourAirTunesPublishListener() {}$/;"	f	class:BonjourAirTunesPublishListener
+BonjourAirTunesPublishListener	.\build.android\jni\APController.cpp	/^class BonjourAirTunesPublishListener : public AirPlayNsdPublishListener$/;"	c	file:
+BonjourAirTunesPublishListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    BonjourAirTunesPublishListener() {}$/;"	f	class:BonjourAirTunesPublishListener
+BonjourAirTunesPublishListener	.\testAirTunesServer\testAirTunesServer.cpp	/^class BonjourAirTunesPublishListener : public AirPlayNsdPublishListener$/;"	c	file:
+BonjourDacpDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    BonjourDacpDiscoveryListener() {}$/;"	f	class:BonjourDacpDiscoveryListener
+BonjourDacpDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^class BonjourDacpDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+CLASS_AIRPLAYLISTENER	.\build.android\jni\JNIGlobalParam.h	20;"	d
+CLASS_APCONTROLLER	.\build.android\jni\JNIGlobalParam.h	18;"	d
+CLASS_PLAYBACKINFO	.\build.android\jni\JNIGlobalParam.h	19;"	d
+DACP_CMD_NEXTITEM	.\include\AirTunesServer.hpp	/^            DACP_CMD_NEXTITEM   = 0x01,     \/\/ 下一首歌曲$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_PAUSE	.\include\AirTunesServer.hpp	/^            DACP_CMD_PAUSE      = 0x03,     \/\/ 暂停$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_PLAY	.\include\AirTunesServer.hpp	/^            DACP_CMD_PLAY       = 0x05,     \/\/ 播放$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_PLAYPAUSE	.\include\AirTunesServer.hpp	/^            DACP_CMD_PLAYPAUSE  = 0x04,     \/\/ 暂停播放之间切换$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_PREVITEM	.\include\AirTunesServer.hpp	/^            DACP_CMD_PREVITEM   = 0x02,     \/\/ 上一首歌曲$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_STOP	.\include\AirTunesServer.hpp	/^            DACP_CMD_STOP       = 0x06,     \/\/ 停止$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_VOLUMEDOWN	.\include\AirTunesServer.hpp	/^            DACP_CMD_VOLUMEDOWN = 0x07,     \/\/ 音量-$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DACP_CMD_VOLUMEUP	.\include\AirTunesServer.hpp	/^            DACP_CMD_VOLUMEUP   = 0x08,     \/\/ 音量+$/;"	e	enum:airjoy::AirTunesServer::_DacpCommand
+DLLEXPORT	.\include\AirJoyApi.hpp	24;"	d
+DLLEXPORT	.\include\AirJoyApi.hpp	26;"	d
+DLLEXPORT	.\include\AirJoyApi.hpp	36;"	d
+DLLLOCAL	.\include\AirJoyApi.hpp	29;"	d
+DLLLOCAL	.\include\AirJoyApi.hpp	37;"	d
+DacpCommand	.\include\AirTunesServer.hpp	/^        } DacpCommand;$/;"	t	class:airjoy::AirTunesServer	typeref:enum:airjoy::AirTunesServer::_DacpCommand
+DeviceInfo	.\include\AirJoyTypeDef.hpp	/^    } DeviceInfo;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_DeviceInfo
+DeviceType	.\include\AirJoyTypeDef.hpp	/^    } DeviceType;$/;"	t	namespace:airjoy	typeref:enum:airjoy::_DeviceType
+DeviceTypeNotebook	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeNotebook         = 400,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeNotebookChrome	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeNotebookChrome   = 404,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeNotebookLinux	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeNotebookLinux    = 403,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeNotebookMac	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeNotebookMac      = 401,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeNotebookWindows	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeNotebookWindows  = 402,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePad	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePad              = 200,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePadAndroid	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePadAndroid       = 202,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePadIpad	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePadIpad          = 201,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePc	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePc               = 300,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePcChrome	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePcChrome         = 304,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePcLinux	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePcLinux	       = 303,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePcMac	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePcMac            = 301,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePcWindows	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePcWindows        = 302,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePhone	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePhone            = 100,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePhoneAndroid	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePhoneAndroid     = 102,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePhoneIphone	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePhoneIphone      = 101,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypePhoneWindows	.\include\AirJoyTypeDef.hpp	/^        DeviceTypePhoneWindows     = 103,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeProjector	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeProjector        = 500,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeTv	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeTv               = 700,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeUnknown	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeUnknown          = 0,$/;"	e	enum:airjoy::_DeviceType
+DeviceTypeiPodTouch	.\include\AirJoyTypeDef.hpp	/^        DeviceTypeiPodTouch        = 600, \/\/ iPod touch$/;"	e	enum:airjoy::_DeviceType
+EventAction	.\include\AirPlayServer.hpp	/^        } EventAction;$/;"	t	class:airjoy::AirPlayServer	typeref:enum:airjoy::AirPlayServer::_EventAction
+EventActionLoading	.\include\AirPlayServer.hpp	/^            EventActionLoading   = 2,    \/\/ 正在加载$/;"	e	enum:airjoy::AirPlayServer::_EventAction
+EventActionNone	.\include\AirPlayServer.hpp	/^            EventActionNone      = -1,$/;"	e	enum:airjoy::AirPlayServer::_EventAction
+EventActionPaused	.\include\AirPlayServer.hpp	/^            EventActionPaused    = 1,    \/\/ 暂停$/;"	e	enum:airjoy::AirPlayServer::_EventAction
+EventActionPlaying	.\include\AirPlayServer.hpp	/^            EventActionPlaying   = 0,    \/\/ 播放$/;"	e	enum:airjoy::AirPlayServer::_EventAction
+EventActionStopped	.\include\AirPlayServer.hpp	/^            EventActionStopped   = 3,    \/\/ 停止播放\/停止显示$/;"	e	enum:airjoy::AirPlayServer::_EventAction
+EventCategory	.\include\AirPlayServer.hpp	/^        } EventCategory;$/;"	t	class:airjoy::AirPlayServer	typeref:enum:airjoy::AirPlayServer::_EventCategory
+EventPhoto	.\include\AirPlayServer.hpp	/^            EventPhoto       = 0,    \/\/ 图片$/;"	e	enum:airjoy::AirPlayServer::_EventCategory
+EventSlideshow	.\include\AirPlayServer.hpp	/^            EventSlideshow   = 2,    \/\/ 幻灯片$/;"	e	enum:airjoy::AirPlayServer::_EventCategory
+EventUnknown	.\include\AirPlayServer.hpp	/^            EventUnknown     = -1,$/;"	e	enum:airjoy::AirPlayServer::_EventCategory
+EventVideo	.\include\AirPlayServer.hpp	/^            EventVideo       = 1,    \/\/ 视频$/;"	e	enum:airjoy::AirPlayServer::_EventCategory
+FileInfo	.\include\AirJoyTypeDef.hpp	/^    } FileInfo;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_FileInfo
+FileInfoList	.\include\AirJoyTypeDef.hpp	/^    typedef std::list<FileInfo>    FileInfoList;$/;"	t	namespace:airjoy
+FileTime	.\include\AirJoyTypeDef.hpp	/^    } FileTime;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_FileTime
+FileType	.\include\AirJoyTypeDef.hpp	/^    } FileType;$/;"	t	namespace:airjoy	typeref:enum:airjoy::_FileType
+FileTypeFile	.\include\AirJoyTypeDef.hpp	/^        FileTypeFile          = 2000,   \/\/ 普通文件$/;"	e	enum:airjoy::_FileType
+FileTypeFileApk	.\include\AirJoyTypeDef.hpp	/^        FileTypeFileApk           = 2006,       \/\/ apk文件$/;"	e	enum:airjoy::_FileType
+FileTypeFileMusic	.\include\AirJoyTypeDef.hpp	/^        FileTypeFileMusic         = 2002,       \/\/ 音乐文件$/;"	e	enum:airjoy::_FileType
+FileTypeFilePdf	.\include\AirJoyTypeDef.hpp	/^        FileTypeFilePdf           = 2008,       \/\/ pdf文件$/;"	e	enum:airjoy::_FileType
+FileTypeFilePicture	.\include\AirJoyTypeDef.hpp	/^        FileTypeFilePicture       = 2001,       \/\/ 图片文件$/;"	e	enum:airjoy::_FileType
+FileTypeFilePpt	.\include\AirJoyTypeDef.hpp	/^        FileTypeFilePpt           = 2005,       \/\/ PPT文件$/;"	e	enum:airjoy::_FileType
+FileTypeFileRing	.\include\AirJoyTypeDef.hpp	/^        FileTypeFileRing          = 2007,       \/\/ 铃声文件$/;"	e	enum:airjoy::_FileType
+FileTypeFileText	.\include\AirJoyTypeDef.hpp	/^        FileTypeFileText          = 2004,       \/\/ 文本文件$/;"	e	enum:airjoy::_FileType
+FileTypeFileVideo	.\include\AirJoyTypeDef.hpp	/^        FileTypeFileVideo         = 2003,       \/\/ 视频文件$/;"	e	enum:airjoy::_FileType
+FileTypeFolder	.\include\AirJoyTypeDef.hpp	/^        FileTypeFolder        = 1000,   \/\/ 文件夹$/;"	e	enum:airjoy::_FileType
+FileTypeUnknown	.\include\AirJoyTypeDef.hpp	/^        FileTypeUnknown       = 0,      \/\/ 未知类型$/;"	e	enum:airjoy::_FileType
+GetGlobalJavaVM	.\build.android\jni\JNIGlobalParam.cpp	/^JavaVM * JNIGlobalParam::GetGlobalJavaVM()$/;"	f	class:JNIGlobalParam
+GetJobject	.\build.android\jni\JNIGlobalParam.cpp	/^jobject JNIGlobalParam::GetJobject()$/;"	f	class:JNIGlobalParam
+GetPlaybackInfoClass	.\build.android\jni\JNIGlobalParam.cpp	/^jclass JNIGlobalParam::GetPlaybackInfoClass()$/;"	f	class:JNIGlobalParam
+INC_AIRJOY	.\build.android\jni\Android.mk	/^INC_AIRJOY := ..\/include$/;"	m
+INC_ALL	.\build.android\jni\Android.mk	/^INC_ALL := $(INC_AIRJOY) \\$/;"	m
+INC_STL	.\build.android\jni\Android.mk	/^INC_STL := $(ANDROID_NDK_PATH)\/sources\/cxx-stl\/gnu-libstdc++\/4.4.3\/include               \\$/;"	m
+JNIGlobalParam	.\build.android\jni\JNIGlobalParam.cpp	/^JNIGlobalParam::JNIGlobalParam(JNIEnv* jni_env, jobject jni_obj)$/;"	f	class:JNIGlobalParam
+JNIGlobalParam	.\build.android\jni\JNIGlobalParam.h	/^class JNIGlobalParam$/;"	c
+JNI_OnLoad	.\build.android\AJClient\AJClient.cpp	/^JNI_OnLoad(JavaVM* vm, void* reserved)$/;"	f
+JNI_OnLoad	.\build.android\jni\APController.cpp	/^JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_getVolume	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_getVolume(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_native_1finalize	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_native_1finalize(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_native_1init	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_native_1init(JNIEnv *env, jclass cls)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_native_1setup	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_native_1setup(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_send	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_send(JNIEnv *env, jobject obj, jstring appAction, jstring appParam, jint type)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_setConnectServerListener	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_setConnectServerListener(JNIEnv *env, jobject obj, jobject listener_obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_setDiscoveryListener	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_setDiscoveryListener(JNIEnv *env, jobject obj, jobject listener_obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_setEventListener	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_setEventListener(JNIEnv *env, jobject obj, jobject listener_obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_setMediaClientListener	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_setMediaClientListener(JNIEnv *env, jobject obj, jobject listener_obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_setVolume	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_setVolume(JNIEnv *env, jobject obj, jint volume)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_startDiscoriverService	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_startDiscoriverService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_startFileService	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_startFileService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_startMeidaService	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_startMeidaService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_stopDiscoriverService	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_stopDiscoriverService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_stopFileService	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_stopFileService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_stopMeidaService	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_stopMeidaService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_subscribeEvent	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_subscribeEvent(JNIEnv *env, jobject obj, jstring ip, jint port)$/;"	f
+Java_com_fqx_airjoy_client_AJClient_unsubscribeEvent	.\build.android\AJClient\AJClient.cpp	/^Java_com_fqx_airjoy_client_AJClient_unsubscribeEvent(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_MediaAudio_getPlayAudioInfo	.\build.android\AJClient\MediaAudio.cpp	/^Java_com_fqx_airjoy_client_MediaAudio_getPlayAudioInfo(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_MediaAudio_getPlayAudioProgress	.\build.android\AJClient\MediaAudio.cpp	/^Java_com_fqx_airjoy_client_MediaAudio_getPlayAudioProgress(JNIEnv *env, jobject obj, jstring id)$/;"	f
+Java_com_fqx_airjoy_client_MediaAudio_playAudio	.\build.android\AJClient\MediaAudio.cpp	/^Java_com_fqx_airjoy_client_MediaAudio_playAudio(JNIEnv *env, jobject obj, jstring url, jstring id, jstring encoding, jfloat position)$/;"	f
+Java_com_fqx_airjoy_client_MediaAudio_setPlayAudioProgress	.\build.android\AJClient\MediaAudio.cpp	/^Java_com_fqx_airjoy_client_MediaAudio_setPlayAudioProgress(JNIEnv *env, jobject obj, jstring id, jfloat position)$/;"	f
+Java_com_fqx_airjoy_client_MediaAudio_setPlayAudioRate	.\build.android\AJClient\MediaAudio.cpp	/^Java_com_fqx_airjoy_client_MediaAudio_setPlayAudioRate(JNIEnv *env, jobject obj, jstring id, jfloat rate)$/;"	f
+Java_com_fqx_airjoy_client_MediaAudio_stopPlayAudio	.\build.android\AJClient\MediaAudio.cpp	/^Java_com_fqx_airjoy_client_MediaAudio_stopPlayAudio(JNIEnv *env, jobject obj, jstring id)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_displayCachedPhoto	.\build.android\AJClient\MediaPhoto.cpp	/^Java_com_fqx_airjoy_client_MediaPhoto_displayCachedPhoto(JNIEnv *env, jobject obj, jstring id)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_displayPhoto	.\build.android\AJClient\MediaPhoto.cpp	/^Java_com_fqx_airjoy_client_MediaPhoto_displayPhoto(JNIEnv *env, jobject obj, jstring url, jstring id, jint action, jstring name)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_movePhoto	.\build.android\AJClient\MediaPhoto.cpp	/^Java_com_fqx_airjoy_client_MediaPhoto_movePhoto(JNIEnv *env, jobject obj, jstring id, jfloat x, jfloat y)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_rotatePhoto	.\build.android\AJClient\MediaPhoto.cpp	/^Java_com_fqx_airjoy_client_MediaPhoto_rotatePhoto(JNIEnv *env, jobject obj, jstring id, jint direction)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_stopDisplayPhoto	.\build.android\AJClient\MediaPhoto.cpp	/^Java_com_fqx_airjoy_client_MediaPhoto_stopDisplayPhoto(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_MediaPhoto_zoomPhoto	.\build.android\AJClient\MediaPhoto.cpp	/^Java_com_fqx_airjoy_client_MediaPhoto_zoomPhoto(JNIEnv *env, jobject obj, jstring id, jfloat rate)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoInfo	.\build.android\AJClient\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoInfo(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoProgress	.\build.android\AJClient\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_getPlayVideoProgress(JNIEnv *env, jobject obj, jstring id)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_playVideo	.\build.android\AJClient\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_playVideo(JNIEnv *env, jobject obj, jstring url, jstring id, jstring encoding, jfloat position, jboolean isLocalVideo)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoProgress	.\build.android\AJClient\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoProgress(JNIEnv *env, jobject obj, jstring id, jfloat position)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoRate	.\build.android\AJClient\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_setPlayVideoRate(JNIEnv *env, jobject obj, jstring id, jfloat rate)$/;"	f
+Java_com_fqx_airjoy_client_MediaVideo_stopPlayVideo	.\build.android\AJClient\MediaVideo.cpp	/^Java_com_fqx_airjoy_client_MediaVideo_stopPlayVideo(JNIEnv *env, jobject obj, jstring id)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_ServerStart	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_ServerStart(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_clsListenner	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_clsListenner(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_config	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_config(JNIEnv *env, jobject obj, jstring name, jstring id, jint type)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_native_1finalize	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_native_1finalize(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_native_1init	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_native_1init(JNIEnv *env, jclass cls)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_native_1setup	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_native_1setup(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_nsdStart	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_nsdStart(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_publishMediaEvent	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_publishMediaEvent(JNIEnv *env, jclass cls, jstring mediaType, jstring action, jstring id, jstring url, jstring name, jstring fromIp)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_publishService	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_publishService(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_setAudioListener	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_setAudioListener(JNIEnv *env, jobject obj, jobject listener)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_setMediaListener	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_setMediaListener(JNIEnv *env, jobject obj, jobject listener)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_setNsdDiscoveryListener	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_setNsdDiscoveryListener(JNIEnv *env, jobject obj, jobject listener)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_setNsdPublishListener	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_setNsdPublishListener(JNIEnv *env, jobject obj, jobject listener)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_setPhotoListener	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_setPhotoListener(JNIEnv *env, jobject obj, jobject listener)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_setVideoListener	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_setVideoListener(JNIEnv *env, jobject obj, jobject listener)$/;"	f
+Java_com_fqx_airjoy_server_AirJoy_stop	.\build.android\AJServer\AJNIChannel.cpp	/^Java_com_fqx_airjoy_server_AirJoy_stop(JNIEnv *env, jobject obj)$/;"	f
+Java_com_fqx_anyplay_service_APController_AirTunesStart	.\build.android\jni\APController.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_anyplay_service_APController_AirTunesStart$/;"	f
+Java_com_fqx_anyplay_service_APController_AirTunesStop	.\build.android\jni\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_AirTunesStop$/;"	f
+Java_com_fqx_anyplay_service_APController_AirplayStart	.\build.android\jni\APController.cpp	/^JNIEXPORT int JNICALL Java_com_fqx_anyplay_service_APController_AirplayStart$/;"	f
+Java_com_fqx_anyplay_service_APController_AirplayStop	.\build.android\jni\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_AirplayStop$/;"	f
+Java_com_fqx_anyplay_service_APController_PublishEvent	.\build.android\jni\APController.cpp	/^Java_com_fqx_anyplay_service_APController_PublishEvent(JNIEnv *env, jclass cls, jint mediaType, jint evtType, jstring fromIp)$/;"	f
+Java_com_fqx_anyplay_service_APController_getAirplayPort	.\build.android\jni\APController.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_anyplay_service_APController_getAirplayPort$/;"	f
+Java_com_fqx_anyplay_service_APController_getSlideshowsPicture	.\build.android\jni\APController.cpp	/^Java_com_fqx_anyplay_service_APController_getSlideshowsPicture(JNIEnv *env, jobject obj, jstring clientIp) $/;"	f
+Java_com_fqx_anyplay_service_APController_mdnsd_1start	.\build.android\jni\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_mdnsd_1start$/;"	f
+Java_com_fqx_anyplay_service_APController_native_1finalize	.\build.android\jni\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_native_1finalize$/;"	f
+Java_com_fqx_anyplay_service_APController_native_1init	.\build.android\jni\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_native_1init$/;"	f
+Java_com_fqx_anyplay_service_APController_native_1setup	.\build.android\jni\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_native_1setup$/;"	f
+LINK_PLAYBACKINFO	.\build.android\AJClient\AJMediaClientListener.cpp	394;"	d	file:
+LINK_PLAYBACKINFO	.\build.android\AJServer\AJMediaListener.cpp	831;"	d	file:
+LINK_PLAYBACKINFO	.\build.android\jni\JNIGlobalParam.h	22;"	d
+LINK_PLAYBACKTIME	.\build.android\jni\JNIGlobalParam.h	23;"	d
+LINK_VIDEOINFO	.\build.android\AJServer\AJMediaListener.cpp	832;"	d	file:
+LOCAL_CFLAGS	.\build.android\jni\Android.mk	/^LOCAL_CFLAGS     := -fexceptions          \\$/;"	m
+LOCAL_CFLAGS	.\build.android\jni\Android.mk	/^LOCAL_CFLAGS     := -fexceptions         \\$/;"	m
+LOCAL_C_INCLUDES	.\build.android\jni\Android.mk	/^LOCAL_C_INCLUDES := $(INC_ALL)$/;"	m
+LOCAL_LDLIBS	.\build.android\jni\Android.mk	/^LOCAL_LDLIBS := -L..\/lib -lairjoy -ldns_sd_aj -lairstream -lz -llog$/;"	m
+LOCAL_LDLIBS	.\build.android\jni\Android.mk	/^LOCAL_LDLIBS := -L..\/lib -lairjoy -lz -llog$/;"	m
+LOCAL_LDLIBS	.\build.android\jni\Android.mk	/^LOCAL_LDLIBS := -L..\/lib -lairplay -ldns_sd_aj -lbonjour_aj -lz -llog$/;"	m
+LOCAL_LDLIBS	.\build.android\jni\Android.mk	/^LOCAL_LDLIBS := -Lopenssl\/libs -ldl_aj -lz -llog $/;"	m
+LOCAL_MODULE	.\build.android\jni\Android.mk	/^LOCAL_MODULE     := AirJoyClient$/;"	m
+LOCAL_MODULE	.\build.android\jni\Android.mk	/^LOCAL_MODULE     := AirJoyServer$/;"	m
+LOCAL_MODULE	.\build.android\jni\Android.mk	/^LOCAL_MODULE     := jniAnyplay$/;"	m
+LOCAL_PATH	.\build.android\jni\Android.mk	/^LOCAL_PATH := $(call my-dir)$/;"	m
+LOCAL_SRC_FILES	.\build.android\jni\Android.mk	/^LOCAL_SRC_FILES  := $(SRC_DIR)\/AJClientEntry.cpp 			\\$/;"	m
+LOCAL_SRC_FILES	.\build.android\jni\Android.mk	/^LOCAL_SRC_FILES  := $(SRC_DIR)\/AJDiscoveryListener.cpp 			\\$/;"	m
+LOCAL_SRC_FILES	.\build.android\jni\Android.mk	/^LOCAL_SRC_FILES  := $(SRC_DIR)\/JNIGlobalParam.cpp 			\\$/;"	m
+LOGE	.\build.android\AJClient\AJClientEntry.h	36;"	d
+LOGE	.\build.android\AJServer\AJServer.h	42;"	d
+LOGE	.\build.android\jni\JNIGlobalParam.h	16;"	d
+LOGI	.\build.android\AJClient\AJClientEntry.h	35;"	d
+LOGI	.\build.android\AJServer\AJServer.h	41;"	d
+LOGI	.\build.android\jni\JNIGlobalParam.h	15;"	d
+LOG_TAG	.\build.android\AJClient\AJClientEntry.h	12;"	d
+LOG_TAG	.\build.android\AJServer\AJServer.h	39;"	d
+LOG_TAG	.\build.android\jni\JNIGlobalParam.h	14;"	d
+MAC_LEN	.\include\AirPlayServiceInfo.hpp	81;"	d
+MAC_LEN	.\include\AirTunesServiceInfo.hpp	33;"	d
+MessageGet	.\include\AirJoyClient.hpp	/^            MessageGet     = 0,     \/\/ 读取$/;"	e	enum:airjoy::AirJoyClient::_MessageType
+MessageSet	.\include\AirJoyClient.hpp	/^            MessageSet     = 1,     \/\/ 发送$/;"	e	enum:airjoy::AirJoyClient::_MessageType
+MessageType	.\include\AirJoyClient.hpp	/^        } MessageType;$/;"	t	class:airjoy::AirJoyClient	typeref:enum:airjoy::AirJoyClient::_MessageType
+MyAirJoyNsdDiscoveryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^    MyAirJoyNsdDiscoveryListener() $/;"	f	class:MyAirJoyNsdDiscoveryListener
+MyAirJoyNsdDiscoveryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^class MyAirJoyNsdDiscoveryListener : public AirJoyNsdDiscoveryListener$/;"	c	file:
+MyAirMediaClientQueryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^    MyAirMediaClientQueryListener() {}$/;"	f	class:MyAirMediaClientQueryListener
+MyAirMediaClientQueryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^class MyAirMediaClientQueryListener : public AirMediaClientQueryListener$/;"	c	file:
+MyAirMediaListener	.\testAirJoyServer\testAirJoyServer.cpp	/^    MyAirMediaListener()$/;"	f	class:MyAirMediaListener
+MyAirMediaListener	.\testAirJoyServer\testAirJoyServer.cpp	/^class MyAirMediaListener : public AirMediaListener$/;"	c	file:
+MyAirPlayNsdDiscoveryListener	.\build.android\jni\APController.cpp	/^    MyAirPlayNsdDiscoveryListener() {}$/;"	f	class:MyAirPlayNsdDiscoveryListener
+MyAirPlayNsdDiscoveryListener	.\build.android\jni\APController.cpp	/^class MyAirPlayNsdDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+MyAirPlayNsdDiscoveryListener	.\testAirPlayServer\testAirPlayServer.cpp	/^    MyAirPlayNsdDiscoveryListener() {}$/;"	f	class:MyAirPlayNsdDiscoveryListener
+MyAirPlayNsdDiscoveryListener	.\testAirPlayServer\testAirPlayServer.cpp	/^class MyAirPlayNsdDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+MyAirPlayNsdPublishListener	.\build.android\jni\APController.cpp	/^    MyAirPlayNsdPublishListener() {}$/;"	f	class:MyAirPlayNsdPublishListener
+MyAirPlayNsdPublishListener	.\build.android\jni\APController.cpp	/^class MyAirPlayNsdPublishListener : public AirPlayNsdPublishListener$/;"	c	file:
+MyAirPlayNsdPublishListener	.\testAirPlayServer\testAirPlayServer.cpp	/^    MyAirPlayNsdPublishListener() {}$/;"	f	class:MyAirPlayNsdPublishListener
+MyAirPlayNsdPublishListener	.\testAirPlayServer\testAirPlayServer.cpp	/^class MyAirPlayNsdPublishListener : public AirPlayNsdPublishListener$/;"	c	file:
+MyAirPlayServerListener	.\testAirPlayServer\testAirPlayServer.cpp	/^    MyAirPlayServerListener() $/;"	f	class:MyAirPlayServerListener
+MyAirPlayServerListener	.\testAirPlayServer\testAirPlayServer.cpp	/^class MyAirPlayServerListener : public AirPlayServerListener$/;"	c	file:
+MyAirTunesServerListener	.\build.android\jni\APController.cpp	/^    MyAirTunesServerListener() $/;"	f	class:MyAirTunesServerListener
+MyAirTunesServerListener	.\build.android\jni\APController.cpp	/^class MyAirTunesServerListener : public AirTunesServerListener$/;"	c	file:
+MyAirTunesServerListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    MyAirTunesServerListener() $/;"	f	class:MyAirTunesServerListener
+MyAirTunesServerListener	.\testAirTunesServer\testAirTunesServer.cpp	/^class MyAirTunesServerListener : public AirTunesServerListener$/;"	c	file:
+MyCommand	.\testAirJoyClient\testAirJoyClient.cpp	/^    MyCommand() $/;"	f	class:MyCommand
+MyCommand	.\testAirJoyClient\testAirJoyClient.cpp	/^class MyCommand$/;"	c	file:
+MyCommand	.\testAirJoyServer\testAirJoyServer.cpp	/^    MyCommand() $/;"	f	class:MyCommand
+MyCommand	.\testAirJoyServer\testAirJoyServer.cpp	/^class MyCommand$/;"	c	file:
+MyCommand	.\testAirPlayServer\testAirPlayServer.cpp	/^    MyCommand() $/;"	f	class:MyCommand
+MyCommand	.\testAirPlayServer\testAirPlayServer.cpp	/^class MyCommand$/;"	c	file:
+MyCommand	.\testAirTunesServer\testAirTunesServer.cpp	/^    MyCommand() $/;"	f	class:MyCommand
+MyCommand	.\testAirTunesServer\testAirTunesServer.cpp	/^class MyCommand$/;"	c	file:
+NewPlaybackInfo	.\build.android\jni\AirplayJniListener.cpp	/^jobject NewPlaybackInfo(JNIEnv *env)$/;"	f
+PhotoActionCache	.\include\AirJoyTypeDef.hpp	/^        PhotoActionCache      = 2,    \/\/ 缓存$/;"	e	enum:airjoy::_PhotoActionType
+PhotoActionDisplay	.\include\AirJoyTypeDef.hpp	/^        PhotoActionDisplay    = 1,    \/\/ 显示$/;"	e	enum:airjoy::_PhotoActionType
+PhotoActionType	.\include\AirJoyTypeDef.hpp	/^    } PhotoActionType;$/;"	t	namespace:airjoy	typeref:enum:airjoy::_PhotoActionType
+PhotoActionUnknown	.\include\AirJoyTypeDef.hpp	/^        PhotoActionUnknown    = 0,    \/\/ 未知动作$/;"	e	enum:airjoy::_PhotoActionType
+PhotoDirectionLeft	.\include\AirJoyTypeDef.hpp	/^        PhotoDirectionLeft         = 3,    \/\/ 向左旋转$/;"	e	enum:airjoy::_PhotoDirectionType
+PhotoDirectionRight	.\include\AirJoyTypeDef.hpp	/^        PhotoDirectionRight        = 1,    \/\/ 向右旋转$/;"	e	enum:airjoy::_PhotoDirectionType
+PhotoDirectionType	.\include\AirJoyTypeDef.hpp	/^    } PhotoDirectionType;$/;"	t	namespace:airjoy	typeref:enum:airjoy::_PhotoDirectionType
+PlaybackInfo	.\include\AirPlayServerListener.hpp	/^    } PlaybackInfo;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_PlaybackInfo
+PlaybackTime	.\include\AirPlayServerListener.hpp	/^    } PlaybackTime;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_PlaybackTime
+ResultCode	.\include\AirJoyTypeDef.hpp	/^    } ResultCode;$/;"	t	namespace:airjoy	typeref:enum:airjoy::_ResultCode
+ResultCodeError	.\include\AirJoyTypeDef.hpp	/^        ResultCodeError           = 400,   \/\/ 普通错误$/;"	e	enum:airjoy::_ResultCode
+ResultCodeErrorConnection	.\include\AirJoyTypeDef.hpp	/^        ResultCodeErrorConnection = 405,   \/\/ 网络连接错误$/;"	e	enum:airjoy::_ResultCode
+ResultCodeErrorNotSupport	.\include\AirJoyTypeDef.hpp	/^        ResultCodeErrorNotSupport = 404,   \/\/ 不支持的请求$/;"	e	enum:airjoy::_ResultCode
+ResultCodeErrorParam	.\include\AirJoyTypeDef.hpp	/^        ResultCodeErrorParam      = 401,   \/\/ 参数错误$/;"	e	enum:airjoy::_ResultCode
+ResultCodeErrorRefused	.\include\AirJoyTypeDef.hpp	/^        ResultCodeErrorRefused    = 403,   \/\/ 拒绝访问$/;"	e	enum:airjoy::_ResultCode
+ResultCodeErrorTimeout	.\include\AirJoyTypeDef.hpp	/^        ResultCodeErrorTimeout    = 402,   \/\/ 请求超时$/;"	e	enum:airjoy::_ResultCode
+ResultCodeOk	.\include\AirJoyTypeDef.hpp	/^        ResultCodeOk              = 200,   \/\/ 操作成功$/;"	e	enum:airjoy::_ResultCode
+ResultCodeUnknown	.\include\AirJoyTypeDef.hpp	/^        ResultCodeUnknown         = 0,     \/\/ 未知结果$/;"	e	enum:airjoy::_ResultCode
+SERVER_IP	.\testAirJoyClient\testAirJoyClient.cpp	253;"	d	file:
+SERVER_PORT	.\testAirJoyClient\testAirJoyClient.cpp	254;"	d	file:
+SRC_DIR	.\build.android\jni\Android.mk	/^SRC_DIR          := ..\/..\/build.android\/AJClient$/;"	m
+SRC_DIR	.\build.android\jni\Android.mk	/^SRC_DIR          := ..\/..\/build.android\/AJServer$/;"	m
+SRC_DIR	.\build.android\jni\Android.mk	/^SRC_DIR          := ..\/..\/build.android\/jni$/;"	m
+TimeRanges	.\include\AirPlayServerListener.hpp	/^    } TimeRanges;$/;"	t	namespace:airjoy	typeref:struct:airjoy::_TimeRanges
+TxtRecordType	.\include\AirTunesServiceInfo.hpp	/^        typedef std::map<std::string, std::string> TxtRecordType;$/;"	t	class:airjoy::AirTunesServiceInfo
+_AirJoyPlayBackInfo	.\include\AirJoyTypeDef.hpp	/^    typedef struct _AirJoyPlayBackInfo$/;"	s	namespace:airjoy
+_DacpCommand	.\include\AirTunesServer.hpp	/^        typedef enum _DacpCommand$/;"	g	class:airjoy::AirTunesServer
+_DeviceInfo	.\include\AirJoyTypeDef.hpp	/^    typedef struct _DeviceInfo$/;"	s	namespace:airjoy
+_DeviceType	.\include\AirJoyTypeDef.hpp	/^    typedef enum _DeviceType$/;"	g	namespace:airjoy
+_EventAction	.\include\AirPlayServer.hpp	/^        typedef enum _EventAction$/;"	g	class:airjoy::AirPlayServer
+_EventCategory	.\include\AirPlayServer.hpp	/^        typedef enum _EventCategory$/;"	g	class:airjoy::AirPlayServer
+_FileInfo	.\include\AirJoyTypeDef.hpp	/^    typedef struct _FileInfo$/;"	s	namespace:airjoy
+_FileTime	.\include\AirJoyTypeDef.hpp	/^    typedef struct _FileTime$/;"	s	namespace:airjoy
+_FileType	.\include\AirJoyTypeDef.hpp	/^    typedef enum _FileType$/;"	g	namespace:airjoy
+_Included_com_fqx_airjoy_client_AJClient	.\build.android\AJClient\com_fqx_airjoy_client_AJClient.h	6;"	d
+_Included_com_fqx_airjoy_client_MediaAudio	.\build.android\AJClient\com_fqx_airjoy_client_MediaAudio.h	6;"	d
+_Included_com_fqx_airjoy_client_MediaPhoto	.\build.android\AJClient\com_fqx_airjoy_client_MediaPhoto.h	6;"	d
+_Included_com_fqx_airjoy_client_MediaVideo	.\build.android\AJClient\com_fqx_airjoy_client_MediaVideo.h	6;"	d
+_Included_com_fqx_airjoy_server_AirJoy	.\build.android\AJServer\com_fqx_airjoy_server_AirJoy.h	6;"	d
+_Included_com_fqx_anyplay_service_APController	.\build.android\jni\com_fqx_anyplay_service_APController.h	6;"	d
+_MessageType	.\include\AirJoyClient.hpp	/^        typedef enum _MessageType$/;"	g	class:airjoy::AirJoyClient
+_PhotoActionType	.\include\AirJoyTypeDef.hpp	/^    typedef enum _PhotoActionType$/;"	g	namespace:airjoy
+_PhotoDirectionType	.\include\AirJoyTypeDef.hpp	/^    typedef enum _PhotoDirectionType$/;"	g	namespace:airjoy
+_PlaybackInfo	.\include\AirPlayServerListener.hpp	/^    typedef struct AIRJOY_API _PlaybackInfo$/;"	s	namespace:airjoy
+_PlaybackTime	.\include\AirPlayServerListener.hpp	/^    typedef struct AIRJOY_API _PlaybackTime$/;"	s	namespace:airjoy
+_ResultCode	.\include\AirJoyTypeDef.hpp	/^    typedef enum _ResultCode$/;"	g	namespace:airjoy
+_TimeRanges	.\include\AirPlayServerListener.hpp	/^    typedef struct AIRJOY_API _TimeRanges$/;"	s	namespace:airjoy
+__AIRJOY_API_H__	.\include\AirJoyApi.hpp	15;"	d
+__AIRJOY_CLIENT_H__	.\include\AirJoyClient.hpp	16;"	d
+__AIRJOY_DEFAULT_H__	.\include\AirJoyDefault.hpp	10;"	d
+__AIRJOY_NSD_DISCOVERY_LISTENER_H__	.\include\AirJoyNsdDiscoveryListener.hpp	16;"	d
+__AIRJOY_NSD_H__	.\include\AirJoyNsd.hpp	12;"	d
+__AIRJOY_SERVER_H__	.\include\AirJoyServer.hpp	16;"	d
+__AIRJOY_SERVICE_INFO_H__	.\include\AirJoyServiceInfo.hpp	16;"	d
+__AIRJOY_TYPEDEF_H__	.\include\AirJoyTypeDef.hpp	15;"	d
+__AIRMEDIA_CLIENT_AUDIO_H__	.\include\AirMediaClientAudio.hpp	15;"	d
+__AIRMEDIA_CLIENT_H__	.\include\AirMediaClient.hpp	16;"	d
+__AIRMEDIA_CLIENT_PHOTO_H__	.\include\AirMediaClientPhoto.hpp	15;"	d
+__AIRMEDIA_CLIENT_QUERY_LISTENER_H__	.\include\AirMediaClientQueryListener.hpp	10;"	d
+__AIRMEDIA_CLIENT_VIDEO_H__	.\include\AirMediaClientVideo.hpp	15;"	d
+__AIRMEDIA_CLIENT_VOLUME_H__	.\include\AirMediaClientVolume.hpp	15;"	d
+__AIRPLAYJNILISTENER_H__	.\build.android\jni\AirplayJniListener.h	3;"	d
+__AIRPLAYSTATE_H__	.\build.android\jni\AirPlayState.h	3;"	d
+__AIRPLAY_NSD_DISCOVERY_LISTENER_H__	.\include\AirPlayNsdDiscoveryListener.hpp	16;"	d
+__AIRPLAY_NSD_H__	.\include\AirPlayNsd.hpp	12;"	d
+__AIRPLAY_NSD_PUBLISH_LISTENER_H__	.\include\AirPlayNsdPublishListener.hpp	16;"	d
+__AIRPLAY_SERVER_DEFAULT_H__	.\include\AirPlayServerDefault.hpp	10;"	d
+__AIRPLAY_SERVER_H__	.\include\AirPlayServer.hpp	16;"	d
+__AIRPLAY_SERVER_LISTENER_H__	.\include\AirPlayServerListener.hpp	17;"	d
+__AIRPLAY_SERVICE_INFO_H__	.\include\AirPlayServiceInfo.hpp	16;"	d
+__AIRTUNES_SERVER_LISTENER_H__	.\include\AirTunesServerListener.hpp	17;"	d
+__AIRTUNES_SERVICE_INFO_H__	.\include\AirTunesServiceInfo.hpp	16;"	d
+__AIR_FILE_LISTENER_H__	.\include\AirFileListener.hpp	16;"	d
+__AIR_FILE_SERVER_H__	.\include\AirFileServer.hpp	11;"	d
+__AIR_MEDIA_LISTENER_H__	.\include\AirMediaListener.hpp	16;"	d
+__AIR_TUNES_SERVER_H__	.\include\AirTunesServer.hpp	16;"	d
+__AJCLIENTENTRY_H__	.\build.android\AJClient\AJClientEntry.h	3;"	d
+__AJCLIENTEVENTLISTNER_H__	.\build.android\AJClient\AJClientEventListener.h	3;"	d
+__AJDISCOVERYLISTENER_H__	.\build.android\AJClient\AJDiscoveryListener.h	3;"	d
+__AJDISCOVERYLISTENER_H__	.\build.android\AJServer\AJDiscoveryListener.h	3;"	d
+__AJMEDIACLIENTLISTENER_H__	.\build.android\AJClient\AJMediaClientListener.h	3;"	d
+__AJMEDIALISTENER_H__	.\build.android\AJServer\AJMediaListener.h	3;"	d
+__AJPUBLISHLISTENER_H__	.\build.android\AJServer\AJPublishListener.h	3;"	d
+__AJSERVER_H__	.\build.android\AJServer\AJServer.h	21;"	d
+__AJSTATE_H__	.\build.android\AJServer\AJState.h	20;"	d
+__BONJOUR_H__	.\include\Bonjour.h	16;"	d
+__JNIGLOBAPARAM_H__	.\build.android\jni\JNIGlobalParam.h	3;"	d
+airjoy	.\include\AirFileListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirFileServer.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyClient.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyDefault.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyNsd.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyNsdDiscoveryListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyServer.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyServiceInfo.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirJoyTypeDef.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaClient.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaClientAudio.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaClientPhoto.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaClientQueryListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaClientVideo.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaClientVolume.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirMediaListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayNsd.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayNsdDiscoveryListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayNsdPublishListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayServer.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayServerDefault.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayServerListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirPlayServiceInfo.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirTunesServer.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirTunesServerListener.hpp	/^namespace airjoy$/;"	n
+airjoy	.\include\AirTunesServiceInfo.hpp	/^namespace airjoy$/;"	n
+airplayServiceInfo	.\build.android\jni\APController.cpp	/^AirPlayServiceInfo 				airplayServiceInfo;$/;"	v
+cachePhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::cachePhoto(const std::string &photoId,$/;"	f	class:AJMediaListener
+cachePhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode cachePhoto           (const std::string &photoId,$/;"	f	class:airjoy::AirMediaListener
+cachePhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode cachePhoto           (const std::string &photoId,$/;"	f	class:MyAirMediaListener
+connectToServerResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^static void connectToServerResult(const char *fun)$/;"	f	file:
+context	.\build.android\jni\APController.cpp	/^    jfieldID  context;$/;"	m	struct:fields_t	file:
+day	.\include\AirJoyTypeDef.hpp	/^        int day;$/;"	m	struct:airjoy::_FileTime
+deviceId	.\include\AirJoyServiceInfo.hpp	/^        const std::string & deviceId(void) { return m_deviceId; }$/;"	f	class:airjoy::AirJoyServiceInfo
+deviceId	.\include\AirJoyTypeDef.hpp	/^        std::string deviceId;$/;"	m	struct:airjoy::_DeviceInfo
+deviceName	.\include\AirJoyServiceInfo.hpp	/^        const std::string & deviceName(void) { return m_deviceName; }$/;"	f	class:airjoy::AirJoyServiceInfo
+deviceType	.\include\AirJoyServiceInfo.hpp	/^        DeviceType deviceType(void) { return m_deviceType; }$/;"	f	class:airjoy::AirJoyServiceInfo
+didAudioDriverInit	.\build.android\jni\APController.cpp	/^    virtual void didAudioDriverInit(int sampleRateInHz, int channelConfig, int audioFormat, int fmtp[12], size_t fmtpLen)$/;"	f	class:MyAirTunesServerListener
+didAudioDriverInit	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didAudioDriverInit(int sampleRateInHz, int channelConfig, int audioFormat, int fmtp[12], size_t fmtpLen)$/;"	f	class:MyAirTunesServerListener
+didAudioDriverPlay	.\build.android\jni\APController.cpp	/^    virtual void didAudioDriverPlay(char *outbuf, int size)$/;"	f	class:MyAirTunesServerListener
+didAudioDriverPlay	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didAudioDriverPlay(char *outbuf, int size)$/;"	f	class:MyAirTunesServerListener
+didDisplayCachedPhoto	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didDisplayCachedPhoto(const std::string &photoId,   const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didDisplayCachedPhoto	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didDisplayCachedPhoto(const std::string &photoId, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didErrorNet	.\build.android\AJClient\AJClientEventListener.cpp	/^void AJClientEventListener::didErrorNet(void) $/;"	f	class:AJClientEventListener
+didErrorNet	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::didErrorNet(const AirJoySessionId sessionId)$/;"	f	class:AJMediaClientListener
+didErrorNet	.\testAirJoyClient\testAirJoyClient.cpp	/^	virtual void didErrorNet(const AirJoySessionId sessionId)$/;"	f	class:MyAirMediaClientQueryListener
+didGetSlideshowsPicture	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didGetSlideshowsPicture(int index, const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didGetSlideshowsPicture	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didGetSlideshowsPicture(int index, const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didGetSlideshowsPictureFailed	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didGetSlideshowsPictureFailed(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didGetSlideshowsPictureFailed	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didGetSlideshowsPictureFailed(const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didPause	.\build.android\jni\APController.cpp	/^    virtual void didPause(void)$/;"	f	class:MyAirTunesServerListener
+didPause	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didPause(const std::string &clientIp)$/;"	f	class:MyAirTunesServerListener
+didPutPhoto	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didPutPhoto(const std::string &photoId,  const char *data, std::size_t length, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didPutPhoto	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didPutPhoto(const std::string &photoId, const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didPutPhotoCacheOnly	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didPutPhotoCacheOnly(const std::string &photoId,   const char *data, std::size_t length, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didPutPhotoCacheOnly	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didPutPhotoCacheOnly(const std::string &photoId, const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didReceiveRequest	.\include\AirMediaListener.hpp	/^        virtual bool didReceiveRequest			   (const std::string &appAction,$/;"	f	class:airjoy::AirMediaListener
+didReceiveRequest	.\testAirJoyServer\testAirJoyServer.cpp	/^	virtual bool didReceiveRequest			   (const std::string &appAction,$/;"	f	class:MyAirMediaListener
+didSetAudioInfo	.\build.android\jni\APController.cpp	/^    virtual void didSetAudioInfo(const std::string &name, const std::string &artist, const std::string &album)$/;"	f	class:MyAirTunesServerListener
+didSetAudioInfo	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didSetAudioInfo(const std::string &name, const std::string &artist, const std::string &album, const std::string &clientIp)$/;"	f	class:MyAirTunesServerListener
+didSetImage	.\build.android\jni\APController.cpp	/^    virtual void didSetImage(const char *data, std::size_t length)$/;"	f	class:MyAirTunesServerListener
+didSetImage	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didSetImage(const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:MyAirTunesServerListener
+didSetPlaybackRate	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didSetPlaybackRate(float rate, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didSetPlaybackRate	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didSetPlaybackRate(float rate, const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+didSetVolume	.\build.android\jni\APController.cpp	/^    virtual void didSetVolume(float value)$/;"	f	class:MyAirTunesServerListener
+didSetVolume	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didSetVolume(float value, const std::string &clientIp) {$/;"	f	class:AirplayJniListener
+didSetVolume	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didSetVolume(float value, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didSetVolume	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didSetVolume(float value, const std::string &clientIp)$/;"	f	class:MyAirTunesServerListener
+didStartPlayAudio	.\build.android\jni\APController.cpp	/^    virtual void didStartPlayAudio(void)$/;"	f	class:MyAirTunesServerListener
+didStartPlayAudio	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didStartPlayAudio(const std::string &clientIp)$/;"	f	class:MyAirTunesServerListener
+didStartPlayMusic	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didStartPlayMusic(const std::string &contentLocation, double startPosition, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStartPlayMusic	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didStartPlayMusic(const std::string &contentLocation, double startPosition, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didStartPlayVideo	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didStartPlayVideo(const std::string &contentLocation, double startPosition,  const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didStartPlayVideo	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didStartPlayVideo(const std::string &contentLocation, double startPosition, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didStartSlideshows	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didStartSlideshows(int slideDuration, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStartSlideshows	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didStartSlideshows(int slideDuration, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didStop	.\build.android\jni\APController.cpp	/^    virtual void didStop(void)$/;"	f	class:MyAirTunesServerListener
+didStop	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didStop(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStop	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didStop(const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+didStop	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void didStop(const std::string &clientIp)$/;"	f	class:MyAirTunesServerListener
+didStopSlideshows	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didStopSlideshows(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStopSlideshows	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didStopSlideshows(const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+didSubscribeEvent	.\build.android\AJClient\AJClientEventListener.cpp	/^void AJClientEventListener::didSubscribeEvent(void) $/;"	f	class:AJClientEventListener
+didSubscribeEvent	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::didSubscribeEvent(const std::string &serverIp)$/;"	f	class:AJMediaClientListener
+didSubscribeEvent	.\build.android\AJServer\AJMediaListener.cpp	/^void AJMediaListener::didSubscribeEvent(const std::string &fromIp, const std::string &topic)$/;"	f	class:AJMediaListener
+didSubscribeEvent	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didSubscribeEvent(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didSubscribeEvent	.\include\AirMediaListener.hpp	/^        virtual void didSubscribeEvent(const std::string &fromIp, const std::string &topic)$/;"	f	class:airjoy::AirMediaListener
+didSubscribeEvent	.\include\AirPlayServerListener.hpp	/^        virtual void didSubscribeEvent(const std::string &clientIp) {}$/;"	f	class:airjoy::AirPlayServerListener
+didSubscribeEvent	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void didSubscribeEvent(const std::string &serverIp)$/;"	f	class:MyAirMediaClientQueryListener
+didSubscribeEvent	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual void didSubscribeEvent(const std::string &fromIp, const std::string &topic)$/;"	f	class:MyAirMediaListener
+didSubscribeEvent	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didSubscribeEvent(const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+didTimeout	.\build.android\AJClient\AJClientEventListener.cpp	/^void AJClientEventListener::didTimeout(void) $/;"	f	class:AJClientEventListener
+didTimeout	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::didTimeout(const AirJoySessionId sessionId)$/;"	f	class:AJMediaClientListener
+didTimeout	.\testAirJoyClient\testAirJoyClient.cpp	/^	virtual void didTimeout(const AirJoySessionId sessionId)$/;"	f	class:MyAirMediaClientQueryListener
+didUnsubscribeEvent	.\build.android\AJClient\AJClientEventListener.cpp	/^void AJClientEventListener::didUnsubscribeEvent(void) $/;"	f	class:AJClientEventListener
+didUnsubscribeEvent	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::didUnsubscribeEvent(const std::string &serverIp)$/;"	f	class:AJMediaClientListener
+didUnsubscribeEvent	.\build.android\AJServer\AJMediaListener.cpp	/^void AJMediaListener::didUnsubscribeEvent(const std::string &fromIp, const std::string &topic)$/;"	f	class:AJMediaListener
+didUnsubscribeEvent	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::didUnsubscribeEvent(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didUnsubscribeEvent	.\include\AirMediaListener.hpp	/^        virtual void didUnsubscribeEvent(const std::string &fromIp, const std::string &topic)$/;"	f	class:airjoy::AirMediaListener
+didUnsubscribeEvent	.\include\AirPlayServerListener.hpp	/^        virtual void didUnsubscribeEvent(const std::string &clientIp) {}$/;"	f	class:airjoy::AirPlayServerListener
+didUnsubscribeEvent	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void didUnsubscribeEvent(const std::string &serverIp)$/;"	f	class:MyAirMediaClientQueryListener
+didUnsubscribeEvent	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual void didUnsubscribeEvent(const std::string &fromIp, const std::string &topic)$/;"	f	class:MyAirMediaListener
+didUnsubscribeEvent	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void didUnsubscribeEvent(const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+displayCachedPhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::displayCachedPhoto(const std::string &photoId,const std::string &fromIp)$/;"	f	class:AJMediaListener
+displayCachedPhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode displayCachedPhoto   (const std::string &photoId,$/;"	f	class:airjoy::AirMediaListener
+displayCachedPhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode displayCachedPhoto   (const std::string &photoId, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+displayPhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::displayPhoto(const std::string &photoId,$/;"	f	class:AJMediaListener
+displayPhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode displayPhoto         (const std::string &photoId,$/;"	f	class:airjoy::AirMediaListener
+displayPhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode displayPhoto         (const std::string &photoId,$/;"	f	class:MyAirMediaListener
+duration	.\include\AirJoyTypeDef.hpp	/^        float           duration;       \/\/ 2012-10-31添加，视频总长度，单位：秒；$/;"	m	struct:airjoy::_AirJoyPlayBackInfo
+duration	.\include\AirPlayServerListener.hpp	/^        float duration;         \/\/ 持续时间长度，单位: seconds$/;"	m	struct:airjoy::_TimeRanges
+duration	.\include\AirPlayServerListener.hpp	/^        float duration;         \/\/ 视频总长度，单位: seconds$/;"	m	struct:airjoy::_PlaybackTime
+evtListenerResult	.\build.android\AJClient\AJClientEventListener.cpp	/^static void evtListenerResult(const char *fun)$/;"	f	file:
+fields	.\build.android\jni\APController.cpp	/^static fields_t fields;$/;"	v	file:
+fields_t	.\build.android\jni\APController.cpp	/^struct fields_t {$/;"	s	file:
+gAirFileServer	.\testAirJoyClient\testAirJoyClient.cpp	/^AirFileServer				   gAirFileServer;$/;"	v
+gAirJoyNsd	.\testAirJoyClient\testAirJoyClient.cpp	/^AirJoyNsd                      gAirJoyNsd;$/;"	v
+gAirJoyNsd	.\testAirJoyServer\testAirJoyServer.cpp	/^AirJoyNsd                       gAirJoyNsd;$/;"	v
+gAirJoyServer	.\testAirJoyServer\testAirJoyServer.cpp	/^AirJoyServer                    gAirJoyServer;$/;"	v
+gAirJoyServiceInfo	.\testAirJoyServer\testAirJoyServer.cpp	/^AirJoyServiceInfo               gAirJoyServiceInfo;$/;"	v
+gAirMediaClient	.\testAirJoyClient\testAirJoyClient.cpp	/^AirMediaClient                 gAirMediaClient;$/;"	v
+gAirPlayNsd	.\build.android\jni\APController.cpp	/^AirPlayNsd 						gAirPlayNsd;$/;"	v
+gAirPlayNsd	.\testAirPlayServer\testAirPlayServer.cpp	/^AirPlayNsd                      gAirPlayNsd;$/;"	v
+gAirPlayServer	.\build.android\jni\APController.cpp	/^AirPlayServer      				gAirPlayServer;$/;"	v
+gAirPlayServiceInfo	.\testAirPlayServer\testAirPlayServer.cpp	/^AirPlayServiceInfo              gAirPlayServiceInfo;$/;"	v
+gAirTunesServer	.\build.android\jni\APController.cpp	/^AirTunesServer                  gAirTunesServer;$/;"	v
+gAirTunesServer	.\testAirTunesServer\testAirTunesServer.cpp	/^AirTunesServer                  gAirTunesServer;$/;"	v
+gAirTunesServiceInfo	.\build.android\jni\APController.cpp	/^AirTunesServiceInfo				gAirTunesServiceInfo;$/;"	v
+gBonjourAirTunes	.\build.android\jni\APController.cpp	/^AirPlayNsd                      gBonjourAirTunes;                   $/;"	v
+gBonjourAirTunes	.\testAirTunesServer\testAirTunesServer.cpp	/^AirPlayNsd                          gBonjourAirTunes;                   $/;"	v
+gBonjourAirTunesDiscoveryListener	.\build.android\jni\APController.cpp	/^BonjourAirTunesDiscoveryListener    gBonjourAirTunesDiscoveryListener;$/;"	v
+gBonjourAirTunesDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^BonjourAirTunesDiscoveryListener    gBonjourAirTunesDiscoveryListener;$/;"	v
+gBonjourAirTunesPublishListener	.\build.android\jni\APController.cpp	/^BonjourAirTunesPublishListener      gBonjourAirTunesPublishListener;$/;"	v
+gBonjourAirTunesPublishListener	.\testAirTunesServer\testAirTunesServer.cpp	/^BonjourAirTunesPublishListener      gBonjourAirTunesPublishListener;$/;"	v
+gBonjourDacp	.\testAirTunesServer\testAirTunesServer.cpp	/^AirPlayNsd                          gBonjourDacp;$/;"	v
+gBonjourDacpDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^BonjourDacpDiscoveryListener        gBonjourDacpDiscoveryListener;$/;"	v
+gClientIp	.\testAirPlayServer\testAirPlayServer.cpp	/^std::string                     gClientIp;              \/\/ 客户端ip$/;"	v
+gClientIp	.\testAirTunesServer\testAirTunesServer.cpp	/^std::string                     gClientIp;$/;"	v
+gIsPlaying	.\testAirPlayServer\testAirPlayServer.cpp	/^bool                            gIsPlaying = false;     \/\/ 播放与否$/;"	v
+gMyAirJoyNsdDiscoveryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^MyAirJoyNsdDiscoveryListener   gMyAirJoyNsdDiscoveryListener;$/;"	v
+gMyAirMediaClientQueryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^MyAirMediaClientQueryListener  gMyAirMediaClientQueryListener;$/;"	v
+gMyAirMediaListener	.\testAirJoyServer\testAirJoyServer.cpp	/^MyAirMediaListener              gMyAirMediaListener;$/;"	v
+gMyAirPlayNsdDiscoveryListener	.\build.android\jni\APController.cpp	/^MyAirPlayNsdDiscoveryListener   gMyAirPlayNsdDiscoveryListener;$/;"	v
+gMyAirPlayNsdDiscoveryListener	.\testAirPlayServer\testAirPlayServer.cpp	/^MyAirPlayNsdDiscoveryListener   gMyAirPlayNsdDiscoveryListener;$/;"	v
+gMyAirPlayNsdPublishListener	.\build.android\jni\APController.cpp	/^MyAirPlayNsdPublishListener     gMyAirPlayNsdPublishListener;$/;"	v
+gMyAirPlayNsdPublishListener	.\testAirPlayServer\testAirPlayServer.cpp	/^MyAirPlayNsdPublishListener     gMyAirPlayNsdPublishListener;$/;"	v
+gMyAirPlayServerListener	.\testAirPlayServer\testAirPlayServer.cpp	/^MyAirPlayServerListener         gMyAirPlayServerListener;$/;"	v
+gMyAirTunesServerListener	.\build.android\jni\APController.cpp	/^MyAirTunesServerListener   		    gMyAirTunesServerListener;$/;"	v
+gMyAirTunesServerListener	.\testAirTunesServer\testAirTunesServer.cpp	/^MyAirTunesServerListener        gMyAirTunesServerListener;$/;"	v
+gPlayingMediaType	.\testAirPlayServer\testAirPlayServer.cpp	/^AirPlayServer::EventCategory    gPlayingMediaType;      \/\/ 正在播放的媒体类型$/;"	v
+gSlideshowsClientIp	.\testAirPlayServer\testAirPlayServer.cpp	/^std::string                     gSlideshowsClientIp;              \/\/ 幻灯片客户端ip$/;"	v
+g_AJServer	.\build.android\AJServer\AJNIChannel.cpp	/^AJServer * g_AJServer;$/;"	v
+getAJDiscoveryListener	.\build.android\AJClient\AJClientEntry.cpp	/^AJDiscoveryListener *AJClientEntry::getAJDiscoveryListener()$/;"	f	class:AJClientEntry
+getAJDiscoveryListener	.\build.android\AJServer\AJServer.cpp	/^AJDiscoveryListener * AJServer::getAJDiscoveryListener()$/;"	f	class:AJServer
+getAJMediaClientListener	.\build.android\AJClient\AJClientEntry.cpp	/^AJMediaClientListener *AJClientEntry::getAJMediaClientListener() $/;"	f	class:AJClientEntry
+getAJMediaListener	.\build.android\AJServer\AJServer.cpp	/^AJMediaListener * AJServer::getAJMediaListener()$/;"	f	class:AJServer
+getAJPlaybackInfo2C	.\build.android\AJClient\AJMediaClientListener.cpp	/^bool getAJPlaybackInfo2C(JNIEnv *env, jobject j_obj, AirJoyPlayBackInfo *p_PlaybackInfo)$/;"	f
+getAJPlaybackInfo2C	.\build.android\AJServer\AJMediaListener.cpp	/^bool getAJPlaybackInfo2C(JNIEnv *env, jobject j_obj, AirJoyPlayBackInfo &p_PlaybackInfo)$/;"	f
+getAJState	.\build.android\AJServer\AJServer.cpp	/^AJState *AJServer::getAJState()$/;"	f	class:AJServer
+getAirFileServer	.\build.android\AJClient\AJClientEntry.cpp	/^AirFileServer *AJClientEntry::getAirFileServer()$/;"	f	class:AJClientEntry
+getAirJoyNsd	.\build.android\AJClient\AJClientEntry.cpp	/^AirJoyNsd *AJClientEntry::getAirJoyNsd()$/;"	f	class:AJClientEntry
+getAirJoyNsd	.\build.android\AJServer\AJServer.cpp	/^AirJoyNsd * AJServer::getAirJoyNsd()$/;"	f	class:AJServer
+getAirJoyServer	.\build.android\AJServer\AJServer.cpp	/^AirJoyServer * AJServer::getAirJoyServer()$/;"	f	class:AJServer
+getAirJoyServerInfo	.\build.android\AJServer\AJServer.cpp	/^AirJoyServiceInfo * AJServer::getAirJoyServerInfo()$/;"	f	class:AJServer
+getAirMediaClient	.\build.android\AJClient\AJClientEntry.cpp	/^AirMediaClient *AJClientEntry::getAirMediaClient()$/;"	f	class:AJClientEntry
+getAudioListenerObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getAudioListenerObj()$/;"	f	class:AJServer
+getConnectServerListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^jobject AJClientEntry::getConnectServerListenerObj()$/;"	f	class:AJClientEntry
+getCurrentPlaybackProgress	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::getCurrentPlaybackProgress(PlaybackTime &time, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+getCurrentPlaybackProgress	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void getCurrentPlaybackProgress(PlaybackTime &time, const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+getDiscoveryListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^jobject AJClientEntry::getDiscoveryListenerObj()$/;"	f	class:AJClientEntry
+getEnv	.\build.android\AJClient\AJClientEntry.cpp	/^JNIEnv *AJClientEntry::getEnv()$/;"	f	class:AJClientEntry
+getEnv	.\build.android\AJServer\AJServer.cpp	/^JNIEnv * AJServer::getEnv()$/;"	f	class:AJServer
+getEventListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^jobject AJClientEntry::getEventListenerObj()$/;"	f	class:AJClientEntry
+getIP	.\build.android\AJClient\AJClientEntry.cpp	/^std::string AJClientEntry::getIP()$/;"	f	class:AJClientEntry
+getMediaListenerObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getMediaListenerObj()$/;"	f	class:AJServer
+getMediaResultListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^jobject AJClientEntry::getMediaResultListenerObj()$/;"	f	class:AJClientEntry
+getNsdDiscoveryListenerObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getNsdDiscoveryListenerObj()$/;"	f	class:AJServer
+getNsdPublishListenerObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getNsdPublishListenerObj()$/;"	f	class:AJServer
+getObj	.\build.android\AJClient\AJClientEntry.cpp	/^jobject AJClientEntry::getObj()$/;"	f	class:AJClientEntry
+getObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getObj()$/;"	f	class:AJServer
+getPhotoListenerObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getPhotoListenerObj()$/;"	f	class:AJServer
+getPlayAudioInfo	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::getPlayAudioInfo(AirJoyPlayBackInfo *info,const std::string &fromIp)$/;"	f	class:AJMediaListener
+getPlayAudioInfo	.\include\AirMediaListener.hpp	/^        virtual ResultCode getPlayAudioInfo       (AirJoyPlayBackInfo &info,$/;"	f	class:airjoy::AirMediaListener
+getPlayAudioInfo	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode getPlayAudioInfo       (AirJoyPlayBackInfo &info, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+getPlayAudioProgress	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::getPlayAudioProgress(const std::string &audioId,$/;"	f	class:AJMediaListener
+getPlayAudioProgress	.\include\AirMediaListener.hpp	/^        virtual ResultCode getPlayAudioProgress  (const std::string &audioId,$/;"	f	class:airjoy::AirMediaListener
+getPlayAudioProgress	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode getPlayAudioProgress  (const std::string &audioId,$/;"	f	class:MyAirMediaListener
+getPlayBackClass	.\build.android\AJClient\AJClientEntry.cpp	/^jclass AJClientEntry::getPlayBackClass()$/;"	f	class:AJClientEntry
+getPlayVideoInfo	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::getPlayVideoInfo(AirJoyPlayBackInfo &info,const std::string &fromIp)$/;"	f	class:AJMediaListener
+getPlayVideoInfo	.\include\AirMediaListener.hpp	/^        virtual ResultCode getPlayVideoInfo       (AirJoyPlayBackInfo &info,$/;"	f	class:airjoy::AirMediaListener
+getPlayVideoInfo	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode getPlayVideoInfo       (AirJoyPlayBackInfo &info, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+getPlayVideoProgress	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::getPlayVideoProgress(const std::string &videoId,$/;"	f	class:AJMediaListener
+getPlayVideoProgress	.\include\AirMediaListener.hpp	/^        virtual ResultCode getPlayVideoProgress  (const std::string &videoId,$/;"	f	class:airjoy::AirMediaListener
+getPlayVideoProgress	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode getPlayVideoProgress  (const std::string &videoId,$/;"	f	class:MyAirMediaListener
+getPlaybackInfo	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::getPlaybackInfo(PlaybackInfo &info, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+getPlaybackInfo	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void getPlaybackInfo(PlaybackInfo &info, const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+getPlaybackInfo2C	.\build.android\jni\AirplayJniListener.cpp	/^bool getPlaybackInfo2C(JNIEnv *env, jobject PlaybackInfoObj, PlaybackInfo &p_PlaybackInfo)$/;"	f
+getPlaybackTime2C	.\build.android\jni\AirplayJniListener.cpp	/^bool getPlaybackTime2C(JNIEnv *env, jobject PlaybackTimeObj, PlaybackTime &p_PlaybackTime)$/;"	f
+getPort	.\build.android\AJClient\AJClientEntry.cpp	/^int AJClientEntry::getPort()$/;"	f	class:AJClientEntry
+getServerInfoClass	.\build.android\AJClient\AJClientEntry.cpp	/^jclass AJClientEntry::getServerInfoClass()$/;"	f	class:AJClientEntry
+getServerinfoClass	.\build.android\AJServer\AJServer.cpp	/^jclass AJServer::getServerinfoClass()$/;"	f	class:AJServer
+getVM	.\build.android\AJClient\AJClientEntry.cpp	/^JavaVM *AJClientEntry::getVM()$/;"	f	class:AJClientEntry
+getVM	.\build.android\AJServer\AJServer.cpp	/^JavaVM * AJServer::getVM()$/;"	f	class:AJServer
+getVideoInfo2C	.\build.android\AJServer\AJMediaListener.cpp	/^bool getVideoInfo2C(JNIEnv *env, jobject j_obj, float *p_position, float *p_rate)$/;"	f
+getVideoListenerObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::getVideoListenerObj()$/;"	f	class:AJServer
+getVolume	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::getVolume(int * volume,const std::string &fromIp)$/;"	f	class:AJMediaListener
+getVolume	.\include\AirMediaListener.hpp	/^        virtual ResultCode getVolume               (int * volume,$/;"	f	class:airjoy::AirMediaListener
+getVolume	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode getVolume               (int * volume, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+handleGetPlayAudioInfoResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleGetPlayAudioInfoResult(const AirJoySessionId sessionId, ResultCode code, AirJoyPlayBackInfo &info)$/;"	f	class:AJMediaClientListener
+handleGetPlayAudioInfoResult	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void handleGetPlayAudioInfoResult        (const AirJoySessionId sessionId,$/;"	f	class:MyAirMediaClientQueryListener
+handleGetPlayAudioProgressResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleGetPlayAudioProgressResult(const AirJoySessionId sessionId, ResultCode code, float rate, float position)$/;"	f	class:AJMediaClientListener
+handleGetPlayAudioProgressResult	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void handleGetPlayAudioProgressResult    (const AirJoySessionId sessionId,$/;"	f	class:MyAirMediaClientQueryListener
+handleGetPlayVideoInfoResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleGetPlayVideoInfoResult(const AirJoySessionId sessionId, ResultCode code, AirJoyPlayBackInfo &info)$/;"	f	class:AJMediaClientListener
+handleGetPlayVideoInfoResult	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void handleGetPlayVideoInfoResult        (const AirJoySessionId sessionId,$/;"	f	class:MyAirMediaClientQueryListener
+handleGetPlayVideoProgressResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleGetPlayVideoProgressResult(const AirJoySessionId sessionId, ResultCode code, float rate, float position)$/;"	f	class:AJMediaClientListener
+handleGetPlayVideoProgressResult	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void handleGetPlayVideoProgressResult    (const AirJoySessionId sessionId,$/;"	f	class:MyAirMediaClientQueryListener
+handleGetVolumeResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleGetVolumeResult(const AirJoySessionId sessionId, ResultCode code, int volume)$/;"	f	class:AJMediaClientListener
+handleGetVolumeResult	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void handleGetVolumeResult               (const AirJoySessionId sessionId,$/;"	f	class:MyAirMediaClientQueryListener
+handleResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleResult(const AirJoySessionId sessionId, ResultCode code)$/;"	f	class:AJMediaClientListener
+handleResult	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::handleResult(const AirJoySessionId sessionId, const std::string &appAction, const std::string &appResult)$/;"	f	class:AJMediaClientListener
+handleResult	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void handleResult                  (const AirJoySessionId sessionId,$/;"	f	class:MyAirMediaClientQueryListener
+hour	.\include\AirJoyTypeDef.hpp	/^        int hour;$/;"	m	struct:airjoy::_FileTime
+id	.\include\AirJoyTypeDef.hpp	/^        char            id[128 + 1];    \/\/ 视频\/音频ID$/;"	m	struct:airjoy::_AirJoyPlayBackInfo
+index	.\include\AirJoyTypeDef.hpp	/^        uint32_t      index;            \/\/ 推送：当前文件索引（从0开始）$/;"	m	struct:airjoy::_FileInfo
+initState	.\build.android\AJServer\AJState.cpp	/^void AJState::initState(const std::string &id,$/;"	f	class:AJState
+int64_t	.\include\AirJoyTypeDef.hpp	/^typedef __int64           int64_t;$/;"	t
+ip	.\include\AirJoyServiceInfo.hpp	/^		const std::string &ip(void) { return m_ip; }$/;"	f	class:airjoy::AirJoyServiceInfo
+isMediaPhoto	.\build.android\jni\JNIGlobalParam.cpp	/^bool JNIGlobalParam::isMediaPhoto()$/;"	f	class:JNIGlobalParam
+isMediaVideo	.\build.android\jni\JNIGlobalParam.cpp	/^bool JNIGlobalParam::isMediaVideo()$/;"	f	class:JNIGlobalParam
+isMyDevIP	.\build.android\jni\JNIGlobalParam.cpp	/^bool JNIGlobalParam::isMyDevIP(const std::string &clientIp)$/;"	f	class:JNIGlobalParam
+lastModify	.\include\AirJoyTypeDef.hpp	/^        FileTime      lastModify;       \/\/ 文件最后修改时间（FileTime格式）$/;"	m	struct:airjoy::_FileInfo
+loadedTimeRanges	.\include\AirPlayServerListener.hpp	/^        TimeRanges loadedTimeRanges;    \/\/ 视频加载长度 & 视频开始播放的时间点$/;"	m	struct:airjoy::_PlaybackInfo
+mAirPlayServer	.\build.android\jni\JNIGlobalParam.h	/^		AirPlayServer   				*mAirPlayServer;$/;"	m	class:JNIGlobalParam
+mClientIp	.\build.android\jni\JNIGlobalParam.h	/^		std::string   					mClientIp;              \/\/ 客户端ip$/;"	m	class:JNIGlobalParam
+mIsPlaying	.\build.android\jni\JNIGlobalParam.h	/^		bool   		  					mIsPlaying;     		\/\/ 播放与否$/;"	m	class:JNIGlobalParam
+mPlayingMediaType	.\build.android\jni\JNIGlobalParam.h	/^		AirPlayServer::EventCategory    mPlayingMediaType;      \/\/ 正在播放的媒体类型$/;"	m	class:JNIGlobalParam
+m_AJDiscoveryListener	.\build.android\AJClient\AJClientEntry.h	/^		AJDiscoveryListener 	*m_AJDiscoveryListener;$/;"	m	class:AJClientEntry
+m_AJDiscoveryListener	.\build.android\AJServer\AJServer.h	/^		AJDiscoveryListener 	*m_AJDiscoveryListener;$/;"	m	class:AJServer
+m_AJMediaClientListener	.\build.android\AJClient\AJClientEntry.h	/^		AJMediaClientListener 	*m_AJMediaClientListener;$/;"	m	class:AJClientEntry
+m_AJMediaListener	.\build.android\AJServer\AJServer.h	/^		AJMediaListener 		*m_AJMediaListener;$/;"	m	class:AJServer
+m_AJState	.\build.android\AJServer\AJServer.h	/^		AJState 				*m_AJState;$/;"	m	class:AJServer
+m_AirFileServer	.\build.android\AJClient\AJClientEntry.h	/^		AirFileServer 			*m_AirFileServer;$/;"	m	class:AJClientEntry
+m_AirJoyNsd	.\build.android\AJClient\AJClientEntry.h	/^		AirJoyNsd 				*m_AirJoyNsd;$/;"	m	class:AJClientEntry
+m_AirJoyNsd	.\build.android\AJServer\AJServer.h	/^		AirJoyNsd 				*m_AirJoyNsd;$/;"	m	class:AJServer
+m_AirJoyServer	.\build.android\AJServer\AJServer.h	/^		AirJoyServer 			*m_AirJoyServer;$/;"	m	class:AJServer
+m_AirJoyServerInfo	.\build.android\AJServer\AJServer.h	/^	    AirJoyServiceInfo	    *m_AirJoyServerInfo;$/;"	m	class:AJServer
+m_AirMediaClient	.\build.android\AJClient\AJClientEntry.h	/^		AirMediaClient 			*m_AirMediaClient;$/;"	m	class:AJClientEntry
+m_PlaybackInfoCls	.\build.android\jni\JNIGlobalParam.h	/^		jclass 	m_PlaybackInfoCls;$/;"	m	class:JNIGlobalParam
+m_action	.\build.android\AJServer\AJState.h	/^		std::string m_action; $/;"	m	class:AJState
+m_audio	.\include\AirMediaClient.hpp	/^        AirMediaClientAudio      * m_audio;$/;"	m	class:airjoy::AirMediaClient
+m_audioChannels	.\include\AirTunesServiceInfo.hpp	/^        uint32_t        m_audioChannels;    \/\/ audio channels$/;"	m	class:airjoy::AirTunesServiceInfo
+m_audioCodecs	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_audioCodecs;      \/\/ audio codecs$/;"	m	class:airjoy::AirTunesServiceInfo
+m_audioRate	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_audioRate;        \/\/ audio sample rate(Hz)$/;"	m	class:airjoy::AirTunesServiceInfo
+m_audioSize	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_audioSize;        \/\/ audio sample size(bit)$/;"	m	class:airjoy::AirTunesServiceInfo
+m_audio_listener_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_audio_listener_obj;$/;"	m	class:AJServer
+m_connect_server_listener_obj	.\build.android\AJClient\AJClientEntry.h	/^		jobject 				m_connect_server_listener_obj;$/;"	m	class:AJClientEntry
+m_core	.\include\AirJoyClient.hpp	/^        AirJoyClientCore       * m_core;$/;"	m	class:airjoy::AirJoyClient
+m_core	.\include\AirJoyNsd.hpp	/^        AirJoyNsdCore  * m_core;$/;"	m	class:airjoy::AirJoyNsd
+m_core	.\include\AirJoyServer.hpp	/^        AirJoyServerCore    * m_core;$/;"	m	class:airjoy::AirJoyServer
+m_core	.\include\AirPlayNsd.hpp	/^        AirPlayNsdCore     * m_core;$/;"	m	class:airjoy::AirPlayNsd
+m_core	.\include\AirPlayServer.hpp	/^        AirPlayServerCore         * m_core;$/;"	m	class:airjoy::AirPlayServer
+m_core	.\include\AirTunesServer.hpp	/^        AirTunesServerCore      * m_core;$/;"	m	class:airjoy::AirTunesServer
+m_dacpClient	.\include\AirTunesServer.hpp	/^        DacpClient              * m_dacpClient;$/;"	m	class:airjoy::AirTunesServer
+m_deviceId	.\include\AirJoyServiceInfo.hpp	/^        std::string     m_deviceId;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_deviceId	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_deviceId;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_deviceModel	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_deviceModel;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_deviceModel	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_deviceModel;      \/\/ device model$/;"	m	class:airjoy::AirTunesServiceInfo
+m_deviceName	.\include\AirJoyServiceInfo.hpp	/^        std::string     m_deviceName;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_deviceName	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_deviceName;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_deviceName	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_deviceName;$/;"	m	class:airjoy::AirTunesServiceInfo
+m_deviceType	.\include\AirJoyServiceInfo.hpp	/^        DeviceType      m_deviceType;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_discovery_listener_obj	.\build.android\AJClient\AJClientEntry.h	/^		jobject 				m_discovery_listener_obj;$/;"	m	class:AJClientEntry
+m_discovery_listener_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_discovery_listener_obj;$/;"	m	class:AJServer
+m_encryptionTypes	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_encryptionTypes;  \/\/ supported encryption types$/;"	m	class:airjoy::AirTunesServiceInfo
+m_env	.\build.android\AJClient\AJClientEntry.h	/^		JNIEnv 					*m_env;$/;"	m	class:AJClientEntry
+m_env	.\build.android\AJServer\AJServer.h	/^		JNIEnv 					*m_env;$/;"	m	class:AJServer
+m_env	.\build.android\jni\JNIGlobalParam.h	/^		JNIEnv *m_env;$/;"	m	class:JNIGlobalParam
+m_eventSessionId	.\testAirJoyClient\testAirJoyClient.cpp	/^    int                m_eventSessionId;$/;"	m	class:MyCommand	file:
+m_eventSessionId	.\testAirJoyServer\testAirJoyServer.cpp	/^    int                m_eventSessionId;$/;"	m	class:MyCommand	file:
+m_eventSessionId	.\testAirTunesServer\testAirTunesServer.cpp	/^    int                m_eventSessionId;$/;"	m	class:MyCommand	file:
+m_event_listener_obj	.\build.android\AJClient\AJClientEntry.h	/^		jobject 				m_event_listener_obj;$/;"	m	class:AJClientEntry
+m_features	.\include\AirPlayServiceInfo.hpp	/^        uint32_t        m_features;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_httpServer	.\include\AirFileServer.hpp	/^        AirHttpServer       * m_httpServer;$/;"	m	class:airjoy::AirFileServer
+m_id	.\build.android\AJServer\AJState.h	/^		std::string m_id;$/;"	m	class:AJState
+m_imgFile	.\build.android\jni\APController.cpp	/^    std::string     m_imgFile;$/;"	m	class:MyAirTunesServerListener	file:
+m_imgFile	.\testAirTunesServer\testAirTunesServer.cpp	/^    std::string     m_imgFile;$/;"	m	class:MyAirTunesServerListener	file:
+m_ip	.\build.android\AJClient\AJClientEntry.h	/^        std::string 			m_ip; $/;"	m	class:AJClientEntry
+m_ip	.\build.android\AJServer\AJState.h	/^		std::string m_ip;$/;"	m	class:AJState
+m_ip	.\include\AirJoyServiceInfo.hpp	/^		std::string		m_ip;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_ip	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_ip;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_isPlaying	.\testAirJoyServer\testAirJoyServer.cpp	/^    bool            m_isPlaying;$/;"	m	class:MyAirMediaListener	file:
+m_isStart	.\include\AirJoyClient.hpp	/^        bool                     m_isStart;$/;"	m	class:airjoy::AirJoyClient
+m_isStart	.\include\AirPlayNsd.hpp	/^        bool                 m_isStart;$/;"	m	class:airjoy::AirPlayNsd
+m_isStart	.\include\AirPlayServer.hpp	/^        bool                        m_isStart;$/;"	m	class:airjoy::AirPlayServer
+m_isStart	.\include\AirTunesServer.hpp	/^        bool                      m_isStart;$/;"	m	class:airjoy::AirTunesServer
+m_jvm	.\build.android\AJClient\AJClientEntry.h	/^		JavaVM 					*m_jvm;$/;"	m	class:AJClientEntry
+m_jvm	.\build.android\AJServer\AJServer.h	/^		JavaVM 					*m_jvm;$/;"	m	class:AJServer
+m_jvm	.\build.android\jni\JNIGlobalParam.h	/^		JavaVM *m_jvm;$/;"	m	class:JNIGlobalParam
+m_loop	.\testAirJoyClient\testAirJoyClient.cpp	/^    bool               m_loop;$/;"	m	class:MyCommand	file:
+m_loop	.\testAirJoyServer\testAirJoyServer.cpp	/^    bool               m_loop;$/;"	m	class:MyCommand	file:
+m_loop	.\testAirPlayServer\testAirPlayServer.cpp	/^    bool               m_loop;$/;"	m	class:MyCommand	file:
+m_loop	.\testAirTunesServer\testAirTunesServer.cpp	/^    bool               m_loop;$/;"	m	class:MyCommand	file:
+m_mac	.\include\AirPlayServiceInfo.hpp	/^        unsigned char   m_mac[MAC_LEN];$/;"	m	class:airjoy::AirPlayServiceInfo
+m_mac	.\include\AirTunesServiceInfo.hpp	/^        unsigned char   m_mac[MAC_LEN];$/;"	m	class:airjoy::AirTunesServiceInfo
+m_macAddressLen	.\include\AirPlayServiceInfo.hpp	/^        size_t          m_macAddressLen;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_macAddressLen	.\include\AirTunesServiceInfo.hpp	/^        size_t          m_macAddressLen;$/;"	m	class:airjoy::AirTunesServiceInfo
+m_mediaType	.\build.android\AJServer\AJState.h	/^		std::string m_mediaType;$/;"	m	class:AJState
+m_media_listener_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_media_listener_obj;$/;"	m	class:AJServer
+m_media_result_listener_obj	.\build.android\AJClient\AJClientEntry.h	/^		jobject 				m_media_result_listener_obj;$/;"	m	class:AJClientEntry
+m_metadataTypes	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_metadataTypes;    \/\/ supported metadata types$/;"	m	class:airjoy::AirTunesServiceInfo
+m_name	.\build.android\AJServer\AJState.h	/^		std::string m_name;$/;"	m	class:AJState
+m_obj	.\build.android\AJClient\AJClientEntry.h	/^		jobject 				m_obj;$/;"	m	class:AJClientEntry
+m_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_obj;$/;"	m	class:AJServer
+m_obj	.\build.android\jni\JNIGlobalParam.h	/^		jobject m_obj;$/;"	m	class:JNIGlobalParam
+m_photo	.\include\AirMediaClient.hpp	/^		AirMediaClientPhoto      * m_photo;$/;"	m	class:airjoy::AirMediaClient
+m_photo_listener_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_photo_listener_obj;$/;"	m	class:AJServer
+m_playPosition	.\testAirJoyServer\testAirJoyServer.cpp	/^    float           m_playPosition;$/;"	m	class:MyAirMediaListener	file:
+m_playPosition	.\testAirPlayServer\testAirPlayServer.cpp	/^    float           m_playPosition;$/;"	m	class:MyAirPlayServerListener	file:
+m_playback_cls	.\build.android\AJClient\AJClientEntry.cpp	/^static jclass m_playback_cls;$/;"	v	file:
+m_playing	.\testAirJoyClient\testAirJoyClient.cpp	/^    bool               m_playing;$/;"	m	class:MyCommand	file:
+m_playing	.\testAirJoyServer\testAirJoyServer.cpp	/^    bool               m_playing;$/;"	m	class:MyCommand	file:
+m_playing	.\testAirPlayServer\testAirPlayServer.cpp	/^    bool               m_playing;$/;"	m	class:MyCommand	file:
+m_playing	.\testAirTunesServer\testAirTunesServer.cpp	/^    bool               m_playing;$/;"	m	class:MyCommand	file:
+m_port	.\build.android\AJClient\AJClientEntry.h	/^		int 					m_port;$/;"	m	class:AJClientEntry
+m_port	.\include\AirJoyServiceInfo.hpp	/^		int             m_port;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_port	.\include\AirPlayServiceInfo.hpp	/^        uint16_t        m_port;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_port	.\include\AirTunesServiceInfo.hpp	/^        uint16_t        m_port;$/;"	m	class:airjoy::AirTunesServiceInfo
+m_protovers	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_protovers;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_publish_listener_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_publish_listener_obj;$/;"	m	class:AJServer
+m_publishedName	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_publishedName;$/;"	m	class:airjoy::AirTunesServiceInfo
+m_requirePassword	.\include\AirTunesServiceInfo.hpp	/^        bool            m_requirePassword;  \/\/ does the speaker require a password$/;"	m	class:airjoy::AirTunesServiceInfo
+m_rootPath	.\testAirPlayServer\testAirPlayServer.cpp	/^    std::string     m_rootPath;$/;"	m	class:MyAirPlayServerListener	file:
+m_sender	.\include\AirMediaClientAudio.hpp	/^        AirMediaClient  *m_sender;$/;"	m	class:airjoy::AirMediaClientAudio
+m_sender	.\include\AirMediaClientPhoto.hpp	/^        AirMediaClient  *m_sender;$/;"	m	class:airjoy::AirMediaClientPhoto
+m_sender	.\include\AirMediaClientVideo.hpp	/^        AirMediaClient  *m_sender;$/;"	m	class:airjoy::AirMediaClientVideo
+m_sender	.\include\AirMediaClientVolume.hpp	/^        AirMediaClient  *m_sender;$/;"	m	class:airjoy::AirMediaClientVolume
+m_serverVersion	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_serverVersion;    \/\/ server version$/;"	m	class:airjoy::AirTunesServiceInfo
+m_serverinfo_cls	.\build.android\AJClient\AJClientEntry.cpp	/^static jclass m_serverinfo_cls;$/;"	v	file:
+m_serverinfo_cls	.\build.android\AJServer\AJServer.h	/^		jclass 					m_serverinfo_cls;$/;"	m	class:AJServer
+m_sessionId	.\include\AirMediaClient.hpp	/^        int						   m_sessionId;$/;"	m	class:airjoy::AirMediaClient
+m_transportType	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_transportType;    \/\/ supported transport(TCP or UDP)$/;"	m	class:airjoy::AirTunesServiceInfo
+m_txt	.\include\AirTunesServiceInfo.hpp	/^        TxtRecordType  *m_txt;$/;"	m	class:airjoy::AirTunesServiceInfo
+m_txtVersion	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_txtVersion;       \/\/ TXT record Version$/;"	m	class:airjoy::AirTunesServiceInfo
+m_type	.\include\AirJoyServiceInfo.hpp	/^        std::string     m_type;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_type	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_type;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_type	.\include\AirTunesServiceInfo.hpp	/^        std::string    *m_type;$/;"	m	class:airjoy::AirTunesServiceInfo
+m_url	.\build.android\AJServer\AJState.h	/^		std::string m_url;$/;"	m	class:AJState
+m_url	.\include\AirFileServer.hpp	/^		std::string		    * m_url;$/;"	m	class:airjoy::AirFileServer
+m_version	.\include\AirJoyServiceInfo.hpp	/^        std::string     m_version;$/;"	m	class:airjoy::AirJoyServiceInfo
+m_version	.\include\AirPlayServiceInfo.hpp	/^        std::string    *m_version;$/;"	m	class:airjoy::AirPlayServiceInfo
+m_video	.\include\AirMediaClient.hpp	/^        AirMediaClientVideo      * m_video;$/;"	m	class:airjoy::AirMediaClient
+m_video_listener_obj	.\build.android\AJServer\AJServer.h	/^		jobject 				m_video_listener_obj;$/;"	m	class:AJServer
+m_volume	.\include\AirMediaClient.hpp	/^        AirMediaClientVolume     * m_volume;$/;"	m	class:airjoy::AirMediaClient
+main	.\testAirJoyClient\testAirJoyClient.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	.\testAirJoyServer\testAirJoyServer.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	.\testAirPlayServer\testAirPlayServer.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	.\testAirTunesServer\testAirTunesServer.cpp	/^int main(int argc, char *argv[])$/;"	f
+minute	.\include\AirJoyTypeDef.hpp	/^        int minute;$/;"	m	struct:airjoy::_FileTime
+month	.\include\AirJoyTypeDef.hpp	/^        int month;$/;"	m	struct:airjoy::_FileTime
+movePhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::movePhoto(const std::string &photoId, float x, float y,const std::string &fromIp)$/;"	f	class:AJMediaListener
+movePhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode movePhoto            (const std::string &photoId,$/;"	f	class:airjoy::AirMediaListener
+movePhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^	virtual ResultCode movePhoto            (const std::string &photoId,$/;"	f	class:MyAirMediaListener
+myAirPlayServerListener	.\build.android\jni\APController.cpp	/^AirplayJniListener 				myAirPlayServerListener;$/;"	v
+name	.\include\AirJoyTypeDef.hpp	/^        char            name[128 + 1];  \/\/ 名称（可选）$/;"	m	struct:airjoy::_AirJoyPlayBackInfo
+name	.\include\AirJoyTypeDef.hpp	/^        std::string   name;             \/\/ 文件名$/;"	m	struct:airjoy::_FileInfo
+name	.\include\AirJoyTypeDef.hpp	/^        std::string name;$/;"	m	struct:airjoy::_DeviceInfo
+newServerinfoObj	.\build.android\AJServer\AJServer.cpp	/^jobject AJServer::newServerinfoObj(JNIEnv *env, AirJoyServiceInfo &ServerInfo)$/;"	f	class:AJServer
+onDiscoveryStarted	.\build.android\jni\APController.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onDiscoveryStarted	.\build.android\jni\APController.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onDiscoveryStarted	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onDiscoveryStarted	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onDiscoveryStarted	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:BonjourDacpDiscoveryListener
+onDiscoveryStopped	.\build.android\jni\APController.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onDiscoveryStopped	.\build.android\jni\APController.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onDiscoveryStopped	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onDiscoveryStopped	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onDiscoveryStopped	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:BonjourDacpDiscoveryListener
+onPublishFailed	.\build.android\AJServer\AJPublishListener.cpp	/^void AJPublishListener::onPublishFailed(AirJoyServiceInfo & serviceInfo, int errorCode)$/;"	f	class:AJPublishListener
+onPublishFailed	.\build.android\jni\APController.cpp	/^    virtual void onPublishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:BonjourAirTunesPublishListener
+onPublishFailed	.\build.android\jni\APController.cpp	/^    virtual void onPublishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:MyAirPlayNsdPublishListener
+onPublishFailed	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onPublishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:MyAirPlayNsdPublishListener
+onPublishFailed	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onPublishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:BonjourAirTunesPublishListener
+onServerLostOrFound	.\build.android\AJClient\AJDiscoveryListener.cpp	/^jboolean onServerLostOrFound(const std::string fun, AirJoyServiceInfo &serviceInfo)$/;"	f
+onServiceFound	.\build.android\AJClient\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onServiceFound(AirJoyServiceInfo &serviceInfo)$/;"	f	class:AJDiscoveryListener
+onServiceFound	.\build.android\AJServer\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onServiceFound(AirJoyServiceInfo &serviceInfo)$/;"	f	class:AJDiscoveryListener
+onServiceFound	.\build.android\jni\APController.cpp	/^	virtual void onServiceFound(const std::string serviceType, $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onServiceFound	.\build.android\jni\APController.cpp	/^    virtual void onServiceFound(const std::string serviceType, $/;"	f	class:BonjourAirTunesDiscoveryListener
+onServiceFound	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void onServiceFound(AirJoyServiceInfo &serviceInfo)$/;"	f	class:MyAirJoyNsdDiscoveryListener
+onServiceFound	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onServiceFound(const std::string serviceType, $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onServiceFound	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onServiceFound(const std::string serviceType, $/;"	f	class:BonjourAirTunesDiscoveryListener
+onServiceFound	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onServiceFound(const std::string serviceType, $/;"	f	class:BonjourDacpDiscoveryListener
+onServiceLost	.\build.android\AJClient\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onServiceLost(AirJoyServiceInfo &serviceInfo)$/;"	f	class:AJDiscoveryListener
+onServiceLost	.\build.android\AJServer\AJDiscoveryListener.cpp	/^void AJDiscoveryListener::onServiceLost(AirJoyServiceInfo &serviceInfo)$/;"	f	class:AJDiscoveryListener
+onServiceLost	.\build.android\jni\APController.cpp	/^	virtual void onServiceLost(const std::string serviceType, $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onServiceLost	.\build.android\jni\APController.cpp	/^    virtual void onServiceLost(const std::string serviceType, $/;"	f	class:BonjourAirTunesDiscoveryListener
+onServiceLost	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void onServiceLost(AirJoyServiceInfo &serviceInfo)$/;"	f	class:MyAirJoyNsdDiscoveryListener
+onServiceLost	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onServiceLost(const std::string serviceType, $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onServiceLost	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onServiceLost(const std::string serviceType, $/;"	f	class:BonjourAirTunesDiscoveryListener
+onServiceLost	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onServiceLost(const std::string serviceType, $/;"	f	class:BonjourDacpDiscoveryListener
+onServicePublished	.\build.android\AJServer\AJPublishListener.cpp	/^void AJPublishListener::onServicePublished(AirJoyServiceInfo & serviceInfo)$/;"	f	class:AJPublishListener
+onServicePublished	.\build.android\jni\APController.cpp	/^    virtual void onServicePublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:BonjourAirTunesPublishListener
+onServicePublished	.\build.android\jni\APController.cpp	/^    virtual void onServicePublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:MyAirPlayNsdPublishListener
+onServicePublished	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onServicePublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:MyAirPlayNsdPublishListener
+onServicePublished	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onServicePublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:BonjourAirTunesPublishListener
+onServiceUnPublished	.\build.android\AJServer\AJPublishListener.cpp	/^void AJPublishListener::onServiceUnPublished(AirJoyServiceInfo & serviceInfo)$/;"	f	class:AJPublishListener
+onServiceUnPublished	.\build.android\jni\APController.cpp	/^    virtual void onServiceUnPublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:BonjourAirTunesPublishListener
+onServiceUnPublished	.\build.android\jni\APController.cpp	/^    virtual void onServiceUnPublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:MyAirPlayNsdPublishListener
+onServiceUnPublished	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onServiceUnPublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:MyAirPlayNsdPublishListener
+onServiceUnPublished	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onServiceUnPublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:BonjourAirTunesPublishListener
+onStartDiscoveryFailed	.\build.android\jni\APController.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onStartDiscoveryFailed	.\build.android\jni\APController.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onStartDiscoveryFailed	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onStartDiscoveryFailed	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onStartDiscoveryFailed	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:BonjourDacpDiscoveryListener
+onStopDiscoveryFailed	.\build.android\jni\APController.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:BonjourAirTunesDiscoveryListener
+onStopDiscoveryFailed	.\build.android\jni\APController.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:MyAirPlayNsdDiscoveryListener
+onStopDiscoveryFailed	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:MyAirPlayNsdDiscoveryListener
+onStopDiscoveryFailed	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:BonjourAirTunesDiscoveryListener
+onStopDiscoveryFailed	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:BonjourDacpDiscoveryListener
+onUnPulishFailed	.\build.android\AJServer\AJPublishListener.cpp	/^void AJPublishListener::onUnPulishFailed(AirJoyServiceInfo & serviceInfo, int errorCode)$/;"	f	class:AJPublishListener
+onUnPulishFailed	.\build.android\jni\APController.cpp	/^    virtual void onUnPulishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:BonjourAirTunesPublishListener
+onUnPulishFailed	.\build.android\jni\APController.cpp	/^    virtual void onUnPulishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:MyAirPlayNsdPublishListener
+onUnPulishFailed	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void onUnPulishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:MyAirPlayNsdPublishListener
+onUnPulishFailed	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual void onUnPulishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:BonjourAirTunesPublishListener
+p_JNIGlobalParam	.\build.android\jni\JNIGlobalParam.cpp	/^JNIGlobalParam *p_JNIGlobalParam;$/;"	v
+parseCommand	.\testAirJoyClient\testAirJoyClient.cpp	/^    void parseCommand(const std::string &cmd)$/;"	f	class:MyCommand	file:
+parseCommand	.\testAirJoyServer\testAirJoyServer.cpp	/^    void parseCommand(const std::string &cmd)$/;"	f	class:MyCommand	file:
+parseCommand	.\testAirPlayServer\testAirPlayServer.cpp	/^    void parseCommand(const std::string &cmd)$/;"	f	class:MyCommand	file:
+parseCommand	.\testAirTunesServer\testAirTunesServer.cpp	/^    void parseCommand(const std::string &cmd)$/;"	f	class:MyCommand	file:
+parseParam	.\testAirJoyServer\testAirJoyServer.cpp	/^bool parseParam(int argc, char *argv[], std::string *deviceId, std::string *deviceName)$/;"	f
+parseParam	.\testAirPlayServer\testAirPlayServer.cpp	/^bool parseParam(int argc, char *argv[], std::string *deviceId, std::string *deviceName)$/;"	f
+playAudio	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::playAudio(const std::string &audioId,$/;"	f	class:AJMediaListener
+playAudio	.\include\AirMediaListener.hpp	/^        virtual ResultCode playAudio            (const std::string &audioId,$/;"	f	class:airjoy::AirMediaListener
+playAudio	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode playAudio            (const std::string &audioId,$/;"	f	class:MyAirMediaListener
+playPosition	.\include\AirPlayServerListener.hpp	/^        float playPosition;     \/\/ 正在播放的时间点，单位: seconds$/;"	m	struct:airjoy::_PlaybackTime
+playVideo	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::playVideo(const std::string &videoId,$/;"	f	class:AJMediaListener
+playVideo	.\include\AirMediaListener.hpp	/^        virtual ResultCode playVideo            (const std::string &videoId,$/;"	f	class:airjoy::AirMediaListener
+playVideo	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode playVideo            (const std::string &videoId,$/;"	f	class:MyAirMediaListener
+playbackBufferEmpty	.\include\AirPlayServerListener.hpp	/^        bool playbackBufferEmpty;       \/\/ true - 播放缓冲空，false - 播放缓冲非空，（缺省值：true）$/;"	m	struct:airjoy::_PlaybackInfo
+playbackBufferFull	.\include\AirPlayServerListener.hpp	/^        bool playbackBufferFull;        \/\/ true - 播放缓冲满，false - 播放缓冲未满，（缺省值：false）$/;"	m	struct:airjoy::_PlaybackInfo
+playbackLikelyToKeepUp	.\include\AirPlayServerListener.hpp	/^        bool playbackLikelyToKeepUp;    \/\/ true（缺省值：true）$/;"	m	struct:airjoy::_PlaybackInfo
+playbackTime	.\include\AirPlayServerListener.hpp	/^        PlaybackTime playbackTime;      \/\/ 视频总长度 & 正在播放的时间点$/;"	m	struct:airjoy::_PlaybackInfo
+port	.\include\AirJoyServiceInfo.hpp	/^        int port(void) { return m_port; }$/;"	f	class:airjoy::AirJoyServiceInfo
+position	.\include\AirJoyTypeDef.hpp	/^        float           position;       \/\/ 当前播放\/暂停时间点，单位为秒。$/;"	m	struct:airjoy::_AirJoyPlayBackInfo
+publishEvt	.\build.android\jni\JNIGlobalParam.cpp	/^void JNIGlobalParam::publishEvt(int type) $/;"	f	class:JNIGlobalParam
+publishState	.\build.android\AJServer\AJState.cpp	/^void AJState::publishState()$/;"	f	class:AJState
+putFile	.\include\AirFileListener.hpp	/^        virtual ResultCode putFile           (void)$/;"	f	class:airjoy::AirFileListener
+rate	.\include\AirJoyTypeDef.hpp	/^        float           rate;           \/\/ 0:暂停, 1:播放$/;"	m	struct:airjoy::_AirJoyPlayBackInfo
+rate	.\include\AirPlayServerListener.hpp	/^        float rate;                     \/\/ 0 - 暂停, 1 - 正常速率播放$/;"	m	struct:airjoy::_PlaybackInfo
+readyToPlay	.\include\AirPlayServerListener.hpp	/^        bool readyToPlay;	            \/\/ true - 已经准备播放, false - 还未准备播放，（缺省值：true）$/;"	m	struct:airjoy::_PlaybackInfo
+recvEvent	.\build.android\AJClient\AJClientEventListener.cpp	/^void AJClientEventListener::recvEvent(const std::string &type,$/;"	f	class:AJClientEventListener
+recvEvent	.\build.android\AJClient\AJMediaClientListener.cpp	/^void AJMediaClientListener::recvEvent(const std::string &type,$/;"	f	class:AJMediaClientListener
+recvEvent	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual void recvEvent(const std::string &type,$/;"	f	class:MyAirMediaClientQueryListener
+rotatePhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::rotatePhoto(const std::string &photoId,$/;"	f	class:AJMediaListener
+rotatePhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode rotatePhoto          (const std::string &photoId,$/;"	f	class:airjoy::AirMediaListener
+rotatePhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode rotatePhoto          (const std::string &photoId,$/;"	f	class:MyAirMediaListener
+run	.\testAirJoyClient\testAirJoyClient.cpp	/^    void run()$/;"	f	class:MyCommand
+run	.\testAirJoyServer\testAirJoyServer.cpp	/^    void run()$/;"	f	class:MyCommand
+run	.\testAirPlayServer\testAirPlayServer.cpp	/^    void run()$/;"	f	class:MyCommand
+run	.\testAirTunesServer\testAirTunesServer.cpp	/^    void run()$/;"	f	class:MyCommand
+second	.\include\AirJoyTypeDef.hpp	/^        int second;$/;"	m	struct:airjoy::_FileTime
+seekableTimeRanges	.\include\AirPlayServerListener.hpp	/^        TimeRanges seekableTimeRanges;  \/\/ iPhone\/iPad端可以滑动视频的时间范围（视频长度 & 起始点）$/;"	m	struct:airjoy::_PlaybackInfo
+setAirPlayServer	.\build.android\jni\JNIGlobalParam.cpp	/^void JNIGlobalParam::setAirPlayServer(AirPlayServer  *ap_server)$/;"	f	class:JNIGlobalParam
+setAudioListenerObj	.\build.android\AJServer\AJServer.cpp	/^void AJServer::setAudioListenerObj(jobject listener)$/;"	f	class:AJServer
+setClientIP	.\build.android\jni\JNIGlobalParam.cpp	/^void JNIGlobalParam::setClientIP(const std::string &clientIp)$/;"	f	class:JNIGlobalParam
+setConnectServerListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^void AJClientEntry::setConnectServerListenerObj(jobject listener)$/;"	f	class:AJClientEntry
+setCurrentPlaybackProgress	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::setCurrentPlaybackProgress(float playPosition, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+setCurrentPlaybackProgress	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void setCurrentPlaybackProgress(float playPosition, const std::string &clientIp) $/;"	f	class:MyAirPlayServerListener
+setDeviceId	.\include\AirJoyServiceInfo.hpp	/^        void setDeviceId(const std::string &id) { m_deviceId = id; }$/;"	f	class:airjoy::AirJoyServiceInfo
+setDeviceName	.\include\AirJoyServiceInfo.hpp	/^        void setDeviceName(const std::string &n) { m_deviceName = n; }$/;"	f	class:airjoy::AirJoyServiceInfo
+setDeviceType	.\include\AirJoyServiceInfo.hpp	/^        void setDeviceType(DeviceType t) { m_deviceType = t; }$/;"	f	class:airjoy::AirJoyServiceInfo
+setDiscoveryListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^void AJClientEntry::setDiscoveryListenerObj(jobject listener)$/;"	f	class:AJClientEntry
+setEventListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^void AJClientEntry::setEventListenerObj(jobject listener)$/;"	f	class:AJClientEntry
+setEventSessionId	.\testAirJoyClient\testAirJoyClient.cpp	/^    void setEventSessionId(int id) { m_eventSessionId = id; }$/;"	f	class:MyCommand
+setEventSessionId	.\testAirJoyServer\testAirJoyServer.cpp	/^    void setEventSessionId(int id) { m_eventSessionId = id; }$/;"	f	class:MyCommand
+setEventSessionId	.\testAirTunesServer\testAirTunesServer.cpp	/^    void setEventSessionId(int id) { m_eventSessionId = id; }$/;"	f	class:MyCommand
+setIPort	.\build.android\AJClient\AJClientEntry.cpp	/^void AJClientEntry::setIPort(const std::string &ip, int port)$/;"	f	class:AJClientEntry
+setIp	.\include\AirJoyServiceInfo.hpp	/^		void setIp(const std::string &ip) { m_ip = ip; }$/;"	f	class:airjoy::AirJoyServiceInfo
+setMediaListenerObj	.\build.android\AJServer\AJServer.cpp	/^void AJServer::setMediaListenerObj(jobject listener)$/;"	f	class:AJServer
+setMediaPhoto	.\build.android\jni\JNIGlobalParam.cpp	/^void JNIGlobalParam::setMediaPhoto()$/;"	f	class:JNIGlobalParam
+setMediaResultListenerObj	.\build.android\AJClient\AJClientEntry.cpp	/^void AJClientEntry::setMediaResultListenerObj(jobject listener)$/;"	f	class:AJClientEntry
+setMediaTypeAudio	.\build.android\AJServer\AJState.cpp	/^void AJState::setMediaTypeAudio()$/;"	f	class:AJState
+setMediaTypePhoto	.\build.android\AJServer\AJState.cpp	/^void AJState::setMediaTypePhoto()$/;"	f	class:AJState
+setMediaTypeVideo	.\build.android\AJServer\AJState.cpp	/^void AJState::setMediaTypeVideo()$/;"	f	class:AJState
+setMediaVideo	.\build.android\jni\JNIGlobalParam.cpp	/^void JNIGlobalParam::setMediaVideo()$/;"	f	class:JNIGlobalParam
+setNsdDiscoveryListenerObj	.\build.android\AJServer\AJServer.cpp	/^void AJServer::setNsdDiscoveryListenerObj(jobject listener)$/;"	f	class:AJServer
+setNsdPublishListenerObj	.\build.android\AJServer\AJServer.cpp	/^void AJServer::setNsdPublishListenerObj(jobject listener)$/;"	f	class:AJServer
+setPhotoListenerObj	.\build.android\AJServer\AJServer.cpp	/^void AJServer::setPhotoListenerObj(jobject listener)$/;"	f	class:AJServer
+setPlayAudioProgress	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::setPlayAudioProgress(const std::string &audioId,$/;"	f	class:AJMediaListener
+setPlayAudioProgress	.\include\AirMediaListener.hpp	/^        virtual ResultCode setPlayAudioProgress  (const std::string &audioId,$/;"	f	class:airjoy::AirMediaListener
+setPlayAudioProgress	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode setPlayAudioProgress  (const std::string &audioId,$/;"	f	class:MyAirMediaListener
+setPlayAudioRate	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::setPlayAudioRate(const std::string &audioId,$/;"	f	class:AJMediaListener
+setPlayAudioRate	.\include\AirMediaListener.hpp	/^        virtual ResultCode setPlayAudioRate     (const std::string &audioId,$/;"	f	class:airjoy::AirMediaListener
+setPlayAudioRate	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode setPlayAudioRate     (const std::string &audioId,$/;"	f	class:MyAirMediaListener
+setPlayVideoProgress	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::setPlayVideoProgress(const std::string &videoId,$/;"	f	class:AJMediaListener
+setPlayVideoProgress	.\include\AirMediaListener.hpp	/^        virtual ResultCode setPlayVideoProgress  (const std::string &videoId,$/;"	f	class:airjoy::AirMediaListener
+setPlayVideoProgress	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode setPlayVideoProgress  (const std::string &videoId,$/;"	f	class:MyAirMediaListener
+setPlayVideoRate	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::setPlayVideoRate(const std::string &videoId,$/;"	f	class:AJMediaListener
+setPlayVideoRate	.\include\AirMediaListener.hpp	/^        virtual ResultCode setPlayVideoRate     (const std::string &videoId,$/;"	f	class:airjoy::AirMediaListener
+setPlayVideoRate	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode setPlayVideoRate     (const std::string &videoId,$/;"	f	class:MyAirMediaListener
+setPort	.\include\AirJoyServiceInfo.hpp	/^        void setPort(int port) { m_port = port; }$/;"	f	class:airjoy::AirJoyServiceInfo
+setStatePause	.\build.android\AJServer\AJState.cpp	/^void AJState::setStatePause(const std::string &fromIp)$/;"	f	class:AJState
+setStatePlay	.\build.android\AJServer\AJState.cpp	/^void AJState::setStatePlay(const std::string &fromIp)$/;"	f	class:AJState
+setStateStop	.\build.android\AJServer\AJState.cpp	/^void AJState::setStateStop(const std::string &fromIp)$/;"	f	class:AJState
+setVideoListenerObj	.\build.android\AJServer\AJServer.cpp	/^void AJServer::setVideoListenerObj(jobject listener)$/;"	f	class:AJServer
+setVolume	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::setVolume(int volume,const std::string &fromIp)$/;"	f	class:AJMediaListener
+setVolume	.\include\AirMediaListener.hpp	/^        virtual ResultCode setVolume               (int volume,$/;"	f	class:airjoy::AirMediaListener
+setVolume	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode setVolume               (int volume, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+size	.\include\AirJoyTypeDef.hpp	/^        uint64_t      size;             \/\/ 文件大小$/;"	m	struct:airjoy::_FileInfo
+sourceDeviceId	.\include\AirJoyTypeDef.hpp	/^        std::string   sourceDeviceId;   \/\/ 文件所在的源设备ID$/;"	m	struct:airjoy::_FileInfo
+startPosition	.\include\AirPlayServerListener.hpp	/^        float startPosition;    \/\/ 起始时间点，单位: seconds$/;"	m	struct:airjoy::_TimeRanges
+stopPhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::stopPhoto(const std::string &fromIp)$/;"	f	class:AJMediaListener
+stopPhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode stopPhoto            (const std::string &fromIp)$/;"	f	class:airjoy::AirMediaListener
+stopPhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode stopPhoto            (const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+stopPlayAudio	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::stopPlayAudio(const std::string &audioId,const std::string &fromIp)$/;"	f	class:AJMediaListener
+stopPlayAudio	.\include\AirMediaListener.hpp	/^        virtual ResultCode stopPlayAudio        (const std::string &audioId,$/;"	f	class:airjoy::AirMediaListener
+stopPlayAudio	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode stopPlayAudio        (const std::string &audioId, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+stopPlayVideo	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::stopPlayVideo(const std::string &videoId,const std::string &fromIp)$/;"	f	class:AJMediaListener
+stopPlayVideo	.\include\AirMediaListener.hpp	/^        virtual ResultCode stopPlayVideo        (const std::string &videoId,$/;"	f	class:airjoy::AirMediaListener
+stopPlayVideo	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode stopPlayVideo        (const std::string &videoId, const std::string &fromIp)$/;"	f	class:MyAirMediaListener
+strLastModify	.\include\AirJoyTypeDef.hpp	/^        std::string   strLastModify;    \/\/ 文件最后修改时间（字符串格式："2012-12-03 13:02:54"）$/;"	m	struct:airjoy::_FileInfo
+total	.\include\AirJoyTypeDef.hpp	/^        uint32_t      total;            \/\/ 推送：文件总数$/;"	m	struct:airjoy::_FileInfo
+tryStopClient	.\build.android\jni\JNIGlobalParam.cpp	/^void JNIGlobalParam::tryStopClient(const std::string &clientIp)$/;"	f	class:JNIGlobalParam
+type	.\include\AirJoyServiceInfo.hpp	/^        const std::string & type(void) { return m_type; }$/;"	f	class:airjoy::AirJoyServiceInfo
+type	.\include\AirJoyTypeDef.hpp	/^        DeviceType  type;$/;"	m	struct:airjoy::_DeviceInfo
+type	.\include\AirJoyTypeDef.hpp	/^        FileType      type;             \/\/ 类型$/;"	m	struct:airjoy::_FileInfo
+uint16_t	.\include\AirJoyTypeDef.hpp	/^typedef unsigned short    uint16_t;$/;"	t
+uint32_t	.\include\AirJoyTypeDef.hpp	/^typedef unsigned int      uint32_t;$/;"	t
+uint64_t	.\include\AirJoyTypeDef.hpp	/^typedef unsigned __int64  uint64_t;$/;"	t
+uint8_t	.\include\AirJoyTypeDef.hpp	/^typedef unsigned char     uint8_t;$/;"	t
+url	.\include\AirJoyTypeDef.hpp	/^        char            url[1024 + 1];  \/\/ 地址$/;"	m	struct:airjoy::_AirJoyPlayBackInfo
+urlHttp	.\include\AirJoyTypeDef.hpp	/^        std::string   urlHttp;          \/\/ 可访问的http地址$/;"	m	struct:airjoy::_FileInfo
+urlPreview	.\include\AirJoyTypeDef.hpp	/^        std::string   urlPreview;       \/\/ 预览图的http地址(可能为空)$/;"	m	struct:airjoy::_FileInfo
+urlRtsp	.\include\AirJoyTypeDef.hpp	/^        std::string   urlRtsp;          \/\/ 可访问的rtsp地址(可能为空)$/;"	m	struct:airjoy::_FileInfo
+version	.\include\AirJoyServiceInfo.hpp	/^        const std::string & version(void) { return m_version; }$/;"	f	class:airjoy::AirJoyServiceInfo
+willPutPhoto	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::willPutPhoto(const std::string &photoId, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+willPutPhoto	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void willPutPhoto(const std::string &photoId, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+willPutPhotoCacheOnly	.\build.android\jni\AirplayJniListener.cpp	/^void AirplayJniListener::willPutPhotoCacheOnly(const std::string &photoId, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+willPutPhotoCacheOnly	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual void willPutPhotoCacheOnly(const std::string &photoId, const std::string &clientIp)$/;"	f	class:MyAirPlayServerListener
+year	.\include\AirJoyTypeDef.hpp	/^        int year;$/;"	m	struct:airjoy::_FileTime
+zoomPhoto	.\build.android\AJServer\AJMediaListener.cpp	/^ResultCode AJMediaListener::zoomPhoto(const std::string &photoId,$/;"	f	class:AJMediaListener
+zoomPhoto	.\include\AirMediaListener.hpp	/^        virtual ResultCode zoomPhoto            (const std::string &photoId,$/;"	f	class:airjoy::AirMediaListener
+zoomPhoto	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ResultCode zoomPhoto            (const std::string &photoId,$/;"	f	class:MyAirMediaListener
+~AJClientEntry	.\build.android\AJClient\AJClientEntry.cpp	/^AJClientEntry::~AJClientEntry()$/;"	f	class:AJClientEntry
+~AJClientEventListener	.\build.android\AJClient\AJClientEventListener.cpp	/^AJClientEventListener::~AJClientEventListener()$/;"	f	class:AJClientEventListener
+~AJMediaClientListener	.\build.android\AJClient\AJMediaClientListener.h	/^    virtual ~AJMediaClientListener() {}$/;"	f	class:AJMediaClientListener
+~AJServer	.\build.android\AJServer\AJServer.cpp	/^AJServer::~AJServer()$/;"	f	class:AJServer
+~AJState	.\build.android\AJServer\AJState.cpp	/^AJState::~AJState()$/;"	f	class:AJState
+~APController	.\build.android\jni\APController.cpp	/^		virtual ~APController()$/;"	f	class:APController
+~AirFileListener	.\include\AirFileListener.hpp	/^        virtual ~AirFileListener() {}$/;"	f	class:airjoy::AirFileListener
+~AirJoyNsdDiscoveryListener	.\include\AirJoyNsdDiscoveryListener.hpp	/^        virtual ~AirJoyNsdDiscoveryListener() {}$/;"	f	class:airjoy::AirJoyNsdDiscoveryListener
+~AirJoyServiceInfo	.\include\AirJoyServiceInfo.hpp	/^        virtual ~AirJoyServiceInfo()$/;"	f	class:airjoy::AirJoyServiceInfo
+~AirMediaClientQueryListener	.\include\AirMediaClientQueryListener.hpp	/^        virtual ~AirMediaClientQueryListener() {}$/;"	f	class:airjoy::AirMediaClientQueryListener
+~AirMediaListener	.\include\AirMediaListener.hpp	/^        virtual ~AirMediaListener() {}$/;"	f	class:airjoy::AirMediaListener
+~AirPlayNsdDiscoveryListener	.\include\AirPlayNsdDiscoveryListener.hpp	/^        virtual ~AirPlayNsdDiscoveryListener() {}$/;"	f	class:airjoy::AirPlayNsdDiscoveryListener
+~AirPlayNsdPublishListener	.\include\AirPlayNsdPublishListener.hpp	/^        virtual ~AirPlayNsdPublishListener() {}$/;"	f	class:airjoy::AirPlayNsdPublishListener
+~AirPlayServerListener	.\include\AirPlayServerListener.hpp	/^        virtual ~AirPlayServerListener() {}$/;"	f	class:airjoy::AirPlayServerListener
+~AirTunesServerListener	.\include\AirTunesServerListener.hpp	/^        virtual ~AirTunesServerListener() {}$/;"	f	class:airjoy::AirTunesServerListener
+~BonjourAirTunesDiscoveryListener	.\build.android\jni\APController.cpp	/^    virtual ~BonjourAirTunesDiscoveryListener() {}$/;"	f	class:BonjourAirTunesDiscoveryListener
+~BonjourAirTunesDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual ~BonjourAirTunesDiscoveryListener() {}$/;"	f	class:BonjourAirTunesDiscoveryListener
+~BonjourAirTunesPublishListener	.\build.android\jni\APController.cpp	/^    virtual ~BonjourAirTunesPublishListener() {}$/;"	f	class:BonjourAirTunesPublishListener
+~BonjourAirTunesPublishListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual ~BonjourAirTunesPublishListener() {}$/;"	f	class:BonjourAirTunesPublishListener
+~BonjourDacpDiscoveryListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual ~BonjourDacpDiscoveryListener() {}$/;"	f	class:BonjourDacpDiscoveryListener
+~JNIGlobalParam	.\build.android\jni\JNIGlobalParam.cpp	/^JNIGlobalParam::~JNIGlobalParam()$/;"	f	class:JNIGlobalParam
+~MyAirJoyNsdDiscoveryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual ~MyAirJoyNsdDiscoveryListener() $/;"	f	class:MyAirJoyNsdDiscoveryListener
+~MyAirMediaClientQueryListener	.\testAirJoyClient\testAirJoyClient.cpp	/^    virtual ~MyAirMediaClientQueryListener() {}$/;"	f	class:MyAirMediaClientQueryListener
+~MyAirMediaListener	.\testAirJoyServer\testAirJoyServer.cpp	/^    virtual ~MyAirMediaListener()$/;"	f	class:MyAirMediaListener
+~MyAirPlayNsdDiscoveryListener	.\build.android\jni\APController.cpp	/^    virtual ~MyAirPlayNsdDiscoveryListener() {}$/;"	f	class:MyAirPlayNsdDiscoveryListener
+~MyAirPlayNsdDiscoveryListener	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual ~MyAirPlayNsdDiscoveryListener() {}$/;"	f	class:MyAirPlayNsdDiscoveryListener
+~MyAirPlayNsdPublishListener	.\build.android\jni\APController.cpp	/^    virtual ~MyAirPlayNsdPublishListener() {}$/;"	f	class:MyAirPlayNsdPublishListener
+~MyAirPlayNsdPublishListener	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual ~MyAirPlayNsdPublishListener() {}$/;"	f	class:MyAirPlayNsdPublishListener
+~MyAirPlayServerListener	.\testAirPlayServer\testAirPlayServer.cpp	/^    virtual ~MyAirPlayServerListener() {}$/;"	f	class:MyAirPlayServerListener
+~MyAirTunesServerListener	.\build.android\jni\APController.cpp	/^    virtual ~MyAirTunesServerListener() $/;"	f	class:MyAirTunesServerListener
+~MyAirTunesServerListener	.\testAirTunesServer\testAirTunesServer.cpp	/^    virtual ~MyAirTunesServerListener() $/;"	f	class:MyAirTunesServerListener
+~MyCommand	.\testAirJoyClient\testAirJoyClient.cpp	/^    ~MyCommand()$/;"	f	class:MyCommand
+~MyCommand	.\testAirJoyServer\testAirJoyServer.cpp	/^    ~MyCommand()$/;"	f	class:MyCommand
+~MyCommand	.\testAirPlayServer\testAirPlayServer.cpp	/^    ~MyCommand()$/;"	f	class:MyCommand
+~MyCommand	.\testAirTunesServer\testAirTunesServer.cpp	/^    ~MyCommand()$/;"	f	class:MyCommand

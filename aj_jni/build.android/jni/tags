@@ -1,0 +1,183 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APAirTunesListener	.\APAirTunesListener.h	/^		APAirTunesListener() {}$/;"	f	class:APAirTunesListener
+APAirTunesListener	.\APAirTunesListener.h	/^class APAirTunesListener: public AirTunesServerListener$/;"	c
+APController	.\APController.cpp	/^		APController(JNIEnv *env, jobject obj)$/;"	f	class:APController
+APController	.\APController.cpp	/^class APController$/;"	c	file:
+AirplayJniListener	.\AirplayJniListener.h	/^class AirplayJniListener:public AirPlayServerListener $/;"	c
+BonjourAirTunesDiscoveryListener	.\APController.cpp	/^    BonjourAirTunesDiscoveryListener() {}$/;"	f	class:BonjourAirTunesDiscoveryListener
+BonjourAirTunesDiscoveryListener	.\APController.cpp	/^class BonjourAirTunesDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+BonjourAirTunesPublishListener	.\APController.cpp	/^    BonjourAirTunesPublishListener() {}$/;"	f	class:BonjourAirTunesPublishListener
+BonjourAirTunesPublishListener	.\APController.cpp	/^class BonjourAirTunesPublishListener : public AirPlayNsdPublishListener$/;"	c	file:
+CLASS_AIRPLAYLISTENER	.\JNIGlobalParam.h	20;"	d
+CLASS_APCONTROLLER	.\JNIGlobalParam.h	18;"	d
+CLASS_PLAYBACKINFO	.\JNIGlobalParam.h	19;"	d
+GetGlobalJavaVM	.\JNIGlobalParam.cpp	/^JavaVM * JNIGlobalParam::GetGlobalJavaVM()$/;"	f	class:JNIGlobalParam
+GetJobject	.\JNIGlobalParam.cpp	/^jobject JNIGlobalParam::GetJobject()$/;"	f	class:JNIGlobalParam
+GetPlaybackInfoClass	.\JNIGlobalParam.cpp	/^jclass JNIGlobalParam::GetPlaybackInfoClass()$/;"	f	class:JNIGlobalParam
+INC_AIRJOY	.\Android.mk	/^INC_AIRJOY := ..\/include$/;"	m
+INC_ALL	.\Android.mk	/^INC_ALL := $(INC_AIRJOY) \\$/;"	m
+INC_STL	.\Android.mk	/^INC_STL := $(ANDROID_NDK_PATH)\/sources\/cxx-stl\/gnu-libstdc++\/4.4.3\/include               \\$/;"	m
+JNIGlobalParam	.\JNIGlobalParam.cpp	/^JNIGlobalParam::JNIGlobalParam(JNIEnv* jni_env, jobject jni_obj)$/;"	f	class:JNIGlobalParam
+JNIGlobalParam	.\JNIGlobalParam.h	/^class JNIGlobalParam$/;"	c
+JNI_OnLoad	.\APController.cpp	/^JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)$/;"	f
+Java_com_fqx_anyplay_service_APController_AirTunesStart	.\APController.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_anyplay_service_APController_AirTunesStart$/;"	f
+Java_com_fqx_anyplay_service_APController_AirTunesStop	.\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_AirTunesStop$/;"	f
+Java_com_fqx_anyplay_service_APController_AirplayStart	.\APController.cpp	/^JNIEXPORT int JNICALL Java_com_fqx_anyplay_service_APController_AirplayStart$/;"	f
+Java_com_fqx_anyplay_service_APController_AirplayStop	.\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_AirplayStop$/;"	f
+Java_com_fqx_anyplay_service_APController_PublishAirTunesService	.\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_PublishAirTunesService$/;"	f
+Java_com_fqx_anyplay_service_APController_PublishAirplayService	.\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_PublishAirplayService$/;"	f
+Java_com_fqx_anyplay_service_APController_PublishEvent	.\APController.cpp	/^Java_com_fqx_anyplay_service_APController_PublishEvent(JNIEnv *env, jclass cls, jint mediaType, jint evtType, jstring fromIp)$/;"	f
+Java_com_fqx_anyplay_service_APController_SetAirPlayListener	.\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_SetAirPlayListener$/;"	f
+Java_com_fqx_anyplay_service_APController_SetAirTunesServerListener	.\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_SetAirTunesServerListener$/;"	f
+Java_com_fqx_anyplay_service_APController_getAirplayPort	.\APController.cpp	/^JNIEXPORT jint JNICALL Java_com_fqx_anyplay_service_APController_getAirplayPort$/;"	f
+Java_com_fqx_anyplay_service_APController_getSlideshowsPicture	.\APController.cpp	/^Java_com_fqx_anyplay_service_APController_getSlideshowsPicture(JNIEnv *env, jobject obj, jstring clientIp) $/;"	f
+Java_com_fqx_anyplay_service_APController_mdnsd_1start	.\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_mdnsd_1start$/;"	f
+Java_com_fqx_anyplay_service_APController_mdnsd_1stop	.\APController.cpp	/^JNIEXPORT jboolean JNICALL Java_com_fqx_anyplay_service_APController_mdnsd_1stop$/;"	f
+Java_com_fqx_anyplay_service_APController_native_1finalize	.\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_native_1finalize$/;"	f
+Java_com_fqx_anyplay_service_APController_native_1init	.\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_native_1init$/;"	f
+Java_com_fqx_anyplay_service_APController_native_1setup	.\APController.cpp	/^JNIEXPORT void JNICALL Java_com_fqx_anyplay_service_APController_native_1setup$/;"	f
+LINK_PLAYBACKINFO	.\JNIGlobalParam.h	22;"	d
+LINK_PLAYBACKTIME	.\JNIGlobalParam.h	23;"	d
+LOCAL_CFLAGS	.\Android.mk	/^LOCAL_CFLAGS     := -fexceptions          \\$/;"	m
+LOCAL_CFLAGS	.\Android.mk	/^LOCAL_CFLAGS     := -fexceptions         \\$/;"	m
+LOCAL_C_INCLUDES	.\Android.mk	/^LOCAL_C_INCLUDES := $(INC_ALL)$/;"	m
+LOCAL_LDLIBS	.\Android.mk	/^LOCAL_LDLIBS := -L..\/lib -lairjoy -ldns_sd_aj -lairstream -lz -llog$/;"	m
+LOCAL_LDLIBS	.\Android.mk	/^LOCAL_LDLIBS := -L..\/lib -lairjoy -lz -llog$/;"	m
+LOCAL_LDLIBS	.\Android.mk	/^LOCAL_LDLIBS := -L..\/lib -lairplay -ldns_sd_aj -lbonjour_aj -lz -llog$/;"	m
+LOCAL_LDLIBS	.\Android.mk	/^LOCAL_LDLIBS := -Lopenssl\/libs -ldl_aj -lz -llog $/;"	m
+LOCAL_MODULE	.\Android.mk	/^LOCAL_MODULE     := AirJoyClient$/;"	m
+LOCAL_MODULE	.\Android.mk	/^LOCAL_MODULE     := AirJoyServer$/;"	m
+LOCAL_MODULE	.\Android.mk	/^LOCAL_MODULE     := jniAnyplay$/;"	m
+LOCAL_PATH	.\Android.mk	/^LOCAL_PATH := $(call my-dir)$/;"	m
+LOCAL_SRC_FILES	.\Android.mk	/^LOCAL_SRC_FILES  := $(SRC_DIR)\/AJClientEntry.cpp 			\\$/;"	m
+LOCAL_SRC_FILES	.\Android.mk	/^LOCAL_SRC_FILES  := $(SRC_DIR)\/AJDiscoveryListener.cpp 			\\$/;"	m
+LOCAL_SRC_FILES	.\Android.mk	/^LOCAL_SRC_FILES  := $(SRC_DIR)\/JNIGlobalParam.cpp 			\\$/;"	m
+LOGE	.\JNIGlobalParam.h	16;"	d
+LOGI	.\JNIGlobalParam.h	15;"	d
+LOG_TAG	.\JNIGlobalParam.h	14;"	d
+MyAirPlayNsdDiscoveryListener	.\APController.cpp	/^    MyAirPlayNsdDiscoveryListener() {}$/;"	f	class:MyAirPlayNsdDiscoveryListener
+MyAirPlayNsdDiscoveryListener	.\APController.cpp	/^class MyAirPlayNsdDiscoveryListener : public AirPlayNsdDiscoveryListener$/;"	c	file:
+MyAirPlayNsdPublishListener	.\APController.cpp	/^    MyAirPlayNsdPublishListener() {}$/;"	f	class:MyAirPlayNsdPublishListener
+MyAirPlayNsdPublishListener	.\APController.cpp	/^class MyAirPlayNsdPublishListener : public AirPlayNsdPublishListener$/;"	c	file:
+MyAirTunesServerListener	.\APController.cpp	/^    MyAirTunesServerListener() $/;"	f	class:MyAirTunesServerListener
+MyAirTunesServerListener	.\APController.cpp	/^class MyAirTunesServerListener : public AirTunesServerListener$/;"	c	file:
+NewPlaybackInfo	.\AirplayJniListener.cpp	/^jobject NewPlaybackInfo(JNIEnv *env)$/;"	f
+SRC_DIR	.\Android.mk	/^SRC_DIR          := ..\/..\/build.android\/AJClient$/;"	m
+SRC_DIR	.\Android.mk	/^SRC_DIR          := ..\/..\/build.android\/AJServer$/;"	m
+SRC_DIR	.\Android.mk	/^SRC_DIR          := ..\/..\/build.android\/jni$/;"	m
+_Included_com_fqx_anyplay_service_APController	.\com_fqx_anyplay_service_APController.h	6;"	d
+__AIRPLAYJNILISTENER_H__	.\AirplayJniListener.h	3;"	d
+__AIRPLAYSTATE_H__	.\AirPlayState.h	3;"	d
+__APAIRTUNESLISTENER_H__	.\APAirTunesListener.h	3;"	d
+__JNIGLOBAPARAM_H__	.\JNIGlobalParam.h	3;"	d
+airplayServiceInfo	.\APController.cpp	/^AirPlayServiceInfo 				airplayServiceInfo;$/;"	v
+context	.\APController.cpp	/^    jfieldID  context;$/;"	m	struct:fields_t	file:
+didAudioDriverInit	.\APAirTunesListener.cpp	/^void APAirTunesListener::didAudioDriverInit(int sampleRateInHz, int channelConfig, int audioFormat, int fmtp[12], size_t fmtpLen)$/;"	f	class:APAirTunesListener
+didAudioDriverInit	.\APController.cpp	/^    virtual void didAudioDriverInit(int sampleRateInHz, int channelConfig, int audioFormat, int fmtp[12], size_t fmtpLen)$/;"	f	class:MyAirTunesServerListener
+didAudioDriverPlay	.\APAirTunesListener.cpp	/^void APAirTunesListener::didAudioDriverPlay(char *outbuf, int size)$/;"	f	class:APAirTunesListener
+didAudioDriverPlay	.\APController.cpp	/^    virtual void didAudioDriverPlay(char *outbuf, int size)$/;"	f	class:MyAirTunesServerListener
+didDisplayCachedPhoto	.\AirplayJniListener.cpp	/^void AirplayJniListener::didDisplayCachedPhoto(const std::string &photoId,   const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didGetSlideshowsPicture	.\AirplayJniListener.cpp	/^void AirplayJniListener::didGetSlideshowsPicture(int index, const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didGetSlideshowsPictureFailed	.\AirplayJniListener.cpp	/^void AirplayJniListener::didGetSlideshowsPictureFailed(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didPause	.\APAirTunesListener.cpp	/^void APAirTunesListener::didPause(const std::string &clientIp)$/;"	f	class:APAirTunesListener
+didPause	.\APController.cpp	/^    virtual void didPause(void)$/;"	f	class:MyAirTunesServerListener
+didPutPhoto	.\AirplayJniListener.cpp	/^void AirplayJniListener::didPutPhoto(const std::string &photoId,  const char *data, std::size_t length, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didPutPhotoCacheOnly	.\AirplayJniListener.cpp	/^void AirplayJniListener::didPutPhotoCacheOnly(const std::string &photoId,   const char *data, std::size_t length, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didSetAudioInfo	.\APAirTunesListener.cpp	/^void APAirTunesListener::didSetAudioInfo(const std::string &name, const std::string &artist, const std::string &album, const std::string &clientIp)$/;"	f	class:APAirTunesListener
+didSetAudioInfo	.\APController.cpp	/^    virtual void didSetAudioInfo(const std::string &name, const std::string &artist, const std::string &album)$/;"	f	class:MyAirTunesServerListener
+didSetImage	.\APAirTunesListener.cpp	/^void APAirTunesListener::didSetImage(const char *data, std::size_t length, const std::string &clientIp)$/;"	f	class:APAirTunesListener
+didSetImage	.\APController.cpp	/^    virtual void didSetImage(const char *data, std::size_t length)$/;"	f	class:MyAirTunesServerListener
+didSetPlaybackRate	.\AirplayJniListener.cpp	/^void AirplayJniListener::didSetPlaybackRate(float rate, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didSetVolume	.\APAirTunesListener.cpp	/^void APAirTunesListener::didSetVolume(float value, const std::string &clientIp)$/;"	f	class:APAirTunesListener
+didSetVolume	.\APController.cpp	/^    virtual void didSetVolume(float value)$/;"	f	class:MyAirTunesServerListener
+didSetVolume	.\AirplayJniListener.cpp	/^void AirplayJniListener::didSetVolume(float value, const std::string &clientIp) {$/;"	f	class:AirplayJniListener
+didStartPlayAudio	.\APAirTunesListener.cpp	/^void APAirTunesListener::didStartPlayAudio(const std::string &clientIp)$/;"	f	class:APAirTunesListener
+didStartPlayAudio	.\APController.cpp	/^    virtual void didStartPlayAudio(void)$/;"	f	class:MyAirTunesServerListener
+didStartPlayMusic	.\AirplayJniListener.cpp	/^void AirplayJniListener::didStartPlayMusic(const std::string &contentLocation, double startPosition, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStartPlayVideo	.\AirplayJniListener.cpp	/^void AirplayJniListener::didStartPlayVideo(const std::string &contentLocation, double startPosition,  const std::string &clientIp) $/;"	f	class:AirplayJniListener
+didStartSlideshows	.\AirplayJniListener.cpp	/^void AirplayJniListener::didStartSlideshows(int slideDuration, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStop	.\APAirTunesListener.cpp	/^void APAirTunesListener::didStop(const std::string &clientIp)$/;"	f	class:APAirTunesListener
+didStop	.\APController.cpp	/^    virtual void didStop(void)$/;"	f	class:MyAirTunesServerListener
+didStop	.\AirplayJniListener.cpp	/^void AirplayJniListener::didStop(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didStopSlideshows	.\AirplayJniListener.cpp	/^void AirplayJniListener::didStopSlideshows(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didSubscribeEvent	.\AirplayJniListener.cpp	/^void AirplayJniListener::didSubscribeEvent(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+didUnsubscribeEvent	.\AirplayJniListener.cpp	/^void AirplayJniListener::didUnsubscribeEvent(const std::string &clientIp)$/;"	f	class:AirplayJniListener
+doAirTunsFun	.\APAirTunesListener.cpp	/^static void doAirTunsFun(const char *fun, const std::string &clientIp)$/;"	f	file:
+fields	.\APController.cpp	/^static fields_t fields;$/;"	v	file:
+fields_t	.\APController.cpp	/^struct fields_t {$/;"	s	file:
+gAirPlayNsd	.\APController.cpp	/^AirPlayNsd 						gAirPlayNsd;$/;"	v
+gAirPlayServer	.\APController.cpp	/^AirPlayServer      				gAirPlayServer;$/;"	v
+gAirTunesServer	.\APController.cpp	/^AirTunesServer                  gAirTunesServer;$/;"	v
+gAirTunesServiceInfo	.\APController.cpp	/^AirTunesServiceInfo				gAirTunesServiceInfo;$/;"	v
+gBonjourAirTunes	.\APController.cpp	/^AirPlayNsd                      gBonjourAirTunes;                   $/;"	v
+gBonjourAirTunesDiscoveryListener	.\APController.cpp	/^BonjourAirTunesDiscoveryListener    gBonjourAirTunesDiscoveryListener;$/;"	v
+gBonjourAirTunesPublishListener	.\APController.cpp	/^BonjourAirTunesPublishListener      gBonjourAirTunesPublishListener;$/;"	v
+gMyAirPlayNsdDiscoveryListener	.\APController.cpp	/^MyAirPlayNsdDiscoveryListener   gMyAirPlayNsdDiscoveryListener;$/;"	v
+gMyAirPlayNsdPublishListener	.\APController.cpp	/^MyAirPlayNsdPublishListener     gMyAirPlayNsdPublishListener;$/;"	v
+gMyAirTunesServerListener	.\APController.cpp	/^MyAirTunesServerListener   		    gMyAirTunesServerListener;$/;"	v
+getAirTunesListenerObj	.\JNIGlobalParam.cpp	/^jobject JNIGlobalParam::getAirTunesListenerObj()$/;"	f	class:JNIGlobalParam
+getCurrentPlaybackProgress	.\AirplayJniListener.cpp	/^void AirplayJniListener::getCurrentPlaybackProgress(PlaybackTime &time, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+getPlaybackInfo	.\AirplayJniListener.cpp	/^void AirplayJniListener::getPlaybackInfo(PlaybackInfo &info, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+getPlaybackInfo2C	.\AirplayJniListener.cpp	/^bool getPlaybackInfo2C(JNIEnv *env, jobject PlaybackInfoObj, PlaybackInfo &p_PlaybackInfo)$/;"	f
+getPlaybackTime2C	.\AirplayJniListener.cpp	/^bool getPlaybackTime2C(JNIEnv *env, jobject PlaybackTimeObj, PlaybackTime &p_PlaybackTime)$/;"	f
+getResultListenerObj	.\JNIGlobalParam.cpp	/^jobject JNIGlobalParam::getResultListenerObj()$/;"	f	class:JNIGlobalParam
+isMediaPhoto	.\JNIGlobalParam.cpp	/^bool JNIGlobalParam::isMediaPhoto()$/;"	f	class:JNIGlobalParam
+isMediaVideo	.\JNIGlobalParam.cpp	/^bool JNIGlobalParam::isMediaVideo()$/;"	f	class:JNIGlobalParam
+isMyDevIP	.\JNIGlobalParam.cpp	/^bool JNIGlobalParam::isMyDevIP(const std::string &clientIp)$/;"	f	class:JNIGlobalParam
+mAirPlayServer	.\JNIGlobalParam.h	/^		AirPlayServer   				*mAirPlayServer;$/;"	m	class:JNIGlobalParam
+mClientIp	.\JNIGlobalParam.h	/^		std::string   					mClientIp;              \/\/ 客户端ip$/;"	m	class:JNIGlobalParam
+mIsPlaying	.\JNIGlobalParam.h	/^		bool   		  					mIsPlaying;     		\/\/ 播放与否$/;"	m	class:JNIGlobalParam
+mPlayingMediaType	.\JNIGlobalParam.h	/^		AirPlayServer::EventCategory    mPlayingMediaType;      \/\/ 正在播放的媒体类型$/;"	m	class:JNIGlobalParam
+m_PlaybackInfoCls	.\JNIGlobalParam.h	/^		jclass 	m_PlaybackInfoCls;$/;"	m	class:JNIGlobalParam
+m_airtunes_listener_obj	.\JNIGlobalParam.h	/^		jobject m_airtunes_listener_obj;$/;"	m	class:JNIGlobalParam
+m_env	.\JNIGlobalParam.h	/^		JNIEnv *m_env;$/;"	m	class:JNIGlobalParam
+m_imgFile	.\APController.cpp	/^    std::string     m_imgFile;$/;"	m	class:MyAirTunesServerListener	file:
+m_jvm	.\JNIGlobalParam.h	/^		JavaVM *m_jvm;$/;"	m	class:JNIGlobalParam
+m_obj	.\JNIGlobalParam.h	/^		jobject m_obj;$/;"	m	class:JNIGlobalParam
+m_result_listener_obj	.\JNIGlobalParam.h	/^		jobject m_result_listener_obj;$/;"	m	class:JNIGlobalParam
+myAirPlayServerListener	.\APController.cpp	/^AirplayJniListener 				myAirPlayServerListener;$/;"	v
+onDiscoveryStarted	.\APController.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onDiscoveryStarted	.\APController.cpp	/^    virtual void onDiscoveryStarted(const std::string serviceType) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onDiscoveryStopped	.\APController.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onDiscoveryStopped	.\APController.cpp	/^    virtual void onDiscoveryStopped(const std::string serviceType) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onPublishFailed	.\APController.cpp	/^    virtual void onPublishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:BonjourAirTunesPublishListener
+onPublishFailed	.\APController.cpp	/^    virtual void onPublishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:MyAirPlayNsdPublishListener
+onServiceFound	.\APController.cpp	/^	virtual void onServiceFound(const std::string serviceType, $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onServiceFound	.\APController.cpp	/^    virtual void onServiceFound(const std::string serviceType, $/;"	f	class:BonjourAirTunesDiscoveryListener
+onServiceLost	.\APController.cpp	/^	virtual void onServiceLost(const std::string serviceType, $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onServiceLost	.\APController.cpp	/^    virtual void onServiceLost(const std::string serviceType, $/;"	f	class:BonjourAirTunesDiscoveryListener
+onServicePublished	.\APController.cpp	/^    virtual void onServicePublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:BonjourAirTunesPublishListener
+onServicePublished	.\APController.cpp	/^    virtual void onServicePublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:MyAirPlayNsdPublishListener
+onServiceUnPublished	.\APController.cpp	/^    virtual void onServiceUnPublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:BonjourAirTunesPublishListener
+onServiceUnPublished	.\APController.cpp	/^    virtual void onServiceUnPublished(const std::string & servicetype, const std::string & serviceName)$/;"	f	class:MyAirPlayNsdPublishListener
+onStartDiscoveryFailed	.\APController.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:BonjourAirTunesDiscoveryListener
+onStartDiscoveryFailed	.\APController.cpp	/^    virtual void onStartDiscoveryFailed(const std::string serviceType, int errorCode) $/;"	f	class:MyAirPlayNsdDiscoveryListener
+onStopDiscoveryFailed	.\APController.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:BonjourAirTunesDiscoveryListener
+onStopDiscoveryFailed	.\APController.cpp	/^    virtual void onStopDiscoveryFailed(const std::string serviceType, int errorCode)$/;"	f	class:MyAirPlayNsdDiscoveryListener
+onUnPulishFailed	.\APController.cpp	/^    virtual void onUnPulishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:BonjourAirTunesPublishListener
+onUnPulishFailed	.\APController.cpp	/^    virtual void onUnPulishFailed(const std::string & servicetype, const std::string & serviceName, int errorCode)$/;"	f	class:MyAirPlayNsdPublishListener
+p_JNIGlobalParam	.\JNIGlobalParam.cpp	/^JNIGlobalParam *p_JNIGlobalParam;$/;"	v
+publishEvt	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::publishEvt(int type) $/;"	f	class:JNIGlobalParam
+setAirPlayServer	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::setAirPlayServer(AirPlayServer  *ap_server)$/;"	f	class:JNIGlobalParam
+setAirTunesListenerObj	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::setAirTunesListenerObj(jobject listener)$/;"	f	class:JNIGlobalParam
+setClientIP	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::setClientIP(const std::string &clientIp)$/;"	f	class:JNIGlobalParam
+setCurrentPlaybackProgress	.\AirplayJniListener.cpp	/^void AirplayJniListener::setCurrentPlaybackProgress(float playPosition, const std::string &clientIp) $/;"	f	class:AirplayJniListener
+setMediaPhoto	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::setMediaPhoto()$/;"	f	class:JNIGlobalParam
+setMediaVideo	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::setMediaVideo()$/;"	f	class:JNIGlobalParam
+setResultListenerObj	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::setResultListenerObj(jobject listener)$/;"	f	class:JNIGlobalParam
+tryStopClient	.\JNIGlobalParam.cpp	/^void JNIGlobalParam::tryStopClient(const std::string &clientIp)$/;"	f	class:JNIGlobalParam
+willPutPhoto	.\AirplayJniListener.cpp	/^void AirplayJniListener::willPutPhoto(const std::string &photoId, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+willPutPhotoCacheOnly	.\AirplayJniListener.cpp	/^void AirplayJniListener::willPutPhotoCacheOnly(const std::string &photoId, const std::string &clientIp)$/;"	f	class:AirplayJniListener
+~APAirTunesListener	.\APAirTunesListener.h	/^		virtual ~APAirTunesListener() {}$/;"	f	class:APAirTunesListener
+~APController	.\APController.cpp	/^		virtual ~APController()$/;"	f	class:APController
+~BonjourAirTunesDiscoveryListener	.\APController.cpp	/^    virtual ~BonjourAirTunesDiscoveryListener() {}$/;"	f	class:BonjourAirTunesDiscoveryListener
+~BonjourAirTunesPublishListener	.\APController.cpp	/^    virtual ~BonjourAirTunesPublishListener() {}$/;"	f	class:BonjourAirTunesPublishListener
+~JNIGlobalParam	.\JNIGlobalParam.cpp	/^JNIGlobalParam::~JNIGlobalParam()$/;"	f	class:JNIGlobalParam
+~MyAirPlayNsdDiscoveryListener	.\APController.cpp	/^    virtual ~MyAirPlayNsdDiscoveryListener() {}$/;"	f	class:MyAirPlayNsdDiscoveryListener
+~MyAirPlayNsdPublishListener	.\APController.cpp	/^    virtual ~MyAirPlayNsdPublishListener() {}$/;"	f	class:MyAirPlayNsdPublishListener
+~MyAirTunesServerListener	.\APController.cpp	/^    virtual ~MyAirTunesServerListener() $/;"	f	class:MyAirTunesServerListener
