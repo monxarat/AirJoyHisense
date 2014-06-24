@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.fqx.anyplay.images.MyGallery android:id="@id/viewgallery" android:layout_width="fill_parent" android:layout_height="fill_parent" android:spacing="6.0dip" android:unselectedAlpha="1.0" />
+    <FrameLayout android:gravity="top|left|center" android:id="@id/pic_view_other" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

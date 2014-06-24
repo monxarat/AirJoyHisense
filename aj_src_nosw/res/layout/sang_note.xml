@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/hs_dialog_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="32.0sp" android:textColor="#ff2e3439" android:gravity="center" android:id="@id/note_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip" android:text="@string/note" />
+    <ImageView android:id="@id/hs_line" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:src="@drawable/hs_line" android:contentDescription="@string/app_name" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip">
+        <TextView android:textSize="30.0sp" android:textColor="#ff2e3439" android:gravity="fill_horizontal" android:id="@id/note_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="30.0dip" android:layout_marginBottom="40.0dip">
+        <Button android:id="@id/note_confirm" android:background="@drawable/hs_btn" android:layout_height="wrap_content" android:text="@string/confirm" android:singleLine="true" style="@style/btn_style" />
+        <Button android:id="@id/note_cancel" android:background="@drawable/hs_btn" android:visibility="gone" android:layout_height="wrap_content" android:text="@string/cancel" style="@style/btn_style" />
+    </LinearLayout>
+</LinearLayout>

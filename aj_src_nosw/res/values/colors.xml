@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_75_transparent">#c0000000</color>
+    <color name="help_color">#ff999999</color>
+    <color name="white_board_bg">#ffe1e4e9</color>
+    <color name="search_hint">#ffcccccc</color>
+    <color name="transparent">#99000000</color>
+    <color name="transparent_all">#00000000</color>
+    <color name="title_black">#ff000000</color>
+    <color name="grey_normal">#ff888888</color>
+    <color name="pink_pressed">#ff9e3990</color>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/main_setView" android:background="@drawable/main_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_weight="1.0">
+        <TextView android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RelativeLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="60.0dip" android:layout_marginRight="60.0dip" android:layout_centerInParent="true">
+            <ImageView android:id="@id/simg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/sketch_map" android:layout_centerHorizontal="true" android:contentDescription="@string/app_name" />
+            <TextView android:textSize="22.0sp" android:textColor="#ffffffff" android:id="@id/stxt1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minfo" android:singleLine="false" android:layout_below="@id/simg" android:layout_alignLeft="@id/simg" android:layout_alignRight="@id/simg" />
+            <TextView android:textSize="16.0sp" android:id="@id/stxtinfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:text="@string/murl" android:singleLine="false" android:layout_below="@id/stxt1" android:layout_centerHorizontal="true" style="@style/Setting_min" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="30.0dip" android:layout_marginRight="60.0dip" android:layout_weight="1.0">
+        <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="72.0dip" android:layout_marginRight="30.0dip" android:src="@drawable/logo" android:contentDescription="@string/app_name" />
+        <ListView android:id="@id/setting_list" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:drawSelectorOnTop="false" android:fastScrollEnabled="true" />
+    </LinearLayout>
+</LinearLayout>
