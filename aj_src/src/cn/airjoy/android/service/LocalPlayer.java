@@ -520,8 +520,8 @@ public class LocalPlayer extends Activity implements
 			default:
 				break;
 		}
-	    tryPlay(this.mPath, this.mStartPosition);
-//		showSangNode(mNetErrString);
+//	    tryPlay(this.mPath, this.mStartPosition);
+		showSangNode(mNetErrString);
 	}
 
 	public boolean onError(MediaPlayer paramMediaPlayer, int paramInt1, int paramInt2) {

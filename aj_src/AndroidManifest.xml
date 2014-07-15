@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest 
-	android:versionCode="320" 
-	android:versionName="3.2.0" 
+	android:versionCode="201" 
+	android:versionName="2.0.1" 
 	package="cn.airjoy.android.service"
   xmlns:android="http://schemas.android.com/apk/res/android">
   <uses-sdk 
@@ -51,7 +51,7 @@
 		<!--  "true" or "false"  -->
         <meta-data android:name="IS_LOCALPALYER_M3U8" android:value="true" />
         
-		<!--  198 -->
+		<!--  199 -->
 		<!--  HisenseBox 
 		-->
         <meta-data android:name="UMENG_APPKEY" android:value="5391299a56240b01b50799fa" />

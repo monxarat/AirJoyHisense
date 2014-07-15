@@ -52,7 +52,7 @@ public class CheckVideoNetState {
 	  }
 	
 	  public void start() { 
-		  this.mis_check = true; 
+//		  this.mis_check = true; 
 		  this.ms_times = 0; 
 		  doEvent(NetCode.OK.GetValue());
 	  }
