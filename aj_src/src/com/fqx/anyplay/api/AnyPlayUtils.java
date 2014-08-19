@@ -20,6 +20,12 @@ import java.io.File;
 import java.net.URLEncoder;
 import java.util.Random;
 
+/**
+* <p>鎻忚堪: 鏈」鐩腑鎵�鐢ㄥ埌鐨勬墍鏈夌殑宸ュ叿鏂规硶鍑芥暟. </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class AnyPlayUtils {
   public static String ACTION_HX_EXIT;
   public static String ACTION_SERVER_SLIDESHOW;
@@ -30,6 +36,7 @@ public class AnyPlayUtils {
   public static volatile boolean is_anyplay;
   private static String mMacString;
 
+  public static String  ACTION_PLAYER_CMD = "com.fqx.airjoy.player.cmd";
   static {
     ACTION_SERVER_STATE = "com.fqx.airjoy.state";
     ACTION_SERVER_SLIDESHOW = "com.fqx.airjoy.slideshows";
@@ -165,7 +172,7 @@ public class AnyPlayUtils {
 	}
 	
 	public static long getAvailaleSize(){
-		  File path = Environment.getExternalStorageDirectory(); //取得sdcard文件路径
+		  File path = Environment.getExternalStorageDirectory(); //取锟斤拷sdcard锟侥硷拷路锟斤拷
 		  StatFs stat = new StatFs(path.getPath()); 
 		  long blockSize = stat.getBlockSize(); 
 		  long availableBlocks = stat.getAvailableBlocks();

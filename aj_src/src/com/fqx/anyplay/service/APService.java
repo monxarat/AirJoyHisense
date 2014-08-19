@@ -38,7 +38,7 @@ public class APService extends Service {
 	  private Handler mPublishHandler;
 	  private boolean m_isEther = false;
 	  private boolean m_isWifi = false;
-	  private final static long TIME_PUBLISH = 15*1000;
+	  private final static long TIME_PUBLISH = 16*1000;
 
 	  static {
 	    AnyPlayUtils.LOG_DEBUG("APController", "Loadlib start");
@@ -97,13 +97,10 @@ public class APService extends Service {
 	private Runnable mPublishRunnable = new Runnable() {
 		@Override
 		public void run() {
-//		    mApController.AirplayStop();
-//			SystemClock.sleep(2000);
-//			mBinder.Start();
 			mApController.AirplayPublishService(false);
 			mApController.AirplayPublishService(true);
 	        mPublishHandler.postDelayed(mPublishRunnable, TIME_PUBLISH);
-		 AnyPlayUtils.LOG_DEBUG("mPublishRunnable", "------------------------------------------------------------");
+		 AnyPlayUtils.LOG_DEBUG("mPublishRunnable", "");
 		}
 	};
 	
@@ -111,10 +108,10 @@ public class APService extends Service {
 	private BroadcastReceiver MyWifiReciver = new BroadcastReceiver() {
 	    public void onReceive(Context paramContext, Intent paramIntent) {
 	      String str = paramIntent.getAction();
-		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "-------------- ACTION:" + str);
+		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "ACTION:" + str);
 	      if ((str.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) || (str.equals("android.net.wifi.STATE_CHANGE"))) {
 	      	int wifiState = paramIntent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);   
-		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "-------------- wifiState:" + wifiState);
+		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "wifiState:" + wifiState);
 	        switch (wifiState) {   
 	            case WifiManager.WIFI_STATE_DISABLED:   
 		        	AnyPlayUtils.LOG_DEBUG("WIFI_STATE_CHANGED", "WIFI_STATE_DISABLED");
@@ -189,6 +186,7 @@ public class APService extends Service {
 	      return -1;
 	    }
 	    if (!this.mApController.PublishAirplayService()) {
+	    	Log.e("AirplayStart", " ### ERR: PublishAirplayService fail ");
 	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirPlay.GetValue(), 400);
 	    }else{
 	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirPlay.GetValue(), 200);
@@ -200,6 +198,7 @@ public class APService extends Service {
 	    	return -1;
 	    }
 	    if (!this.mApController.PublishAirTunesService()) {
+	    	Log.e("AirTunesStart", " ### ERR: PublishAirTunesService fail ");
 	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirTunes.GetValue(), 400);
 	    }else{
 	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirTunes.GetValue(), 200);

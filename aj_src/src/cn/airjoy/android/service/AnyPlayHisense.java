@@ -1,5 +1,6 @@
 package cn.airjoy.android.service;
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -37,6 +38,13 @@ import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
 
+/**
+* <p>文件名: AnyPlayHisense.java</p>
+* <p>描述: AirJoy主页面UI</p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class AnyPlayHisense extends Activity {
 //	private Intent AJServiceIntent;
 //	private Intent APServiceIntent;
@@ -396,6 +404,7 @@ public class AnyPlayHisense extends Activity {
 	}
 	
 	public boolean onKeyDown(int paramInt, KeyEvent paramKeyEvent) {
+
 	    if (paramInt == KeyEvent.KEYCODE_BACK) {
 	      finish();
 	      return true;

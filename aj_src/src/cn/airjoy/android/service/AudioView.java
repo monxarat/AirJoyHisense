@@ -17,6 +17,13 @@ import com.fqx.anyplay.api.APPEnum;
 import com.fqx.anyplay.api.AnyPlayUtils;
 import com.fqx.anyplay.service.APService;
 
+/**
+* <p>文件名: AudioView.java</p>
+* <p>描述: 音频播放页面，只实现苹果设备的音频流播放逻辑.  </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class AudioView extends Activity {
 
 	private APService.MyBinder mAPServerBinder;
@@ -58,14 +65,14 @@ public class AudioView extends Activity {
 	      arrayOfByte = AnyPlayUtils.gAudioInfo.imgData;
 	      this.mAudioTitle.setText(str1);
 	      if (!str2.trim().equals("")) {
-	        this.mAudioInfo.setText("�ݳ���: " + str2);
+	        this.mAudioInfo.setText("演唱: " + str2);
 	      }else{
 	        this.mAudioInfo.setText(" ");
 	      }
 	      if (str3.trim().equals("")) {
 	        this.mAudioInfo2.setText(" ");
 	      }else{
-	        this.mAudioInfo2.setText("ר��: " + str3);
+	        this.mAudioInfo2.setText("专辑: " + str3);
 	      }
 	      if (arrayOfByte == null){
 	        this.mAudioImg.setImageResource(R.drawable.audio_img);

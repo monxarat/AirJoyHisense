@@ -123,9 +123,9 @@ public class APPEnum {
 	public enum MediaType {
 
 		MediaUnknown     (-1),
-		MediaPhoto       (0),    // Õº∆¨
-		MediaVideo       (1),    //  ”∆µ
-		MediaSlideshow   (2),    // ª√µ∆∆¨
+		MediaPhoto       (0),  
+		MediaVideo       (1),  
+		MediaSlideshow   (2),  
 		MediaAudio		 (3);
 
 		private int value;

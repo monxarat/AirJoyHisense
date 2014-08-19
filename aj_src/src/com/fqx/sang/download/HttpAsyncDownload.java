@@ -300,10 +300,7 @@ public class HttpAsyncDownload {
    
 
   
-    // 锟斤�?Handler 锟斤拷锟斤拷锟斤拷息   
     private void sendMessage(int what, int id, Object obj) {   
-        // 锟斤拷锟斤拷锟斤拷要锟斤�?Handler 锟斤拷锟酵碉拷锟斤拷�?  
-//        Message msg = mHandler.obtainMessage(what, id, obj);   
         Message msg = mHandler.obtainMessage(what, id, id, obj);
         mHandler.sendMessage(msg);   
     }   
@@ -333,7 +330,6 @@ public class HttpAsyncDownload {
     private static final int FILE_DOWNLOAD_SIZE = 5;   
   //  private static final int FILE_DOWNLOAD_COMPLETE_ALL = 4;   
   
-    // 锟皆讹拷锟斤拷锟�Handler   
     private class EventHandler extends Handler {   
         private HttpAsyncDownload mManager;   
   
@@ -341,7 +337,6 @@ public class HttpAsyncDownload {
             mManager = manager;   
         }   
   
-        // 锟斤拷锟斤拷锟斤拷盏锟斤拷锟斤拷锟较�? 
         @Override  
         public void handleMessage(Message msg) {   
         	boolean ret;
@@ -421,7 +416,6 @@ public class HttpAsyncDownload {
         }   
     }   
   
-    // 锟斤拷锟斤拷锟斤拷锟斤拷锟铰硷拷   
     private OnDownloadConnectListener mOnDownloadConnectListener;   
     public interface OnDownloadConnectListener {   
         void onDownloadConnect(HttpAsyncDownload manager, int id);   
@@ -430,7 +424,6 @@ public class HttpAsyncDownload {
         mOnDownloadConnectListener = listener;   
     }   
   
-    // 锟斤拷锟斤拷锟斤拷锟截斤拷雀锟斤拷锟斤拷录锟�? 
     private OnDownloadUpdateListener mOnDownloadUpdateListener;   
     public interface OnDownloadUpdateListener {   
         void onDownloadUpdate(HttpAsyncDownload manager, int percent, int id);   
@@ -447,7 +440,6 @@ public class HttpAsyncDownload {
     	mOnDownloadSizeListener = listener;   
     }   
   
-    // 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷录锟�? 
     private OnDownloadCompleteListener mOnDownloadCompleteListener;   
     public interface OnDownloadCompleteListener {   
         void onDownloadComplete(HttpAsyncDownload manager, int id, Object result);   
@@ -456,7 +448,6 @@ public class HttpAsyncDownload {
         mOnDownloadCompleteListener = listener;   
     }   
   
-    // 锟斤拷锟斤拷锟斤拷锟斤拷锟届常锟铰硷�?  
     private OnDownloadErrorListener mOnDownloadErrorListener;   
     public interface OnDownloadErrorListener {   
         void onDownloadError(HttpAsyncDownload manager, int id, int errState);   
@@ -465,7 +456,6 @@ public class HttpAsyncDownload {
         mOnDownloadErrorListener = listener;   
     }   
     
- // 锟斤拷锟斤拷锟斤拷锟斤拷停止锟铰硷拷   
     private OnDownloadStopListener mOnDownloadStopListener;   
     public interface OnDownloadStopListener {   
         void onDownloadStop(HttpAsyncDownload manager, int id,  Object info);   
@@ -474,7 +464,6 @@ public class HttpAsyncDownload {
         mOnDownloadStopListener = listener;   
     }   
     
-     // 锟斤拷锟斤拷锟斤拷全锟斤拷锟截斤拷锟斤拷锟铰硷拷   
     private OnDownloadCompleteAllListener mOnDownloadCompleteAllListener;   
     public interface OnDownloadCompleteAllListener {   
         void OnDownloadCompleteAll(HttpAsyncDownload manager);   

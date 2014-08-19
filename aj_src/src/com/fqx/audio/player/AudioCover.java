@@ -68,13 +68,13 @@ public class AudioCover extends FrameLayout {
 	      if (paramAudioInfo.artString.trim().equals("")) {
 	    	  this.mAudioArt.setText(" ");
 	      }else{
-	    	  this.mAudioArt.setText("ÑÝ³ªÕß:  " + paramAudioInfo.artString);
+	    	  this.mAudioArt.setText("æ¼”å”±:  " + paramAudioInfo.artString);
 	      }
 	
 	      if (paramAudioInfo.albumString.trim().equals("")) {
 	    	  this.mAudioAlbum.setText(" ");
 	       }else{
-	    	   this.mAudioAlbum.setText("×¨¼­Ãû:  " + paramAudioInfo.albumString);
+	    	   this.mAudioAlbum.setText("ä¸“è¾‘:  " + paramAudioInfo.albumString);
 	       }
 	      if(paramAudioInfo.imgData == null) {
 	    	  this.mAudioImg.setImageResource(R.drawable.audio_img);

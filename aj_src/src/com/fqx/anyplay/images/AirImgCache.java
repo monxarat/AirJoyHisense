@@ -2,6 +2,12 @@ package com.fqx.anyplay.images;
 
 import android.util.Log;
 
+/**
+* <p>描述: 推送图片的缓存，最多缓存4张，AirPlay推送的会设定那张图片需要缓存，每张缓存的图片都有唯一的ID，可以通过ID调出要显示的图片. </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class AirImgCache {
   private static final int mCacheSize = 4;
   private static long mtimes = 0L;

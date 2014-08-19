@@ -41,6 +41,12 @@ import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+* <p>功能描述: 图片显示UI页面.</p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class ShowImgView extends Activity {
 
 	private static final int TASKAIRJOY = 2;
@@ -524,6 +530,7 @@ public class ShowImgView extends Activity {
 	}
 	
 	public boolean onKeyDown(int paramInt, KeyEvent paramKeyEvent) {
+	    Log.d("AnyPlayHS", "-------------------------------------------- Key = " + paramInt);
 	    if (paramInt == KeyEvent.KEYCODE_BACK) {
 	      this.slidesShowsHandler.removeCallbacks(this.slidesShowsTasks);
 	      this.mPublishState.setSlidesShowMode(false);

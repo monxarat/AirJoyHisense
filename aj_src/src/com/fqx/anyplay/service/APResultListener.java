@@ -30,18 +30,14 @@ public class APResultListener implements AirPlayResultListener {
 	private Runnable tryStartAirTunesRunnable = new Runnable() {
 		@Override
 		public void run() {
-		    mApController.AirTunesStop();
-		    mApController.AirTunesStart(mLocalInfo.getMac(), mLocalInfo.getName(), "AppleTV2,1");
-		    mApController.PublishAirTunesService();
+		    mApController.AirTunesPublishService(true);
 		}
 	};
 	
 	private Runnable tryStartAirPalyRunnable = new Runnable() {
 		@Override
 		public void run() {
-		    mApController.AirplayStop();
-		    mApController.AirplayStart(mLocalInfo.getMac(), mLocalInfo.getName(), "AppleTV2,1");
-		    mApController.PublishAirplayService();
+			mApController.AirplayPublishService(true);
 		}
 	};
 	

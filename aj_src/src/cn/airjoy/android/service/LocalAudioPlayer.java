@@ -46,6 +46,13 @@ import com.fqx.sang.video.VideoView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 
+/**
+* <p>文件名: LocalAudioPlayer.java</p>
+* <p>描述: 音频播放页面，只实现url http流的播放逻辑。  </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class LocalAudioPlayer extends Activity implements 
 							MediaPlayer.OnCompletionListener, 
 							MediaPlayer.OnSeekCompleteListener, 

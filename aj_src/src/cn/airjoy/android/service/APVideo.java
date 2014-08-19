@@ -38,12 +38,16 @@ import com.fqx.anyplay.service.QiyiStop;
 import com.fqx.sang.video.LibsChecker;
 import com.fqx.sang.video.MediaController;
 import com.fqx.sang.video.VideoView;
-
-//import com.fqx.sang.video.VideoView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 import io.vov.vitamio.MediaPlayer;
 
+/**
+* <p>描述: 利用第三方视频库（vitamio）实现软解码服务，目前版本没有调用. </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class APVideo extends Activity implements 
 					MediaPlayer.OnCompletionListener, 
 					MediaPlayer.OnSeekCompleteListener, 

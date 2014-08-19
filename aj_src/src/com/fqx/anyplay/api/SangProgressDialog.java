@@ -9,9 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SangProgressDialog extends Dialog {
-  private static String MDEFAULEMSG_STRING = "努力加载中，请稍后...";
+  private static String MDEFAULEMSG_STRING = "努力加载中，请稍后...  ";
   private static SangProgressDialog customProgressDialog = null;
   private static TextView mProgressTextView;
+  private static TextView mTextView;
 
   public SangProgressDialog(Context paramContext) {
     super(paramContext);
@@ -28,7 +29,8 @@ public class SangProgressDialog extends Dialog {
     customProgressDialog.getWindow().getAttributes().gravity = Gravity.CENTER;
     mProgressTextView = (TextView)customProgressDialog.findViewById(R.id.loading_progress);
     mProgressTextView.setText(" ");
-    ((TextView)customProgressDialog.findViewById(R.id.id_tv_loadingmsg)).setText(MDEFAULEMSG_STRING);
+    mTextView = ((TextView)customProgressDialog.findViewById(R.id.id_tv_loadingmsg));
+    mTextView.setText(MDEFAULEMSG_STRING);
     return customProgressDialog;
   }
 
@@ -54,12 +56,22 @@ public class SangProgressDialog extends Dialog {
     return customProgressDialog;
   }
 
+  public void setSpeed(int paramInt) {
+    if (mTextView == null) {
+    	return;
+    }
+    if(paramInt < 0) {
+	    mTextView.setText(MDEFAULEMSG_STRING);
+    }else {
+	    mTextView.setText(MDEFAULEMSG_STRING + paramInt + "bytes/s");
+	}
+  }
+
   public void setProgress(int paramInt) {
     if (mProgressTextView == null) {
     	return;
-    }else {
-      mProgressTextView.setText(paramInt + "%");
     }
+    mProgressTextView.setText(paramInt + "%");
   }
 
   public SangProgressDialog setTitile(String paramString) {

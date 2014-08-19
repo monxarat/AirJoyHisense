@@ -6,6 +6,14 @@ import android.content.Intent;
 import com.fqx.airjoy.service.AJService;
 import com.fqx.anyplay.service.APService;
 
+
+/**
+* <p>文件名: AnyPlayBootReceiver.java</p>
+* <p>描述: AirJoy随机启动服务的入口 </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class AnyPlayBootReceiver extends BroadcastReceiver {
 
   private void startAPControllerService(Context paramContext) {

@@ -14,6 +14,12 @@ import com.fqx.anyplay.api.LocalInfo;
 import com.fqx.anyplay.api.PublishState;
 import com.fqx.anyplay.images.AirImgCache;
 
+/**
+* <p>描述: 本文件比较重要，实现了AirPlay所有的操作行为的接口回调，包含图片音乐视频的推送操作处理。</p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class AirplayListener {
   public static Class<?> mVideoClass;
   private APAirTunesServerListener mApAirTunesServerListener;
@@ -36,15 +42,15 @@ public class AirplayListener {
 	  mContext.sendBroadcast(localIntent);
   }
 
-  public AirplayListener(Context paramContext) {
-    this.mContext = paramContext;
+  public AirplayListener(Context context) {
+    this.mContext = context;
     this.mVideoInfo = VideoInfo.getInstance();
     this.mPlaybackTime = new PlaybackTime();
     this.mPlaybackInfo = PlaybackInfo.getInstance();
     mVideoClass = null;
     sg_image_show = false;
     this.mPublishState = PublishState.getInstance();
-    this.mApAirTunesServerListener = APAirTunesServerListener.getInstance(paramContext);
+    this.mApAirTunesServerListener = APAirTunesServerListener.getInstance(context);
     this.mChannel = APPEnum.AirChannel.AirPlay.GetValue();
     mLocalInfo = LocalInfo.getInstance(mContext);
   }
@@ -95,12 +101,6 @@ public class AirplayListener {
 	    	}else{
 	    		mVideoClass = APVideo.class;
 	    	}
-//	        urlString = VerifyURL.tryDo(paramString);
-//	        if(urlString == null) {
-//	        	mVideoClass = null;
-//	        	AnyPlayApi.LOG_ERR("start_video", "URL:" + paramString);
-//	        	return;
-//	        }
 	    }else {
 	      mVideoClass = LocalPlayer.class;
 	    }
@@ -137,16 +137,31 @@ public class AirplayListener {
 	      this.mContext.startActivity(localIntent);
 	}
 	
+	/**
+	* <p>功能: 已经弃用 </p>
+	*/
 	public void didCreateEventSession(int paramInt, String paramString) {
 	    LocalInfo.gVideoSessionID = paramInt;
 	}
 	
-	public void didDisplayCachedPhoto(String paramString) {
-	    this.mPublishState.UpdateResInfo(paramString, "", "");
+	/**
+	* <p>功能: 显示缓存图片</p>
+	* 
+	* @param photoIdString:要显示的图片ID
+	* @return 
+	*/
+	public void didDisplayCachedPhoto(String photoIdString) {
+	    this.mPublishState.UpdateResInfo(photoIdString, "", "");
 	    this.mPublishState.SetMediaPhotoState(APPEnum.EventState.EventStatePlaying.GetValue());
-	    gotoImgView(APPEnum.AirImgCmd.didDisplayCachedPhoto.GetValue(), paramString);
+	    gotoImgView(APPEnum.AirImgCmd.didDisplayCachedPhoto.GetValue(), photoIdString);
 	}
 	
+	/**
+	* <p>功能: 需要显示的幻灯片的图片</p>
+	* 
+	* @param photoIdString:要显示的图片ID
+	* @return 
+	*/
 	public void didGetSlideshowsPicture(int paramInt, byte[] paramArrayOfByte, long paramLong) {
 	    AnyPlayUtils.LOG_DEBUG("Slideshows", " didStopSlideshows");
 	    if (!this.mPublishState.iSlidesShowMode()) {
@@ -174,17 +189,16 @@ public class AirplayListener {
 	public void didSetPlaybackRate(long paramLong) {
 	    AnyPlayUtils.LOG_DEBUG("didSetPlaybackRate", mVideoClass + " Rate:" + paramLong);
 	    this.mPublishState.SetMediaVideoRate((int)paramLong);
-	    if (mVideoClass == null) {
-	    	return;
-	    }
 	      this.mPlaybackInfo.set_rate((int)paramLong);
-	      Intent localIntent = new Intent(this.mContext, mVideoClass);
+//	      Intent localIntent = new Intent(this.mContext, mVideoClass);
+	      Intent localIntent = new Intent();
 	      Bundle localBundle = new Bundle();
 	      localBundle.putInt("VideoCmd", APPEnum.AirVideoCmd.didSetPlaybackRate.GetValue());
 	      localBundle.putLong("Rate", paramLong);
 	      localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	      localIntent.putExtras(localBundle);
-	      this.mContext.startActivity(localIntent);
+	      localIntent.setAction(AnyPlayUtils.ACTION_PLAYER_CMD);
+	      this.mContext.sendBroadcast(localIntent);
 	}
 	
 	public void didSetVolume(float paramFloat) {

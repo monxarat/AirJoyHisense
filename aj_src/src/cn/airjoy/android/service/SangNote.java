@@ -10,6 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.fqx.anyplay.api.CallBackEvent;
 
+/**
+* <p>功能描述: TV提示对话框，有超时自动取消功能 </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class SangNote {
 
 	private CallBackEvent mCallBackEvent = null;

@@ -3,12 +3,12 @@ package com.fqx.sang.download;
 public class DLEnum {
 
 	public enum DownloadResult{
-		ResultCodeProgress          (100),   // ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
-		ResultCodeError        		(101),   // ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
-		ResultCodeComplete 			(102),   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
-		ResultCodeStop				(103),   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
-		ResultCodeCompleteALL 		(104),   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
-		ResultCodeSize				(105);   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
+		ResultCodeProgress          (100),  
+		ResultCodeError        		(101),  
+		ResultCodeComplete 			(102),  
+		ResultCodeStop				(103),  
+		ResultCodeCompleteALL 		(104),  
+		ResultCodeSize				(105);  
 		
 		private final int value;
 		private DownloadResult(int value){

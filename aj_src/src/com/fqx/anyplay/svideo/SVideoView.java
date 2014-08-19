@@ -33,6 +33,7 @@ public class SVideoView extends SurfaceView implements MediaController.MediaPlay
   private static final int STATE_SUSPEND_UNSUPPORTED = 8;
   private String TAG = "SangVideoView";
   private boolean mCanPause;
+  private boolean misPause = false;
   private boolean mCanSeekBack;
   private boolean mCanSeekForward;
   private Context mContext;
@@ -323,6 +324,8 @@ public class SVideoView extends SurfaceView implements MediaController.MediaPlay
 			if (mMediaPlayer.isPlaying()) {
 				mMediaPlayer.pause();
 	            mCurrentState = STATE_PAUSED;
+				misPause = true;
+	            Log.e("sVideoView", "pause");
 	        }
 	    }
 	    mTargetState = STATE_PAUSED;
@@ -440,12 +443,16 @@ public class SVideoView extends SurfaceView implements MediaController.MediaPlay
     invalidate();
   }
 
+  public boolean isPuase() {
+	  return misPause;
+  }
   public void start() {
     if (isInPlaybackState())
     {
       this.mMediaPlayer.start();
       this.mCurrentState = 3;
     }
+    misPause = false;
     this.mTargetState = 3;
   }
 

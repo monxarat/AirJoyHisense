@@ -29,7 +29,7 @@ public class DLUtils
   }
 
   public static long getAvailaleSize(){
-	  File path = Environment.getExternalStorageDirectory(); //取得sdcard文件路径
+	  File path = Environment.getExternalStorageDirectory();
 	  StatFs stat = new StatFs(path.getPath()); 
 	  long blockSize = stat.getBlockSize(); 
 	  long availableBlocks = stat.getAvailableBlocks();

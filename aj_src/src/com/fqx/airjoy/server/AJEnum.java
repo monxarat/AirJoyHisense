@@ -1,5 +1,6 @@
-package com.fqx.airjoy.server;
 
+
+package com.fqx.airjoy.server;
 public class AJEnum {
 	public enum AirJoyPhotoCmd {
 		cachePhoto			(0),
@@ -82,17 +83,17 @@ public class AJEnum {
 
 	public enum FileType {
 
-	    FileTypeUnknown    		  (0),     		// 未知类型
-        FileTypeFolder       	  (1000),   	// 文件夹
-        FileTypeFile          	  (2000),   	// 普通文件
-        FileTypeFilePicture       (2001),       // 图片文件
-        FileTypeFileMusic         (2002),       // 音乐文件
-        FileTypeFileVideo         (2003),       // 视频文件
-        FileTypeFileText          (2004),       // 文本文件
-        FileTypeFilePpt           (2005),       // PPT文件
-        FileTypeFileApk           (2006),       // apk文件
-        FileTypeFileRing          (2007),       // 铃声文件
-        FileTypeFilePdf           (2008);       // pdf文件
+	    FileTypeUnknown    		  (0),     		
+        FileTypeFolder       	  (1000),   
+        FileTypeFile          	  (2000),   
+        FileTypeFilePicture       (2001),   
+        FileTypeFileMusic         (2002),   
+        FileTypeFileVideo         (2003),   
+        FileTypeFileText          (2004),   
+        FileTypeFilePpt           (2005),   
+        FileTypeFileApk           (2006),   
+        FileTypeFileRing          (2007),   
+        FileTypeFilePdf           (2008);   
 
 		private final int value; 
 
@@ -105,9 +106,9 @@ public class AJEnum {
 	}
 
 	public enum PhotoActionType {
-		PhotoActionUnknown    (0),    // 未知动作
-        PhotoActionDisplay    (1),    // 显示
-        PhotoActionCache      (2);    // 缓存
+		PhotoActionUnknown    (0),   
+        PhotoActionDisplay    (1),   
+        PhotoActionCache      (2);   
 
 		private final int value;
 
@@ -122,8 +123,8 @@ public class AJEnum {
 
 	public enum PhotoDirectionType {
 
-		PhotoDirectionRight        (1),    // 向右旋转
-        PhotoDirectionLeft         (3);    // 向左旋转 
+		PhotoDirectionRight        (1), 
+        PhotoDirectionLeft         (3); 
 
 		private final int value;
 
@@ -137,14 +138,14 @@ public class AJEnum {
 	}
 
 	public enum ResultCode {
-		ResultCodeUnknown         (0),     // 未知结果
-        ResultCodeOk              (200),   // 操作成功
-        ResultCodeError           (400),   // 普通错误
-        ResultCodeErrorParam      (401),   // 参数错误
-        ResultCodeErrorTimeout    (402),   // 请求超时
-        ResultCodeErrorRefused    (403),   // 拒绝访问
-        ResultCodeErrorNotSupport (404),   // 不支持的请求
-        ResultCodeErrorConnection (405);   // 网络连接错误
+		ResultCodeUnknown         (0),   
+        ResultCodeOk              (200), 
+        ResultCodeError           (400), 
+        ResultCodeErrorParam      (401), 
+        ResultCodeErrorTimeout    (402), 
+        ResultCodeErrorRefused    (403), 
+        ResultCodeErrorNotSupport (404), 
+        ResultCodeErrorConnection (405); 
 
 
 		private final int value;

@@ -15,6 +15,12 @@ import android.net.wifi.WifiManager;
 
 import android.util.Log;
 
+/**
+* <p>描述: 网络状态信息. </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class PhoneNetInfo {
 
 	private ConnectivityManager conMan;

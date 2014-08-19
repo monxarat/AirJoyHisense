@@ -12,6 +12,7 @@
 bin/
 gen/
 bak/
+doc/
 
 # Local configuration file (sdk path, etc)
 local.properties

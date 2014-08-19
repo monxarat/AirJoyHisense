@@ -45,13 +45,13 @@ public class MyImageView extends ImageView {
 
 	int mThisWidth = -1, mThisHeight = -1;
 
-	float mMaxZoom = 4.0f;// 锟斤拷锟斤拷锟斤拷疟锟斤拷锟?
-	float mMinZoom = 1.0f;// 锟斤拷小锟斤拷锟脚憋拷锟斤拷
+	float mMaxZoom = 4.0f;//
+	float mMinZoom = 1.0f;
 
-	 int imageWidth;// 图片锟斤拷原始锟斤拷锟?
-	 int imageHeight;// 图片锟斤拷原始锟竭讹拷
+	 int imageWidth;
+	 int imageHeight;
 
-	private float scaleRate;// 图片锟斤拷应锟斤拷幕锟斤拷锟斤拷锟脚憋拷锟斤拷
+	private float scaleRate;
 
 	public MyImageView(Context context) {
 		super(context);
@@ -70,7 +70,6 @@ public class MyImageView extends ImageView {
 		screenHeight = height;
 	}
 	
-	//原图片
 	public 	int originrate = 1;
 	
 	private float mLastRate = -100;
@@ -104,11 +103,6 @@ public class MyImageView extends ImageView {
 		}
 	}
 	
-	/**
-	 * 锟狡讹拷图片
-	 * @param rateX 水平锟斤拷锟斤拷锟狡讹拷锟绞ｏ拷水平锟斤拷锟斤拷锟狡讹拷锟斤拷锟斤拷/锟斤拷始图片锟斤拷龋锟?
-	 * @param rateY 锟斤拷直锟斤拷锟斤拷锟狡讹拷锟绞ｏ拷锟斤拷直锟斤拷锟斤拷锟狡讹拷锟斤拷锟斤拷/锟斤拷始图片锟竭度ｏ拷
-	 */
 	public void translatePhoto(float rateX ,float rateY){
 		float x = rateX*getInitX();
 		float y = rateY*getInitY() ;
@@ -116,10 +110,6 @@ public class MyImageView extends ImageView {
 	}
 	
 	
-	/**
-	 * 锟斤拷转图片
-	 * @param direction 锟斤拷锟斤拷1锟斤拷时锟斤拷锟斤拷锟斤拷转锟斤拷锟斤拷锟斤拷3锟斤拷时锟斤拷锟斤拷锟斤拷转锟斤拷
-	 */
 	public void rotatePhoto( int direction){
 //		DebugUtil.debug("rotatePhoto", "position= "+position);
 //		int x = (direction+4-position)%4;
@@ -192,9 +182,6 @@ public class MyImageView extends ImageView {
 		mMaxZoom = 4.0f;
 		mMinZoom = 1.0f;
 		arithScaleRate();
-/**
- * 锟斤拷取锟斤拷前锟斤拷锟斤拷		
- */
 		getScale();
 		System.out.println("getScale()"+getScale());
 		if(scaleRate>4.0){
@@ -203,10 +190,6 @@ public class MyImageView extends ImageView {
 			mMaxZoom=4.0f;
 		}
 		
-		
-/**
- * 锟斤拷锟斤拷小锟斤拷锟斤拷为 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷原图 取 min
- */
 		mMinZoom = (screenWidth / 1f) / imageWidth;
 		if(mMinZoom>1.0f){
 			mMinZoom=1.0f;
@@ -217,9 +200,6 @@ public class MyImageView extends ImageView {
 	
 	
 
-	/**
-	 * 锟斤拷转锟斤拷位锟斤拷 0 原图锟斤拷锟斤拷 1  锟斤拷90锟斤拷 锟斤拷2  180锟斤拷, 3:270锟斤拷
-	 */
     int position = 0;
     
     public int getPosition() {
@@ -231,9 +211,6 @@ public class MyImageView extends ImageView {
 
    
 
-	/**
-	 * 锟斤拷锟斤拷图片要锟斤拷应锟斤拷幕锟斤拷要锟斤拷锟脚的憋拷锟斤拷
-	 */
 	private void arithScaleRate() {
 		float scaleWidth = screenWidth / (float) imageWidth;
 		float scaleHeight = screenHeight / (float) imageHeight;
@@ -373,15 +350,11 @@ public class MyImageView extends ImageView {
 	}
 	
 
-	/** * 锟斤拷锟斤拷图片锟斤拷锟斤拷锟斤拷示 */
 	public void layoutToCenter() {
-		// 锟斤拷锟斤拷锟斤拷示锟斤拷图片实锟绞匡拷锟?
 		float width = imageWidth * getScale();
 		float height = imageHeight * getScale();
-		// 锟秸帮拷锟斤拷锟斤拷锟斤拷
 		float fill_width = screenWidth - width;
 		float fill_height = screenHeight - height;
-		// 锟斤拷要锟狡讹拷锟侥撅拷锟斤拷
 		float tran_width = 0f;
 		float tran_height = 0f;
 		if (fill_width > 0)
@@ -391,7 +364,6 @@ public class MyImageView extends ImageView {
 
 		postTranslate(tran_width, tran_height);
 		setImageMatrix(getImageViewMatrix());
-		//锟斤拷锟秸讹拷要锟斤拷锟接的地凤拷
 //		center(true, true);
 	}
 
@@ -592,7 +564,6 @@ public class MyImageView extends ImageView {
 		mMinZoom = 1.0f;
 		arithScaleRate();
 /**
- * 锟斤拷取锟斤拷前锟斤拷锟斤拷		
  */
 		getScale();
 		System.out.println("getScale()"+getScale());
@@ -604,7 +575,6 @@ public class MyImageView extends ImageView {
 		
 		
 /**
- * 锟斤拷锟斤拷小锟斤拷锟斤拷为 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷原图 取 min
  */
 		mMinZoom = (screenWidth / 1f) / imageWidth;
 		if(mMinZoom>1.0f){

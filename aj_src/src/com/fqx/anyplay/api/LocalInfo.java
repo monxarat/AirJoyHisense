@@ -17,6 +17,12 @@ import com.fqx.anyplay.images.AirImgCache;
 import java.io.File;
 import java.security.PublicKey;
 
+/**
+* <p>描述: 项目中的所需要的参数缓存. </p>
+* 
+* @author sangwencheng
+* @version 1.0
+*/
 public class LocalInfo {
   public static boolean APVideoisRuning = false;
   public static AirImgCache gAirImgCache;
@@ -39,6 +45,7 @@ public class LocalInfo {
   private String mVerName;
   private String mWholeCachePath;
 //  private boolean misHisense;
+  private int curPlayPostion;
 
   static {
     isSwitchON = true;
@@ -52,6 +59,7 @@ public class LocalInfo {
     gVideoSessionID = -1;
     isSysRuning = true;
     ReadMetaData();
+    setCurPlayPostion(0);
 
     this.mServerState = APPEnum.ServiceState.Init.GetValue();
     makeCatchDir(this.mContext);
@@ -76,6 +84,15 @@ public class LocalInfo {
         Log.e("StartUP---", "Err: Find verCode fail");
         this.mVerName = "";
       }
+  }
+  
+  public void setCurPlayPostion(int pos) {
+	  this.curPlayPostion = pos;
+	  AnyPlayUtils.LOG_DEBUG("setCurPlayPostion = " + pos);
+  }
+  
+  public int getCurPlayPostion() {
+	  return this.curPlayPostion;
   }
   
   public int g_CustomUI;
