@@ -901,12 +901,12 @@ public class AirPlayServer implements HttpServerListener {
 
                 mListener.didPutPhoto(photoId, msg.getContent(),
                         msg.getContent().length, conn.getPeerIp());
-            } else if (action == "cacheOnly") {
+            } else if (action.equalsIgnoreCase("cacheOnly")) {
                 mListener.willPutPhotoCacheOnly(photoId, conn.getPeerIp());
 
                 mListener.didPutPhotoCacheOnly(photoId, msg.getContent(),
                         msg.getContent().length, conn.getPeerIp());
-            } else if (action == "displayCached") {
+            } else if (action.equalsIgnoreCase("displayCached")) {
                 mListener.didDisplayCachedPhoto(photoId, conn.getPeerIp());
             }
         }

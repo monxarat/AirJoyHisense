@@ -119,6 +119,7 @@ public class HttpConnection {
                     bufferRead.get(data, 0, readSize);
 
                     if (message.loadBytes(data, data.length) == HttpMessage.LoadStatus.Done) {
+                        Log.d(TAG, String.format("Load http msg ok!"));
                         mListener.didReceive(HttpConnection.this, message);
                         message = new HttpMessage();
                     }
