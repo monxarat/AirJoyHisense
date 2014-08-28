@@ -18,6 +18,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.airjoy.airplay.server.AirPlayServer;
 import com.fqx.airjoy.server.AJEnum;
 import com.fqx.anyplay.api.APPEnum;
 import com.fqx.anyplay.api.AnyPlayUtils;
@@ -30,7 +32,6 @@ import com.fqx.anyplay.api.VerLeg;
 import com.fqx.anyplay.images.AirImgCache;
 import com.fqx.anyplay.images.GetSampleBmp;
 import com.fqx.anyplay.images.MyImageView;
-import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
 import com.fqx.sang.download.DLEnum;
 import com.umeng.analytics.MobclickAgent;
@@ -121,12 +122,10 @@ public class ShowImgView extends Activity {
 	};
 	
 	private volatile boolean is_stop = false;
-	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
 	      ShowImgView.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
-	      ShowImgView.this.mAPController = ShowImgView.this.mAPServerBinder.getService();
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName) {
@@ -287,12 +286,12 @@ public class ShowImgView extends Activity {
 	}
 	
 	private void getSlidesShowsPic() {
-	    if (this.mAPController == null) {
+	    if (this.mAPServerBinder == null) {
 	      Log.e("getSlidesShowsPic", "mAPController=null");
 	      return;
 	    }
 	    String str = this.mPublishState.getClientIP();
-	    this.mAPController.getSlideshowsPicture(str);
+	    AirPlayServer.getInstance().getSlideshowsPicture(str);
 	}
 	
 	
@@ -461,7 +460,6 @@ public class ShowImgView extends Activity {
 	
 	
 	private void startAPControllerService() {
-	    this.mAPController = null;
 	    Intent localIntent = new Intent(this, APService.class);
 	    startService(localIntent);
 	    bindService(localIntent, this.mAPServiceConnection, 1);
@@ -524,7 +522,7 @@ public class ShowImgView extends Activity {
 	    unregisterReceiver(this.serStateReceiver);
 	    unregisterReceiver(this.imgDownloadResultEvt);
 	    stopProgressDialog();
-	    if (this.mAPController != null)
+	    if (this.mAPServerBinder != null)
 	      unbindService(this.mAPServiceConnection);
 	    Log.d("AnyPlay", "ShowImgView quit.");
 	}

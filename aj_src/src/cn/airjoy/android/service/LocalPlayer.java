@@ -33,7 +33,6 @@ import com.fqx.anyplay.api.PublishState;
 import com.fqx.anyplay.api.SangProgressDialog;
 import com.fqx.anyplay.api.Statistics;
 import com.fqx.anyplay.api.VerLeg;
-import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
 import com.fqx.anyplay.svideo.SMediaController;
 import com.fqx.anyplay.svideo.SVideoView;
@@ -59,7 +58,6 @@ public class LocalPlayer extends Activity implements
 	private static final int TASKDO = 4;
 	private static final int TASKERR = 3;
 	private boolean g_seek_doing = false;
-	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
 	private AudioManager mAudioManager;
 	private float mBrightness = -1.0F;
@@ -151,7 +149,6 @@ public class LocalPlayer extends Activity implements
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
 	      LocalPlayer.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
-	      LocalPlayer.this.mAPController = LocalPlayer.this.mAPServerBinder.getService();
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName) {
@@ -559,7 +556,7 @@ public class LocalPlayer extends Activity implements
 	    try {
 
 		    unregisterReceiver(this.serStateReceiver);
-		    if (this.mAPController != null) {
+		    if (this.mAPServerBinder != null) {
 		    	unbindService(this.mAPServiceConnection);
 		    }
 		} catch (Exception e) {

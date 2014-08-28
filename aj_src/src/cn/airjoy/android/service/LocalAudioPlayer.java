@@ -37,7 +37,6 @@ import com.fqx.anyplay.api.PublishState;
 import com.fqx.anyplay.api.SangProgressDialog;
 import com.fqx.anyplay.api.Statistics;
 import com.fqx.anyplay.api.VerLeg;
-import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
 import com.fqx.anyplay.svideo.SVideoView;
 import com.fqx.audio.player.AudioCover;
@@ -66,7 +65,6 @@ public class LocalAudioPlayer extends Activity implements
 	private static final int TASKEXIT = 5;
 	
 	private boolean g_seek_doing = false;
-	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
 	private LocalInfo mLocalInfo;
 	private AudioCover mAudioCover;
@@ -151,7 +149,6 @@ public class LocalAudioPlayer extends Activity implements
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
 	      LocalAudioPlayer.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
-	      LocalAudioPlayer.this.mAPController = LocalAudioPlayer.this.mAPServerBinder.getService();
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName) {
@@ -459,7 +456,7 @@ public class LocalAudioPlayer extends Activity implements
 	      this.mVideoView.stopPlayback();
 	    }
 	    unregisterReceiver(this.serStateReceiver);
-	    if (this.mAPController != null) {
+	    if (this.mAPServerBinder != null) {
 		    unbindService(this.mAPServiceConnection);
 	    }
 	}
