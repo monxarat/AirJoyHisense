@@ -43,8 +43,6 @@ public class AirTunesServiceInfo implements BonjourServiceInfo {
         mProperties.put("da", "true");
 
         mProperties.put("et", "0,3,5");
-//        mProperties.put("et", "0");
-//        mProperties.put("et", "0,1");
         mProperties.put("md", "0,1,2");
         mProperties.put("pw", "false");
         mProperties.put("rhd", "1.9.8");
