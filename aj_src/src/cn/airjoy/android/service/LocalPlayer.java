@@ -59,26 +59,20 @@ public class LocalPlayer extends Activity implements
 	private static final int TASKERR = 3;
 	private boolean g_seek_doing = false;
 	private APService.MyBinder mAPServerBinder;
-	private AudioManager mAudioManager;
-	private float mBrightness = -1.0F;
 	private CheckVideoNetState mCheckVideoNetState;
 	private String mDevErrString;
-	private GestureDetector mGestureDetector;
 	private LocalInfo mLocalInfo;
-	private int mMaxVolume;
 	private String mNetErrString;
-	private ImageView mOperationBg;
-	private ImageView mOperationPercent;
 	private String mPath;
 	private PublishState mPublishState;
 	private SMediaController mSMediaController;
 	private SangNote mSangNote;
 	private long mSeektoValue;
 	private SVideoView mVideoView;
-	private int mVolume = -1;
 	private View mVolumeBrightnessLayout;
 	private int mch;
 	private Handler mtimeHandler = new Handler();
+	private Handler mSeekHandler = new Handler();
 	private SangProgressDialog progressDialog = null;
 	private int mUid;
 	private long mlastbytes = 0;
@@ -110,11 +104,7 @@ public class LocalPlayer extends Activity implements
 	    this.mPublishState = PublishState.getInstance();
 	    this.mVideoView = ((SVideoView)findViewById(R.id.surface_view));
 	    this.mVolumeBrightnessLayout = findViewById(R.id.operation_volume_brightness);
-	    this.mOperationBg = ((ImageView)findViewById(R.id.operation_bg));
-	    this.mOperationPercent = ((ImageView)findViewById(R.id.operation_percent));
 	    this.mSMediaController = ((SMediaController)findViewById(R.id.s_media_contorller));
-	    this.mAudioManager = ((AudioManager)getSystemService("audio"));
-	    this.mMaxVolume = this.mAudioManager.getStreamMaxVolume(3);
 	    this.mCheckVideoNetState = new CheckVideoNetState();
 //	    this.mGestureDetector = new GestureDetector(this, new MyGestureListener());
 	    setRequestedOrientation(0);
@@ -213,11 +203,12 @@ public class LocalPlayer extends Activity implements
 	    long l = this.mVideoView.getDuration();
 	    int i = (int)(paramLong * (l / 1000L));
 	    this.mSMediaController.setDurTime(l);
-	    this.mSMediaController.setCurProgress((int)paramLong);
+	    this.mSMediaController.setCurTime(i);
+//	    this.mSMediaController.setCurProgress((int)paramLong);
 	    AnyPlayUtils.LOG_ERR("playSeekto", "---------------------- POS0:" + i);
 	    this.mVideoView.seekTo(i);
 	    startProgressDialog();
-	    this.mSeektoValue = paramLong;
+	    this.mSeektoValue = i / 1000;
 	    this.g_seek_doing = true;
 	}
 	
@@ -262,14 +253,14 @@ public class LocalPlayer extends Activity implements
 	private void handleIntent(Intent paramIntent) {
 	    Bundle localBundle = paramIntent.getExtras();
 	    int i = localBundle.getInt("VideoCmd");
-	    if (i == APPEnum.AirVideoCmd.didStartPlayVideo.GetValue()) {
-	      this.mPath = localBundle.getString("UriString");
-	      int pos = localBundle.getInt("StartPositon");
-	      mLocalInfo.setCurPlayPostion(pos);
-	      this.mch = localBundle.getInt("AirChannel");
-	      playVideo(this.mPath, mLocalInfo.getCurPlayPostion());
-	      LocalInfo.APVideoisRuning = true;
-	      Statistics.addVideo(this, this.mPath, this.mch);
+	    if (i == APPEnum.AirVideoCmd.didStartPlayVideo.GetValue()) { 
+	    	this.mPath = localBundle.getString("UriString");
+		    int pos = localBundle.getInt("StartPositon");
+		    mLocalInfo.setCurPlayPostion(pos);
+		    this.mch = localBundle.getInt("AirChannel");
+		    playVideo(this.mPath, mLocalInfo.getCurPlayPostion());
+		    LocalInfo.APVideoisRuning = true;
+		    Statistics.addVideo(this, this.mPath, this.mch);
 	    }else if (i == APPEnum.AirVideoCmd.didCreateEventSession.GetValue()) {
 	        LocalInfo.gVideoSessionID = localBundle.getInt("EvrntSessionId");
 	        AnyPlayUtils.LOG_DEBUG("MainActivity", "gVideoSessionID:" + LocalInfo.gVideoSessionID);
@@ -282,99 +273,83 @@ public class LocalPlayer extends Activity implements
 	        }
 	    }else if (i == APPEnum.AirVideoCmd.setCurrentPlaybackProgress.GetValue()) {
 	        playSeekto(localBundle.getLong("PlayPosition"));
-	    }else if (i == APPEnum.AirVideoCmd.didStopPlayback.GetValue()) {
-	      this.mCheckVideoNetState.stop();
-	      exit();
-	      AnyPlayUtils.LOG_DEBUG("handleIntent", "#s#Stop ");
+	    }else if (i == APPEnum.AirVideoCmd.didStopPlayback.GetValue()) { 
+	    	this.mCheckVideoNetState.stop(); 
+	    	AnyPlayUtils.LOG_DEBUG("handleIntent", "#s#Stop ");
+	    	exit(); 
 	    }else if (i == APPEnum.AirVideoCmd.didSetVolume.GetValue()) {
 	    }else if(i== APPEnum.AirVideoCmd.didLifeVale.GetValue()) {
 	    }
 	}
 	
-//	private void onBrightnessSlide(float percent) {
-//		if (mBrightness < 0) {
-//			mBrightness = getWindow().getAttributes().screenBrightness;
-//			if (mBrightness <= 0.00f)
-//				mBrightness = 0.50f;
-//			if (mBrightness < 0.01f)
-//				mBrightness = 0.01f;
-//	
-//			// 显示
-//			mOperationBg.setImageResource(R.drawable.video_brightness_bg);
-//			mVolumeBrightnessLayout.setVisibility(View.VISIBLE);
-//		}
-//		WindowManager.LayoutParams lpa = getWindow().getAttributes();
-//		lpa.screenBrightness = mBrightness + percent;
-//		if (lpa.screenBrightness > 1.0f)
-//			lpa.screenBrightness = 1.0f;
-//		else if (lpa.screenBrightness < 0.01f)
-//			lpa.screenBrightness = 0.01f;
-//		getWindow().setAttributes(lpa);
-//	
-//		ViewGroup.LayoutParams lp = mOperationPercent.getLayoutParams();
-//		lp.width = (int) (findViewById(R.id.operation_full).getLayoutParams().width * lpa.screenBrightness);
-//		mOperationPercent.setLayoutParams(lp);
-//	}
-//	
-	
-//	private void onVolumeSlide(float percent) {
-//		if (mVolume == -1) {
-//			mVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-//			if (mVolume < 0)
-//				mVolume = 0;
-//	
-//			mOperationBg.setImageResource(R.drawable.video_volumn_bg);
-//			mVolumeBrightnessLayout.setVisibility(View.VISIBLE);
-//		}
-//	
-//		int index = (int) (percent * mMaxVolume) + mVolume;
-//		if (index > mMaxVolume)
-//			index = mMaxVolume;
-//		else if (index < 0)
-//			index = 0;
-//	
-//		mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, index, 0);
-//	
-//		ViewGroup.LayoutParams lp = mOperationPercent.getLayoutParams();
-//		lp.width = findViewById(R.id.operation_full).getLayoutParams().width * index / mMaxVolume;
-//		mOperationPercent.setLayoutParams(lp);
-//	}
-	
-//	private void StartSeekTo(long paramLong) {
-//	    long l = this.mVideoView.getDuration();
-//	    int i = (int)(paramLong * (l / 1000L));
-//	    this.mSMediaController.setDurTime(l);
-//	    this.mSMediaController.setCurProgress((int)paramLong);
-//	    this.mVideoView.seekTo(i);
-//	    startProgressDialog();
-//	    this.mSeektoValue = paramLong;
-//	    this.g_seek_doing = true;
-//	}
-	
+	private int mSeekTimes = 0;
 	private void fast_forward(boolean isTrue) {
+	    this.g_seek_doing = true;
+		mSeekHandler.removeCallbacks(mSeekRunnable);
+		mSeekHandler.postDelayed(mSeekRunnable, 600);
+		if(isTrue) {
+			mSeekTimes++;
+		}else {
+			mSeekTimes--;
+		}
+		long pos = getSeekValue();
+		mSeektoValue = pos / 1000;
+		setMediaContollerCurProcess(pos/1000);
+	}
+	
+	private long getSeekValue() {
 	    long m_dur  = this.mVideoView.getDuration();
 	    long m_cur_pos= this.mVideoView.getCurrentPosition();
-	    long m_dv = m_dur * 5 / 100;
-	    if(isTrue) {
-	    	m_cur_pos += m_dv;
-	    }else{
-	    	m_cur_pos -= m_dv;
+//	    long m_dv = m_dur * 5 / 100;
+	    long m_dv = 10 * 1000;
+	    long m_seek_pos = m_cur_pos + mSeekTimes * m_dv;
+	    if(m_seek_pos < 0) {
+	    	m_seek_pos = 0;
 	    }
-	    playSeekto(m_cur_pos/1000);
+	    if(m_seek_pos > m_dur) {
+	    	m_seek_pos = m_dur;
+	    }
+	    return m_seek_pos;
+	}
+	private void setFastSeek(int tims) {
+		long pos = getSeekValue();
+	    playSeekto(pos/1000);
+	    mSeekTimes = 0;
+	}
+	
+	
+	private int mNowSeekValue = 0;
+	private Runnable mSeekRunnable = new Runnable() {
+		@Override
+		public void run() {
+			if(mNowSeekValue == mSeekTimes) {
+				mSeekHandler.removeCallbacks(mSeekRunnable);
+				setFastSeek(mSeekTimes);
+				mSeekTimes = 0;
+				mNowSeekValue = 0;
+			}else{
+				mNowSeekValue = mSeekTimes;
+				mSeekHandler.postDelayed(mSeekRunnable, 600);
+			}
+		}
+	};
+		
+	private void setMediaContollerCurProcess(long pos) {
+	    int i = (int)(1000 * pos);
+		this.mSMediaController.setCurTime(i);
+	    showMediaController(30000);
 	}
 
-	private void playSeekto(long paramLong) {
-		if(paramLong < 0) {
-			paramLong = 0;
+	private void playSeekto(long pos) {
+		if(pos < 0) {
+			pos = 0;
 		}
 	    startProgressDialog();
-	    int i = (int)(1000 * paramLong);
+	    int i = (int)(1000 * pos);
 	    AnyPlayUtils.LOG_ERR("playSeekto", "---------------------- POS:" + i);
 	    this.mVideoView.seekTo(i);
-		this.mSMediaController.setCurTime(i);
-	    this.mSMediaController.setCurProgress((int)paramLong);
-	    showMediaController(30000);
-	    this.mSeektoValue = paramLong;
+	    setMediaContollerCurProcess(pos);
+	    this.mSeektoValue = pos;
 	    this.g_seek_doing = true;
 	}
 	
@@ -396,8 +371,6 @@ public class LocalPlayer extends Activity implements
 	    this.mVideoView.start();
 	    this.mCheckVideoNetState.init();
 	    this.mCheckVideoNetState.setOnCheckNetEvent(this.mOnCheckNetEvent);
-		this.mSMediaController.setCurTime(paramLong*1000);
-	    this.mSMediaController.setCurProgress((int)paramLong);
 	}
 	
 	private void sendVideoProcess() {
@@ -422,7 +395,6 @@ public class LocalPlayer extends Activity implements
 	        this.mCheckVideoNetState.checkNetState(l2);
 		    if (this.g_seek_doing == false) {
 		        this.mSMediaController.setDurTime(l1);
-			    this.mSMediaController.setCurProgress((int)(l2/1000));
 		        this.mSMediaController.setCurTime(l2);
 		    }
 	    } catch (Exception localException) {
@@ -608,27 +580,27 @@ public class LocalPlayer extends Activity implements
 	}
 	
 	
-	public boolean onKeyDown(int paramInt, KeyEvent paramKeyEvent) {
-	    if (paramInt == KeyEvent.KEYCODE_BACK) {
-	      AnyPlayUtils.LOG_DEBUG("LocalVideo", "onKeyDown");
+	
+	public boolean onKeyDown(int keyVale, KeyEvent keyEvent) {
+	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onKeyDown key=" + keyVale);
+	    if (keyVale == KeyEvent.KEYCODE_BACK) {
 	      this.mPublishState.SetMediaVideo(APPEnum.EventState.EventStateStopped.GetValue());
 	      exit();
-	    }else if (paramInt == 21) { 
+	    }else if (keyVale == 21) { 
 	    	fast_forward(false);
 	    	// left
-	    }else if (paramInt == 22) {
+	    }else if (keyVale == 22) {
 	    	fast_forward(true);
 	    	// right
-	    }else if (paramInt == 23) {
+	    }else if (keyVale == 23) {
 	    	if(mVideoView.isPuase()) {
 	    		set_pause(false);
 	    	}else{
 	    		set_pause(true);
 	    	}
 		    showMediaController(3000);
-	    	// ok 
 	    }
-	    return super.onKeyDown(paramInt, paramKeyEvent);
+	    return super.onKeyDown(keyVale, keyEvent);
 	}
 	
 	protected void onNewIntent(Intent paramIntent) {
@@ -692,60 +664,5 @@ public class LocalPlayer extends Activity implements
 	    super.onStop();
 	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onStop---------------------------------");
 	    this.mCheckVideoNetState.stop();
-//	    AnyPlayApi.is_anyplay = false;
-//	    LocalInfo.APVideoisRuning = false;
-//	    exit();
 	}
-	
-//	@Override
-//	public boolean onTouchEvent(MotionEvent event) {
-//		if (mGestureDetector.onTouchEvent(event))
-//			return true;
-//	
-//		switch (event.getAction() & MotionEvent.ACTION_MASK) {
-//		case MotionEvent.ACTION_UP:
-//			endGesture();
-//			break;
-//		}
-//	
-//		return super.onTouchEvent(event);
-//	}
-//	
-//	private void endGesture() {
-//		mVolume = -1;
-//		mBrightness = -1f;
-//	
-//		mDismissHandler.removeMessages(0);
-//		mDismissHandler.sendEmptyMessageDelayed(0, 500);
-//	}
-	
-//	private int mLayout;
-//	private class MyGestureListener extends SimpleOnGestureListener {
-//		@Override
-//		public boolean onDoubleTap(MotionEvent e) {
-//			if (mLayout == VideoView.VIDEO_LAYOUT_ZOOM)
-//				mLayout = VideoView.VIDEO_LAYOUT_ORIGIN;
-//			else
-//				mLayout++;
-//	//		if (mVideoView != null)
-//	//			mVideoView.setVideoLayout(mLayout, 0);
-//			return true;
-//		}
-//	
-//		@Override
-//		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-//			float mOldX = e1.getX(), mOldY = e1.getY();
-//			int y = (int) e2.getRawY();
-//			Display disp = getWindowManager().getDefaultDisplay();
-//			int windowWidth = disp.getWidth();
-//			int windowHeight = disp.getHeight();
-//	
-//			if (mOldX > windowWidth * 4.0 / 5)// 右边滑动
-//				onVolumeSlide((mOldY - y) / windowHeight);
-//			else if (mOldX < windowWidth / 5.0)// 左边滑动
-//				onBrightnessSlide((mOldY - y) / windowHeight);
-//	
-//			return super.onScroll(e1, e2, distanceX, distanceY);
-//		}
-//	}
 }

@@ -198,6 +198,7 @@ public class AirPlayListener implements AirPlayServerListener {
 	 */
 	@Override
 	public void willPutPhotoCacheOnly(String photoId, String clientIp) {
+		Log.d(TAG, String.format("willPutPhotoCacheOnly: photo id = %s, client ip = %s", photoId, clientIp));
 		// TODO Auto-generated method stub
         // 这里的逻辑与willPutPhoto一样，因为willPutPhoto和willPutPhotoCacheOnly调用顺序不确定
 
@@ -230,6 +231,7 @@ public class AirPlayListener implements AirPlayServerListener {
 	 */
 	@Override
 	public void didDisplayCachedPhoto(String photoId, String clientIp) {
+		Log.d(TAG, String.format("didDisplayCachedPhoto: photo id = %s, client ip = %s", photoId, clientIp));
 		// TODO Auto-generated method stub
         // 1. 保存信息，publishEvent() 需要用到
         mClientIp = clientIp;
@@ -269,12 +271,12 @@ public class AirPlayListener implements AirPlayServerListener {
 
         mIsPlaying = true;
 
-        float videoLength = 285.0f; // 假设视频长度
-        mPlayPosition = (float) startPosition * videoLength; // 计算当前时间点
-        
+//      float videoLength = 285.0f; // 假设视频长度
+//      mPlayPosition = (float) startPosition * videoLength; // 计算当前时间点
+
 		trySendReady();
-	    this.mVideoInfo.setCur((int) startPosition);
-	    start_video(contentLocation, (int) startPosition);
+//	    this.mVideoInfo.setCur((int) startPosition);
+	    start_video(contentLocation, (int)(startPosition * 1000));
 	}
 
 	/* (non-Javadoc)
@@ -385,6 +387,7 @@ public class AirPlayListener implements AirPlayServerListener {
 		// TODO Auto-generated method stub
 		time.playPosition = mVideoInfo.getPosition();
 		time.duration = mVideoInfo.getDuration();
+		Log.d(TAG, String.format("getCurrentPlaybackProgress: getDuration= %d, getPosition= %d", mVideoInfo.getDuration(), mVideoInfo.getPosition()));
 	}
 
 	/* (non-Javadoc)
@@ -408,6 +411,7 @@ public class AirPlayListener implements AirPlayServerListener {
         info.playbackTime.duration = mVideoInfo.getDuration(); // 视频长度
         info.playbackTime.playPosition = mVideoInfo.getPosition();
 
+		Log.d(TAG, String.format("getPlaybackInfo: getDuration= %d, getPosition= %d", mVideoInfo.getDuration(), mVideoInfo.getPosition()));
         if (mIsPlaying)
             info.rate = 1.0f;
         else

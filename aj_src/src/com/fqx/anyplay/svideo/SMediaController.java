@@ -58,13 +58,15 @@ public class SMediaController extends FrameLayout {
   public void setCurTime(long paramLong) {
     this.mCurTimev = paramLong;
     this.mCurTimeText.setText(StringUtils.generateTime(this.mCurTimev));
+    if(mDurTimev > 0) {
+	    setCurProgress((int)(1000L * this.mCurTimev / this.mDurTimev));
+    }
   }
 
   public void setDurTime(long paramLong) {
     try {
       this.mDurTimev = paramLong;
       this.mDurTimeText.setText(StringUtils.generateTime(this.mDurTimev));
-      setCurProgress((int)(1000L * this.mCurTimev / this.mDurTimev));
       return;
     } catch (Exception localException) {
       Log.e("setDurTime", localException.toString());
