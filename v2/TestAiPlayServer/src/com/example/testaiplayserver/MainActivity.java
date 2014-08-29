@@ -35,6 +35,12 @@ public class MainActivity extends Activity implements BonjourListener,
     private float mPlayPosition = 0.0f;
     private Bonjour mBonjour = null;
 
+    // 保存设备名称，设备ＩＤ和端口，发布服务时需要用到。
+    private String mDeviceName = "HisenseTV";
+    private byte[] mDeviceId = {0x14, (byte) 0xF6, (byte) 0x5A, (byte)0xB9, (byte)0x93, (byte) 0xFC};
+    private int mAirplayPort = 7000;
+    private int mAirtunesPort = 5000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +49,6 @@ public class MainActivity extends Activity implements BonjourListener,
         mBonjour = Bonjour.getInstance();
         mBonjour.setContent(this);
         mBonjour.setListener(this);
-        mBonjour.start();
     }
 
     @Override
@@ -59,32 +64,22 @@ public class MainActivity extends Activity implements BonjourListener,
         if (!mStart) {
             mStart = true;
 
-            String name = "HisenseTV";
             //byte[] deviceId = NetWork.getMacAddress();
             // 68:DF:DD:64:02:D8
             //byte[] deviceId = {0x68, (byte) 0xdf, (byte) 0xdd, 0x64, 0x02, (byte) 0xd8};
-
             // 14:F6:5A:B9:93:FC
-            byte[] deviceId = {0x14, (byte) 0xF6, (byte) 0x5A, (byte)0xB9, (byte)0x93, (byte) 0xFC};
 
-            int airplayPort = 7000;
-            int airtunesPort = 5000;
-
-            AirPlayServer.getInstance().start(deviceId, airplayPort, this);
-            AirTunesServer.getInstance().start(deviceId, airtunesPort, this);
+            AirPlayServer.getInstance().start(mDeviceId, mAirplayPort, this);
+            AirTunesServer.getInstance().start(mDeviceId, mAirtunesPort, this);
 
             Log.d(TAG, "airplay port: " + AirPlayServer.getInstance().getPort());
             Log.d(TAG, "airtunes port: " + AirTunesServer.getInstance().getPort());
 
-            AirPlayServiceInfo info1 = new AirPlayServiceInfo(deviceId,
-                    name, 
-                    AirPlayServer.getInstance().getPort());
-            mBonjour.publishService(info1);
-
-            AirTunesServiceInfo info2 = new AirTunesServiceInfo(deviceId, 
-                    name, 
-                    AirTunesServer.getInstance().getPort());
-            mBonjour.publishService(info2);
+            // 保存端口
+            mAirplayPort = AirPlayServer.getInstance().getPort();
+            mAirtunesPort = AirTunesServer.getInstance().getPort();
+            
+            mBonjour.start();
         }
     }
 
@@ -96,6 +91,8 @@ public class MainActivity extends Activity implements BonjourListener,
 
             AirPlayServer.getInstance().stop();
             AirTunesServer.getInstance().stop();
+
+            mBonjour.stop();
         }
     }
 
@@ -332,14 +329,28 @@ public class MainActivity extends Activity implements BonjourListener,
 
     @Override
     public void onStarted() {
+        // 必须在启动Ｂｏｎｊｏｕｒ成功后，才能发布服务。
+        Log.d(TAG, String.format("Bonjour onStarted"));
+
+        AirPlayServiceInfo info1 = new AirPlayServiceInfo(mDeviceId,
+                mDeviceName, 
+                AirPlayServer.getInstance().getPort());
+        mBonjour.publishService(info1);
+
+        AirTunesServiceInfo info2 = new AirTunesServiceInfo(mDeviceId, 
+                mDeviceName, 
+                AirTunesServer.getInstance().getPort());
+        mBonjour.publishService(info2);
     }
 
     @Override
     public void onStartFailed() {
+        Log.d(TAG, String.format("Bonjour onStartFailed"));
     }
 
     @Override
     public void onStopped() {
+        Log.d(TAG, String.format("Bonjour onStopped"));
     }
 
     @Override
