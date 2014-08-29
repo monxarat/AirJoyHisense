@@ -21,18 +21,24 @@ import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceInfo;
 import javax.jmdns.ServiceListener;
 
-public class Bonjour implements Runnable, ServiceListener {
+public class Bonjour implements ServiceListener {
 
     private static final String TAG = Bonjour.class.getSimpleName();
     private static final Bonjour mSingle = new Bonjour();
 
     private WifiManager.MulticastLock mWifiLock = null;
-    private static byte[] mJmdnsLock = new byte[0];
     private JmDNS mJmdns = null;
-    private Thread mThread = null;
     private BonjourListener mListener = null;
     private Context mContext = null;
-    private boolean mStarted = false;
+    private Status mStatus = Status.Stopped;
+    
+    private enum Status {
+        Stopped,
+        Stopping,
+        Started,
+        Starting,
+    }
+    
     private Map<String, ServiceInfo> mSvcInfoList = new HashMap<String, ServiceInfo>();
     private ArrayList<String> mSvcType = new ArrayList<String>();
 
@@ -52,136 +58,195 @@ public class Bonjour implements Runnable, ServiceListener {
     }
 
     public boolean isStarted() {
-        return mStarted;
+        return (mStatus == Status.Starting || mStatus == Status.Started); 
     }
 
     public void start() {
-        if (mStarted)
-            return;
-
-        Log.v(TAG, "start");
-
-        synchronized (mJmdnsLock) {
-            if (mJmdns == null) {
-                mThread = new Thread(this);
-                mThread.start();
-            }
+        if (mStatus == Status.Stopped) {
+            mStatus = Status.Starting;
+            new StartTask();    
         }
     }
 
     public void stop() {
-        if (!mStarted)
-            return;
-
-        Log.v(TAG, "stop");
-        mStarted = false;
-
-        if (mJmdns != null) {
-            try {
-                mJmdns.unregisterAllServices();
-                mSvcInfoList.clear();
-
-                mJmdns.close();
-                mJmdns = null;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (mWifiLock != null) {
-            mWifiLock.setReferenceCounted(false);
-            mWifiLock.release();
-        }
-
-        mListener.onStopped();
+        if (mStatus == Status.Started) {
+            mStatus = Status.Stopping;
+            new StopTask();    
+        } 
     }
 
     public void publishService(BonjourServiceInfo svcInfo) {
-        synchronized (mJmdnsLock) {
-            ServiceInfo serviceInfo = ServiceInfo.create(svcInfo.getServiceType(),
-                    svcInfo.getServiceName(),
-                    svcInfo.getServicePort(),
-                    0,
-                    0,
-                    svcInfo.getProperties());
-
-            if (!mSvcInfoList.containsKey(svcInfo.getServiceType())) {
-                mSvcInfoList.put(svcInfo.getServiceType(), serviceInfo);
-
-                try {
-                    Log.v(TAG, String.format("registerService: %s (%s)",
-                            svcInfo.getServiceType(),
-                            svcInfo.getServiceName()));
-                    mJmdns.registerService(serviceInfo);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (IllegalStateException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        new PublishTask(svcInfo);
     }
 
-    public void unpublishService(String svcType) {
-        synchronized (mJmdnsLock) {
+    public boolean unpublishService(String svcType) {
+        synchronized (this) {
+            if (mJmdns == null) {
+                return false;
+            }
+            
             ServiceInfo serviceInfo = mSvcInfoList.get(svcType);
             if (serviceInfo != null) {
                 Log.v(TAG, String.format("unregisterService: %s", svcType));
                 mJmdns.unregisterService(serviceInfo);
                 mSvcInfoList.remove(svcType);
             }
+            
+            return true;
         }
     }
 
-    public void discoveryService(String serviceType) {
-        synchronized (mJmdnsLock) {
+    public boolean discoveryService(String serviceType) {
+        synchronized (this) {
+            if (mJmdns == null) {
+                return false;
+            }
+            
             mSvcType.add(serviceType);
 
-            if (mStarted) {
+            if (mStatus == Status.Started) {
                 Log.d(TAG, String.format("discoveryService: %s", serviceType));
                 mJmdns.addServiceListener(serviceType, this);
             }
+            
+            return true;
         }
     }
 
-    public void undiscoveryService(String serviceType) {
-        synchronized (mJmdnsLock) {
+    public boolean undiscoveryService(String serviceType) {
+        synchronized (this) {
+            if (mJmdns == null) {
+                return false;
+            }
+
             mSvcType.remove(serviceType);
 
-            if (mStarted) {
+            if (mStatus == Status.Started) {
                 Log.d(TAG, String.format("discoveryService: %s", serviceType));
                 mJmdns.removeServiceListener(serviceType, this);
+            }
+            
+            return true;
+        }
+    }
+
+
+    private class StartTask implements Runnable {
+        private Thread mThread = null;
+
+        public StartTask() {
+            mThread = new Thread(this);
+            mThread.start();
+        }
+
+        @Override
+        public void run() {
+            synchronized (this) {
+                Log.v(TAG, "start");
+
+                WifiManager wifi = (WifiManager) mContext
+                        .getSystemService(android.content.Context.WIFI_SERVICE);
+
+                mWifiLock = wifi.createMulticastLock("bonjourlock");
+                mWifiLock.setReferenceCounted(true);
+                mWifiLock.acquire();
+
+                try {
+                    byte[] ip = NetWork.getLocalIpInt(mContext);
+                    if (ip == null)
+                        return;
+
+                    InetAddress addr = InetAddress.getByAddress(ip);
+
+                    mJmdns = JmDNS.create(addr);
+                    Log.d(TAG, String.format("JmDNS version: %s (%s)", JmDNS.VERSION,
+                            addr.getHostAddress()));
+
+                    mListener.onStarted();
+                } catch (IOException e) {
+                    Log.e(TAG, "JmDNS.create() failed!");
+                    e.printStackTrace();
+                    mListener.onStartFailed();
+                }
+
+                mStatus = Status.Started;
             }
         }
     }
 
-    @Override
-    public void run() {
-        synchronized (mJmdnsLock) {
-            WifiManager wifi = (WifiManager) mContext
-                    .getSystemService(android.content.Context.WIFI_SERVICE);
+    private class StopTask implements Runnable {
+        private Thread mThread = null;
 
-            mWifiLock = wifi.createMulticastLock("bonjourlock");
-            mWifiLock.setReferenceCounted(true);
-            mWifiLock.acquire();
+        public StopTask() {
+            mThread = new Thread(this);
+            mThread.start();
+        }
 
-            try {
-                byte[] ip = NetWork.getLocalIpInt(mContext);
-                if (ip == null)
+        @Override
+        public void run() {
+            synchronized (Bonjour.this) {
+                Log.v(TAG, "stop");
+                if (mJmdns != null) {
+                    try {
+                        mJmdns.unregisterAllServices();
+                        mSvcInfoList.clear();
+
+                        mJmdns.close();
+                        mJmdns = null;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                if (mWifiLock != null) {
+                    mWifiLock.setReferenceCounted(false);
+                    mWifiLock.release();
+                }
+
+                mListener.onStopped();
+                mStatus = Status.Stopped;
+            }
+        }
+    }
+
+    private class PublishTask implements Runnable {
+        private Thread mThread = null;
+        private BonjourServiceInfo mSvcInfo = null;
+
+        public PublishTask(BonjourServiceInfo svcInfo) {
+            mSvcInfo = svcInfo;
+            mThread = new Thread(this);
+            mThread.start();
+        }
+
+        @Override
+        public void run() {
+            synchronized (Bonjour.this) {
+                if (mJmdns == null) {
                     return;
+                }
 
-                InetAddress addr = InetAddress.getByAddress(ip);
+                ServiceInfo serviceInfo = ServiceInfo.create(mSvcInfo.getServiceType(),
+                        mSvcInfo.getServiceName(),
+                        mSvcInfo.getServicePort(),
+                        0,
+                        0,
+                        mSvcInfo.getProperties());
 
-                mJmdns = JmDNS.create(addr);
-                Log.d(TAG, String.format("JmDNS version: %s (%s)", JmDNS.VERSION,
-                        addr.getHostAddress()));
+                if (!mSvcInfoList.containsKey(mSvcInfo.getServiceType())) {
+                    mSvcInfoList.put(mSvcInfo.getServiceType(), serviceInfo);
 
-                mStarted = true;
-                mListener.onStarted();
-            } catch (IOException e) {
-                Log.e(TAG, "JmDNS.create() failed!");
-                e.printStackTrace();
-                mListener.onStartFailed();
+                    try {
+                        Log.v(TAG, String.format("registerService: %s (%s)",
+                                mSvcInfo.getServiceType(),
+                                mSvcInfo.getServiceName()));
+                        mJmdns.registerService(serviceInfo);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (IllegalStateException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }
