@@ -58,7 +58,7 @@ public class SMediaController extends FrameLayout {
   public void setCurTime(long paramLong) {
     this.mCurTimev = paramLong;
     this.mCurTimeText.setText(StringUtils.generateTime(this.mCurTimev));
-    if(mDurTimev > 0) {
+    if(this.mDurTimev > 0) {
 	    setCurProgress((int)(1000L * this.mCurTimev / this.mDurTimev));
     }
   }

@@ -1,9 +1,12 @@
 package com.fqx.anyplay.service;
 
+import android.R.integer;
+
 public class VideoInfo {
   private static VideoInfo instance = null;
   private volatile int duration = 0;
   private volatile int position = 0;
+  private volatile int mrate = 0;
 
   public static VideoInfo getInstance() {
       if (instance == null) {
@@ -18,6 +21,13 @@ public class VideoInfo {
 
   public int getPosition() {
     return this.position;
+  }
+  
+  public void setRate(int rate) {
+	  mrate = rate;
+  }
+  public int getRate() {
+	  return mrate;
   }
 
   public void setCur(int paramInt) {

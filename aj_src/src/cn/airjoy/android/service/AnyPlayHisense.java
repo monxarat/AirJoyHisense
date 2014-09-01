@@ -30,6 +30,7 @@ import com.fqx.anyplay.api.AnyPlayUtils;
 import com.fqx.anyplay.api.CallBackEvent;
 import com.fqx.anyplay.api.LocalInfo;
 import com.fqx.anyplay.api.SystemConfig;
+import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
 import com.fqx.sang.video.LibsChecker;
 import com.umeng.analytics.MobclickAgent;
@@ -54,6 +55,7 @@ public class AnyPlayHisense extends Activity {
 	private SangNote mSangNote;
 	private SystemConfig mSystemConfig;
 	private AJService.AJBinder mAJServerBinder;
+	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
 	private AirJoy mAirJoy;
 	private Button mDevNameButton;
@@ -69,12 +71,13 @@ public class AnyPlayHisense extends Activity {
 	public void onCreate(Bundle paramBundle) {
 	    super.onCreate(paramBundle);
 	    setContentView(R.layout.hs_main);
-	    //MobclickAgent.setSessionContinueMillis(10000L);
+	    MobclickAgent.setSessionContinueMillis(10000L);
 	    MobclickAgent.setDefaultReportPolicy(this, 0);
 	    MobclickAgent.updateOnlineConfig(this);
 	    MobclickAgent.onError(this);
 	    UmengUpdateAgent.update(this);
 	    UmengUpdateAgent.setUpdateOnlyWifi(false);
+	    this.mAPController = null;
 	    this.mAPServerBinder = null;
 	    this.mAJServerBinder = null;
 	    this.mAirJoy = null;
@@ -118,6 +121,7 @@ public class AnyPlayHisense extends Activity {
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
 	      AnyPlayHisense.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
+	      AnyPlayHisense.this.mAPController = AnyPlayHisense.this.mAPServerBinder.getService();
 	      AnyPlayHisense.this.openONOFFState(true);
 	    }
 	
@@ -265,7 +269,10 @@ public class AnyPlayHisense extends Activity {
 	      this.mErr.setText(getResources().getString(R.string.modefy_name_err_lenth));
 	      return;
 	    }
-
+	    if (this.mAPController == null) {
+	      this.mDialog.dismiss();
+	      return;
+	    }
 	    this.mAPServerBinder.reName(str);
 	    this.mAJServerBinder.reName(str);
 	    this.mLocalInfo.setName(str);
@@ -307,8 +314,8 @@ public class AnyPlayHisense extends Activity {
 		    this.mONOFFButton.setText(str1);
 		    this.mONOFFTextView.setText(str2);
 		    if (paramBoolean) {
-		    	this.mAPServerBinder.stop(); 
-		    	this.mHandler.postDelayed(this.mStopRunnable, 300L);
+		      this.mAPServerBinder.stop();
+		      this.mHandler.postDelayed(this.mStopRunnable, 300L);
 		    }else{
 		    	this.mAJServerBinder.stop();
 		    }
@@ -386,7 +393,7 @@ public class AnyPlayHisense extends Activity {
 	protected void onDestroy() {
 	    super.onDestroy();
 	    try {
-	      if (this.mAPServerBinder != null)
+	      if (this.mAPController != null)
 	        unbindService(this.mAPServiceConnection);
 	      if (this.mAirJoy != null)
 	        unbindService(this.mAJServiceConnection);

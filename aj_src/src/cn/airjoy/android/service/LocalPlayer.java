@@ -10,7 +10,6 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.res.Configuration;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.TrafficStats;
 import android.net.Uri;
@@ -19,10 +18,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
 import com.fqx.airjoy.callback.OnCheckNetEvent;
 import com.fqx.anyplay.api.APPEnum;
 import com.fqx.anyplay.api.AnyPlayUtils;
@@ -33,6 +30,7 @@ import com.fqx.anyplay.api.PublishState;
 import com.fqx.anyplay.api.SangProgressDialog;
 import com.fqx.anyplay.api.Statistics;
 import com.fqx.anyplay.api.VerLeg;
+import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
 import com.fqx.anyplay.svideo.SMediaController;
 import com.fqx.anyplay.svideo.SVideoView;
@@ -58,6 +56,7 @@ public class LocalPlayer extends Activity implements
 	private static final int TASKDO = 4;
 	private static final int TASKERR = 3;
 	private boolean g_seek_doing = false;
+	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
 	private CheckVideoNetState mCheckVideoNetState;
 	private String mDevErrString;
@@ -69,7 +68,6 @@ public class LocalPlayer extends Activity implements
 	private SangNote mSangNote;
 	private long mSeektoValue;
 	private SVideoView mVideoView;
-	private View mVolumeBrightnessLayout;
 	private int mch;
 	private Handler mtimeHandler = new Handler();
 	private Handler mSeekHandler = new Handler();
@@ -103,10 +101,8 @@ public class LocalPlayer extends Activity implements
 	    this.mDevErrString = getResources().getString(R.string.dev_net_err_msg);
 	    this.mPublishState = PublishState.getInstance();
 	    this.mVideoView = ((SVideoView)findViewById(R.id.surface_view));
-	    this.mVolumeBrightnessLayout = findViewById(R.id.operation_volume_brightness);
 	    this.mSMediaController = ((SMediaController)findViewById(R.id.s_media_contorller));
 	    this.mCheckVideoNetState = new CheckVideoNetState();
-//	    this.mGestureDetector = new GestureDetector(this, new MyGestureListener());
 	    setRequestedOrientation(0);
 	    LocalInfo.APVideoisRuning = true;
 	    IntentFilter localIntentFilter = new IntentFilter();
@@ -118,7 +114,8 @@ public class LocalPlayer extends Activity implements
 	}
 	
 	private long get_now_speed() {
-		long nbytes  = TrafficStats.getUidRxBytes(mUid);
+//		long nbytes  = TrafficStats.getUidRxBytes(mUid);
+		long nbytes  = TrafficStats.getTotalRxBytes();
 		mNowSpeed = nbytes - mlastbytes;
 		if((progressDialog != null) && (mlastbytes !=0)) {
 			progressDialog.setSpeed((int) mNowSpeed);
@@ -139,16 +136,13 @@ public class LocalPlayer extends Activity implements
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
 	      LocalPlayer.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
+	      LocalPlayer.this.mAPController = LocalPlayer.this.mAPServerBinder.getService();
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName) {
 	    }
 	};
-	private Handler mDismissHandler = new Handler() {
-	    public void handleMessage(Message paramMessage) {
-	      LocalPlayer.this.mVolumeBrightnessLayout.setVisibility(8);
-	    }
-	  };
+
 	private OnCheckNetEvent mOnCheckNetEvent = new OnCheckNetEvent() {
 	    public void doEvt(int paramInt) {
 	      if (paramInt == CheckVideoNetState.NetCode.Buff.GetValue()) {
@@ -215,9 +209,9 @@ public class LocalPlayer extends Activity implements
 	private void callbackEvt() {
 	    this.mSangNote.dismiss();
 	    this.mSangNote = null;
-		Intent localIntent;
-	    localIntent = new Intent(this, AnyPlayHisense.class); 
-	    startActivity(localIntent);
+//		Intent localIntent;
+//	    localIntent = new Intent(this, AnyPlayHisense.class); 
+//	    startActivity(localIntent);
 	    AnyPlayUtils.LOG_DEBUG("callbackEvt");
 	    this.mPublishState.SetMediaVideo(APPEnum.EventState.EventStateStopped.GetValue());
 	    exit();
@@ -253,19 +247,19 @@ public class LocalPlayer extends Activity implements
 	private void handleIntent(Intent paramIntent) {
 	    Bundle localBundle = paramIntent.getExtras();
 	    int i = localBundle.getInt("VideoCmd");
-	    if (i == APPEnum.AirVideoCmd.didStartPlayVideo.GetValue()) { 
-	    	this.mPath = localBundle.getString("UriString");
-		    int pos = localBundle.getInt("StartPositon");
-		    mLocalInfo.setCurPlayPostion(pos);
-		    this.mch = localBundle.getInt("AirChannel");
-		    playVideo(this.mPath, mLocalInfo.getCurPlayPostion());
-		    LocalInfo.APVideoisRuning = true;
-		    Statistics.addVideo(this, this.mPath, this.mch);
+	    if (i == APPEnum.AirVideoCmd.didStartPlayVideo.GetValue()) {
+	      this.mPath = localBundle.getString("UriString");
+	      int pos = localBundle.getInt("StartPositon");
+	      mLocalInfo.setCurPlayPostion(pos);
+	      this.mch = localBundle.getInt("AirChannel");
+	      playVideo(this.mPath, mLocalInfo.getCurPlayPostion());
+	      LocalInfo.APVideoisRuning = true;
+	      Statistics.addVideo(this, this.mPath, this.mch);
 	    }else if (i == APPEnum.AirVideoCmd.didCreateEventSession.GetValue()) {
 	        LocalInfo.gVideoSessionID = localBundle.getInt("EvrntSessionId");
 	        AnyPlayUtils.LOG_DEBUG("MainActivity", "gVideoSessionID:" + LocalInfo.gVideoSessionID);
 	    }else if (i == APPEnum.AirVideoCmd.didSetPlaybackRate.GetValue()) {
-	        showMediaController(3000);
+	        showMediaController(5000);
 	        if (localBundle.getLong("Rate") == 0L) {
 	        	set_pause(true);
 	        }else {
@@ -273,10 +267,10 @@ public class LocalPlayer extends Activity implements
 	        }
 	    }else if (i == APPEnum.AirVideoCmd.setCurrentPlaybackProgress.GetValue()) {
 	        playSeekto(localBundle.getLong("PlayPosition"));
-	    }else if (i == APPEnum.AirVideoCmd.didStopPlayback.GetValue()) { 
-	    	this.mCheckVideoNetState.stop(); 
-	    	AnyPlayUtils.LOG_DEBUG("handleIntent", "#s#Stop ");
-	    	exit(); 
+	    }else if (i == APPEnum.AirVideoCmd.didStopPlayback.GetValue()) {
+	      this.mCheckVideoNetState.stop();
+	      exit();
+	      AnyPlayUtils.LOG_DEBUG("handleIntent", "#s#Stop ");
 	    }else if (i == APPEnum.AirVideoCmd.didSetVolume.GetValue()) {
 	    }else if(i== APPEnum.AirVideoCmd.didLifeVale.GetValue()) {
 	    }
@@ -388,6 +382,11 @@ public class LocalPlayer extends Activity implements
 	    }
 	    localBundle.putInt("Dur", (int)(l1 / 1000L));
 	    localBundle.putInt("Pos", i);
+	    if(mVideoView.isPuase()) {
+		    localBundle.putInt("Rate", 0);
+	    }else{
+		    localBundle.putInt("Rate", 1);
+	    }
 	    localIntent.setAction("anyplay.service.videoProcess");
 	    localIntent.putExtras(localBundle);
 	    sendBroadcast(localIntent);
@@ -528,7 +527,7 @@ public class LocalPlayer extends Activity implements
 	    try {
 
 		    unregisterReceiver(this.serStateReceiver);
-		    if (this.mAPServerBinder != null) {
+		    if (this.mAPController != null) {
 		    	unbindService(this.mAPServiceConnection);
 		    }
 		} catch (Exception e) {
@@ -598,7 +597,7 @@ public class LocalPlayer extends Activity implements
 	    	}else{
 	    		set_pause(true);
 	    	}
-		    showMediaController(3000);
+		    showMediaController(5000);
 	    }
 	    return super.onKeyDown(keyVale, keyEvent);
 	}
@@ -651,7 +650,7 @@ public class LocalPlayer extends Activity implements
 	    stopProgressDialog();
 	    this.g_seek_doing = false;
 	    paramMediaPlayer.start();
-	    showMediaController(3000);
+	    showMediaController(5000);
 	}
 	
 	@Override  

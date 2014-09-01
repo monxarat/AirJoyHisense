@@ -12,20 +12,16 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.TrafficStats;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
-import android.view.Display;
 import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import com.fqx.airjoy.callback.OnCheckNetEvent;
 import com.fqx.anyplay.api.APPEnum;
@@ -39,167 +35,176 @@ import com.fqx.anyplay.api.Statistics;
 import com.fqx.anyplay.api.VerLeg;
 import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
+import com.fqx.anyplay.svideo.SMediaController;
 import com.fqx.anyplay.svideo.SVideoView;
-import com.fqx.audio.player.AudioCover;
 import com.fqx.sang.video.LibsChecker;
-import com.fqx.sang.video.VideoView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 
+
 /**
-* <p>文件名: LocalAudioPlayer.java</p>
-* <p>描述: 音频播放页面，只实现url http流的播放逻辑。  </p>
+* <p>描述: 本地视频播放页面,目前所有的视频播放逻辑基本都在本文件,包含视频流播放及苹果端的控制。</p>
 * 
 * @author sangwencheng
 * @version 1.0
 */
-public class LocalAudioPlayer extends Activity implements 
-							MediaPlayer.OnCompletionListener, 
-							MediaPlayer.OnSeekCompleteListener, 
-							MediaPlayer.OnBufferingUpdateListener, 
-							MediaPlayer.OnErrorListener, 
-							MediaPlayer.OnInfoListener, 
-							MediaPlayer.OnPreparedListener {
+public class LocalPlayer extends Activity implements 
+					MediaPlayer.OnCompletionListener, 
+					MediaPlayer.OnSeekCompleteListener, 
+					MediaPlayer.OnBufferingUpdateListener, 
+					MediaPlayer.OnErrorListener, 
+					MediaPlayer.OnInfoListener, 
+					MediaPlayer.OnPreparedListener {
 
 	private static final int TASKDO = 4;
 	private static final int TASKERR = 3;
-	private static final int TASKEXIT = 5;
-	
 	private boolean g_seek_doing = false;
 	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
-	private LocalInfo mLocalInfo;
-	private AudioCover mAudioCover;
 	private AudioManager mAudioManager;
 	private float mBrightness = -1.0F;
 	private CheckVideoNetState mCheckVideoNetState;
 	private String mDevErrString;
-	private Handler mExitHandler = new Handler();
 	private GestureDetector mGestureDetector;
+	private LocalInfo mLocalInfo;
 	private int mMaxVolume;
 	private String mNetErrString;
 	private ImageView mOperationBg;
 	private ImageView mOperationPercent;
 	private String mPath;
-	private String mPlayerErrString;
 	private PublishState mPublishState;
+	private SMediaController mSMediaController;
 	private SangNote mSangNote;
 	private long mSeektoValue;
-	private int mStartPosition;
 	private SVideoView mVideoView;
 	private int mVolume = -1;
 	private View mVolumeBrightnessLayout;
 	private int mch;
 	private Handler mtimeHandler = new Handler();
 	private SangProgressDialog progressDialog = null;
+	private int mUid;
+	private long mlastbytes = 0;
+	private long mNowSpeed = 0;
 	
 	public void onCreate(Bundle paramBundle) {
 	    super.onCreate(paramBundle);
-	    setContentView(R.layout.audio_player);
+	    setContentView(R.layout.svideoview);
 	    UmengUpdateAgent.update(this);
+	    UmengUpdateAgent.setUpdateOnlyWifi(false);
 	    MobclickAgent.onError(this);
 	    AnyPlayUtils.send2Other(this);
+	    this.mLocalInfo = LocalInfo.getInstance(this);
 	    startAPControllerService();
-//	    if (!LibsChecker.checkVitamioLibs(this, R.string.init_decoders)) {
-//	      Log.e("LocalAudioPlayer", "LibsChecker.checkVitamioLibs = false");
-//	      return;
-//	    }
-	    Intent localIntent = getIntent();
-	    if (localIntent == null) {
-	      Log.e("LocalAudioPlayer", "Intent = null");
-	      return;
+	    if (this.mLocalInfo.g_IsLocalPlayer_m3u8 == false) {
+		    if (!LibsChecker.checkVitamioLibs(this, R.string.init_decoders))
+		      return;
 	    }
-	    mLocalInfo = LocalInfo.getInstance(this);
-	    AnyPlayUtils.LOG_DEBUG("LocalAudioPlayer", "Runing");
+	    Intent localIntent;
+	    localIntent = getIntent();
+	    if(localIntent == null) {
+	    	return;
+	    }
+	
+	    mSangNote = null;
+	    mUid = this.getApplicationInfo().uid;
 	    this.mNetErrString = getResources().getString(R.string.net_err_msg);
 	    this.mDevErrString = getResources().getString(R.string.dev_net_err_msg);
-	    this.mPlayerErrString = getResources().getString(R.string.player_err_msg);
-	    LocalInfo.APVideoisRuning = true;
 	    this.mPublishState = PublishState.getInstance();
 	    this.mVideoView = ((SVideoView)findViewById(R.id.surface_view));
 	    this.mVolumeBrightnessLayout = findViewById(R.id.operation_volume_brightness);
 	    this.mOperationBg = ((ImageView)findViewById(R.id.operation_bg));
 	    this.mOperationPercent = ((ImageView)findViewById(R.id.operation_percent));
-	    this.mAudioCover = ((AudioCover)findViewById(R.id.audio_cover));
+	    this.mSMediaController = ((SMediaController)findViewById(R.id.s_media_contorller));
 	    this.mAudioManager = ((AudioManager)getSystemService("audio"));
 	    this.mMaxVolume = this.mAudioManager.getStreamMaxVolume(3);
 	    this.mCheckVideoNetState = new CheckVideoNetState();
 //	    this.mGestureDetector = new GestureDetector(this, new MyGestureListener());
 	    setRequestedOrientation(0);
+	    LocalInfo.APVideoisRuning = true;
 	    IntentFilter localIntentFilter = new IntentFilter();
 	    localIntentFilter.addAction(AnyPlayUtils.ACTION_SERVER_STATE);
+	    localIntentFilter.addAction(AnyPlayUtils.ACTION_PLAYER_CMD);
 	    registerReceiver(this.serStateReceiver, localIntentFilter);
 	    verifyLeg();
 	    handleIntent(localIntent);
 	}
 	
+	private long get_now_speed() {
+		long nbytes  = TrafficStats.getUidRxBytes(mUid);
+		mNowSpeed = nbytes - mlastbytes;
+		if((progressDialog != null) && (mlastbytes !=0)) {
+			progressDialog.setSpeed((int) mNowSpeed);
+		}
+		mlastbytes = nbytes;
+		return mNowSpeed;
+	}
+	
 	private Runnable atimeRunnable = new Runnable() {
 	    public void run() {
 	      Message localMessage = new Message();
-	      localMessage.what = 4;
-	      LocalAudioPlayer.this.mSendHandler.sendMessage(localMessage);
-	      LocalAudioPlayer.this.mtimeHandler.postDelayed(this, 1000L);
+	      localMessage.what = TASKDO;
+	      mSendHandler.sendMessage(localMessage);
+	      mtimeHandler.postDelayed(atimeRunnable, 1000);
 	    }
 	};
-	private Runnable exitRunnable = new Runnable() {
-	    public void run() {
-	      Message localMessage = new Message();
-	      localMessage.what = 5;
-	      LocalAudioPlayer.this.mSendHandler.sendMessage(localMessage);
-	    }
-	};
+	
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
-	      LocalAudioPlayer.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
-	      LocalAudioPlayer.this.mAPController = LocalAudioPlayer.this.mAPServerBinder.getService();
+	      LocalPlayer.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
+	      LocalPlayer.this.mAPController = LocalPlayer.this.mAPServerBinder.getService();
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName) {
 	    }
 	};
-	
 	private Handler mDismissHandler = new Handler() {
 	    public void handleMessage(Message paramMessage) {
-	      LocalAudioPlayer.this.mVolumeBrightnessLayout.setVisibility(8);
+	      LocalPlayer.this.mVolumeBrightnessLayout.setVisibility(8);
 	    }
-	};
-	
+	  };
 	private OnCheckNetEvent mOnCheckNetEvent = new OnCheckNetEvent() {
 	    public void doEvt(int paramInt) {
 	      if (paramInt == CheckVideoNetState.NetCode.Buff.GetValue()) {
-	        LocalAudioPlayer.this.startProgressDialog();
+	        startProgressDialog();
 	      }else if (paramInt == CheckVideoNetState.NetCode.OK.GetValue()) {
-	        LocalAudioPlayer.this.stopProgressDialog();
+	        stopProgressDialog();
 	      }else if(paramInt == CheckVideoNetState.NetCode.Err.GetValue()) {
-	    	  LocalAudioPlayer.this.mVideoView.pause();
-	    	  LocalAudioPlayer.this.stopProgressDialog();
-	    	  LocalAudioPlayer.this.showSangNode(LocalAudioPlayer.this.mDevErrString);
-		    }
+	    	mVideoView.pause();
+	    	stopProgressDialog();
+	    	AnyPlayUtils.LOG_ERR("mOnCheckNetEvent", "showSangNode");
+	    	showSangNode(mDevErrString);
+		  }
 	    }
 	};
+	
 	
 	private Handler mSendHandler = new Handler() {
 	    public void handleMessage(Message paramMessage) {
 	      switch (paramMessage.what) {
-		      case TASKDO:
-		        LocalAudioPlayer.this.sendVideoProcess();
-		        break;
-		      case TASKERR:
-		        LocalAudioPlayer.this.SendTheard();
-		        break;
-		      case TASKEXIT:
-			      LocalAudioPlayer.this.exit();
-		      default:
-		        break;
+	      case TASKDO:
+	    	  sendVideoProcess();
+		      break;
+	      case TASKERR:
+		      SendTheard();
+		      break;
+	      default:
+	        return;
 	      }
 	    }
 	};
 	
 	private BroadcastReceiver serStateReceiver = new BroadcastReceiver() {
-	    public void onReceive(Context paramContext, Intent paramIntent) {
-	      if (paramIntent.getExtras().getInt("State") == APPEnum.ServerState.S_NET_ERR.GetValue()) {
-		      LocalAudioPlayer.this.showSangNode(LocalAudioPlayer.this.mNetErrString);
-	      }
+	    public void onReceive(Context paramContext, Intent intent) {
+	    	 String action = intent.getAction();
+	    	 if(action.equals(AnyPlayUtils.ACTION_PLAYER_CMD)) {
+	    		 AnyPlayUtils.LOG_ERR("--------------------1");
+	    		 handleIntent(intent);
+	    	 }else { 
+	    		 if (intent.getExtras().getInt("State") == APPEnum.ServerState.S_NET_ERR.GetValue()) { 
+	    			 AnyPlayUtils.LOG_ERR("serStateReceiver", "showSangNode"); 
+	    			 LocalPlayer.this.showSangNode(LocalPlayer.this.mNetErrString);
+			      }
+	    	 }
 	    }
 	};
 	
@@ -210,8 +215,9 @@ public class LocalAudioPlayer extends Activity implements
 	private void StartSeekTo(long paramLong) {
 	    long l = this.mVideoView.getDuration();
 	    int i = (int)(paramLong * (l / 1000L));
-	    this.mAudioCover.setDurTime(l);
-	    this.mAudioCover.setCurProgress((int)paramLong);
+	    this.mSMediaController.setDurTime(l);
+	    this.mSMediaController.setCurProgress((int)paramLong);
+	    AnyPlayUtils.LOG_ERR("playSeekto", "---------------------- POS0:" + i);
 	    this.mVideoView.seekTo(i);
 	    startProgressDialog();
 	    this.mSeektoValue = paramLong;
@@ -220,59 +226,72 @@ public class LocalAudioPlayer extends Activity implements
 	
 	private void callbackEvt() {
 	    this.mSangNote.dismiss();
-		Intent localIntent;
-	    localIntent = new Intent(this, AnyPlayHisense.class); 
-
-	    startActivity(localIntent);
+	    this.mSangNote = null;
+//		Intent localIntent;
+//	    localIntent = new Intent(this, AnyPlayHisense.class); 
+//	    startActivity(localIntent);
 	    AnyPlayUtils.LOG_DEBUG("callbackEvt");
 	    this.mPublishState.SetMediaVideo(APPEnum.EventState.EventStateStopped.GetValue());
 	    exit();
 	}
 	
-	private void clearTask() {
-	    this.mExitHandler.removeCallbacks(this.exitRunnable);
-	    this.mtimeHandler.removeCallbacks(this.atimeRunnable);
-	}
-	
 	
 	private void exit() {
+		if(mSangNote != null) {
+			mSangNote.dismiss();
+		}
+	    mPublishState.SetMediaVideo(APPEnum.EventState.EventStateStopped.GetValue());
+	    AnyPlayUtils.is_anyplay = false;
+	    LocalInfo.APVideoisRuning = false;
+	    this.mtimeHandler.removeCallbacks(this.atimeRunnable);
+		if (this.mVideoView != null) { 
+			this.mVideoView.stopPlayback();
+		}
 	    finish();
+	}
+	
+	private void set_pause(boolean isTrue) {
+		if(isTrue) {
+	          this.mVideoView.pause();
+	          this.mCheckVideoNetState.stop();
+		      AnyPlayUtils.LOG_DEBUG("handleIntent", "Video State: pause");
+		}else{
+	          this.mVideoView.start();
+	          this.mCheckVideoNetState.start();
+		      AnyPlayUtils.LOG_DEBUG("handleIntent", "Video State: start");
+		}
 	}
 	
 	private void handleIntent(Intent paramIntent) {
 	    Bundle localBundle = paramIntent.getExtras();
 	    int i = localBundle.getInt("VideoCmd");
 	    if (i == APPEnum.AirVideoCmd.didStartPlayVideo.GetValue()) {
-	      clearTask();
 	      this.mPath = localBundle.getString("UriString");
-	      this.mStartPosition = localBundle.getInt("StartPositon");
-	      Log.i("LocalAudioPlayer", "Path:" + this.mPath);
-	      Log.i("LocalAudioPlayer", "Pos:" + this.mStartPosition);
+	      int pos = localBundle.getInt("StartPositon");
+	      mLocalInfo.setCurPlayPostion(pos);
 	      this.mch = localBundle.getInt("AirChannel");
-	      playVideo(this.mPath, this.mStartPosition);
+	      playVideo(this.mPath, mLocalInfo.getCurPlayPostion());
+	      LocalInfo.APVideoisRuning = true;
 	      Statistics.addVideo(this, this.mPath, this.mch);
 	    }else if (i == APPEnum.AirVideoCmd.didCreateEventSession.GetValue()) {
 	        LocalInfo.gVideoSessionID = localBundle.getInt("EvrntSessionId");
-	        Log.d("LocalAudioPlayer", "gVideoSessionID:" + LocalInfo.gVideoSessionID);
+	        AnyPlayUtils.LOG_DEBUG("MainActivity", "gVideoSessionID:" + LocalInfo.gVideoSessionID);
 	    }else if (i == APPEnum.AirVideoCmd.didSetPlaybackRate.GetValue()) {
 	        showMediaController(3000);
 	        if (localBundle.getLong("Rate") == 0L) {
-	          this.mAudioCover.setPauseShow(true);
-	          this.mVideoView.pause();
-	          this.mCheckVideoNetState.stop();
+	        	set_pause(true);
 	        }else {
-	          this.mAudioCover.setPauseShow(false);
-	          this.mVideoView.start();
-	          this.mCheckVideoNetState.start();
+	        	set_pause(false);
 	        }
-	     }else if (i == APPEnum.AirVideoCmd.setCurrentPlaybackProgress.GetValue()) {
+	    }else if (i == APPEnum.AirVideoCmd.setCurrentPlaybackProgress.GetValue()) {
 	        playSeekto(localBundle.getLong("PlayPosition"));
-	     }else if (i == APPEnum.AirVideoCmd.didStopPlayback.GetValue()) {
-	    	 this.mExitHandler.postDelayed(this.exitRunnable, 500L);
-	    	 Log.d("Audio handleIntent", "#s#Stop ");
-	     }else if (i == APPEnum.AirVideoCmd.didSetVolume.GetValue()) {
-	     }else if(i== APPEnum.AirVideoCmd.didLifeVale.GetValue()) {
-	     }
+	    }else if (i == APPEnum.AirVideoCmd.didStopPlayback.GetValue()) {
+	      this.mCheckVideoNetState.stop();
+	      exit();
+	      AnyPlayUtils.LOG_DEBUG("handleIntent", "#s#Stop ");
+	    }else if (i == APPEnum.AirVideoCmd.didSetVolume.GetValue()) {
+	    }else if(i== APPEnum.AirVideoCmd.didLifeVale.GetValue()) {
+	    }
 	}
 	
 //	private void onBrightnessSlide(float percent) {
@@ -300,7 +319,7 @@ public class LocalAudioPlayer extends Activity implements
 //		mOperationPercent.setLayoutParams(lp);
 //	}
 //	
-//	
+	
 //	private void onVolumeSlide(float percent) {
 //		if (mVolume == -1) {
 //			mVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
@@ -323,10 +342,40 @@ public class LocalAudioPlayer extends Activity implements
 //		lp.width = findViewById(R.id.operation_full).getLayoutParams().width * index / mMaxVolume;
 //		mOperationPercent.setLayoutParams(lp);
 //	}
-//	
+	
+//	private void StartSeekTo(long paramLong) {
+//	    long l = this.mVideoView.getDuration();
+//	    int i = (int)(paramLong * (l / 1000L));
+//	    this.mSMediaController.setDurTime(l);
+//	    this.mSMediaController.setCurProgress((int)paramLong);
+//	    this.mVideoView.seekTo(i);
+//	    startProgressDialog();
+//	    this.mSeektoValue = paramLong;
+//	    this.g_seek_doing = true;
+//	}
+	
+	private void fast_forward(boolean isTrue) {
+	    long m_dur  = this.mVideoView.getDuration();
+	    long m_cur_pos= this.mVideoView.getCurrentPosition();
+	    long m_dv = m_dur * 5 / 100;
+	    if(isTrue) {
+	    	m_cur_pos += m_dv;
+	    }else{
+	    	m_cur_pos -= m_dv;
+	    }
+	    playSeekto(m_cur_pos/1000);
+	}
+
 	private void playSeekto(long paramLong) {
-	    this.mVideoView.seekTo((int)(1000L * paramLong));
+		if(paramLong < 0) {
+			paramLong = 0;
+		}
 	    startProgressDialog();
+	    int i = (int)(1000 * paramLong);
+	    AnyPlayUtils.LOG_ERR("playSeekto", "---------------------- POS:" + i);
+	    this.mVideoView.seekTo(i);
+		this.mSMediaController.setCurTime(i);
+	    this.mSMediaController.setCurProgress((int)paramLong);
 	    showMediaController(30000);
 	    this.mSeektoValue = paramLong;
 	    this.g_seek_doing = true;
@@ -337,9 +386,10 @@ public class LocalAudioPlayer extends Activity implements
 	    this.g_seek_doing = false;
 	    if (paramString.startsWith("http")) {
 	      this.mVideoView.setVideoURI(Uri.parse(paramString));
-	    }else {
+	    }else{
 	      this.mVideoView.setVideoPath(paramString);
 	    }
+	    AnyPlayUtils.LOG_ERR("playVideo", "--------------------- URL:" + paramString);
 	    this.mVideoView.setOnCompletionListener(this);
 	    this.mVideoView.setOnPreparedListener(this);
 	    this.mVideoView.setOnSeekCompleteListener(this);
@@ -349,54 +399,76 @@ public class LocalAudioPlayer extends Activity implements
 	    this.mVideoView.start();
 	    this.mCheckVideoNetState.init();
 	    this.mCheckVideoNetState.setOnCheckNetEvent(this.mOnCheckNetEvent);
-	    this.mAudioCover.setCurProgress((int)paramLong);
+		this.mSMediaController.setCurTime(paramLong*1000);
+	    this.mSMediaController.setCurProgress((int)paramLong);
 	}
 	
-	
 	private void sendVideoProcess() {
-	    if (!LocalInfo.APVideoisRuning)
-	      return;
+	    LocalInfo.APVideoisRuning = true;
 	    Intent localIntent = new Intent();
 	    Bundle localBundle = new Bundle();
 	    long l1 = this.mVideoView.getDuration();
 	    long l2 = this.mVideoView.getCurrentPosition();
 	    int i;
 	    if (this.g_seek_doing) {
-	    	i = (int)this.mSeektoValue; 
-	    }else{
-	    	i = (int)(l2 / 1000L);
+	      get_now_speed();
+	      i = (int)this.mSeektoValue;
+	    } else {
+	       i = (int)(l2 / 1000L);
 	    }
 	    localBundle.putInt("Dur", (int)(l1 / 1000L));
 	    localBundle.putInt("Pos", i);
 	    localIntent.setAction("anyplay.service.videoProcess");
 	    localIntent.putExtras(localBundle);
 	    sendBroadcast(localIntent);
-//	    this.mCheckVideoNetState.checkNetState(l2);
-	    this.mAudioCover.setDurTime(l1);
-	    this.mAudioCover.setCurTime(l2);
+	    try {
+	        this.mCheckVideoNetState.checkNetState(l2);
+		    if (this.g_seek_doing == false) {
+		        this.mSMediaController.setDurTime(l1);
+			    this.mSMediaController.setCurProgress((int)(l2/1000));
+		        this.mSMediaController.setCurTime(l2);
+		    }
+	    } catch (Exception localException) {
+	        localException.printStackTrace();
+	    }
+//	    AnyPlayApi.LOG_ERR("sendVideoProcess", "Cur=" + (l1 / 1000L)  + " POS:" + i);
+	}
+
+	private void setProgressValue(int paramInt, long speed) {
+	    if (this.progressDialog == null)
+	      return;
+	    if (paramInt < 0)
+	      paramInt = 0;
+	    this.progressDialog.setProgress(paramInt);
+	    this.progressDialog.setSpeed((int) speed);
 	}
 	
 	private void setProgressValue(int paramInt) {
 	    if (this.progressDialog == null)
 	      return;
+	    if (paramInt < 0)
+	      paramInt = 0;
 	    this.progressDialog.setProgress(paramInt);
 	}
 	
 	private void showMediaController(int paramInt) {
-	    this.mAudioCover.show(paramInt);
+	    this.mSMediaController.show(paramInt);
 	}
 	
 	private void showSangNode(String paramString) {
+		if(mSangNote != null) {
+			mSangNote.dismiss();
+		}
 	    this.mSangNote = new SangNote(this);
 	    this.mSangNote.setMsg(paramString);
 	    this.mSangNote.setConfirmOnListener(new View.OnClickListener() {
 	      public void onClick(View paramView) {
-	        LocalAudioPlayer.this.callbackEvt();
+	        LocalPlayer.this.callbackEvt();
 	      }
 	    });
 	    this.mSangNote.setDelayCallbackEvent(AnyPlayUtils.NodeDelayTimes, new CallBackEvent() {
 	      public void delayCallbackEvent() {
-	        LocalAudioPlayer.this.callbackEvt();
+	        LocalPlayer.this.callbackEvt();
 	      }
 	    });
 	    this.mSangNote.show();
@@ -409,23 +481,56 @@ public class LocalAudioPlayer extends Activity implements
 	}
 	
 	private void startProgressDialog() {
-	    if (this.progressDialog == null) {
-	      this.progressDialog = SangProgressDialog.createDialog(this);
-	      this.progressDialog.setOnCannel(new OnCancelListener() {
+	    try {
+	      if (this.progressDialog == null) {
+	        this.progressDialog = SangProgressDialog.createDialog(this);
+		    this.progressDialog.setOnCannel(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					exit();
 				}
 			});
+	      }
+	      this.progressDialog.show();
+	    } catch (Exception localException) {
+	      localException.printStackTrace();
 	    }
-	    this.progressDialog.show();
-	}
+	    get_now_speed();
+	} 
 	
 	private void stopProgressDialog() {
-	    if (this.progressDialog == null)
-	      return;
-	    this.progressDialog.dismiss();
-	    this.progressDialog = null;
+	    if (this.progressDialog == null) {
+	    	return;
+	    }
+	    try {
+	      this.progressDialog.dismiss();
+	      this.progressDialog = null;
+	    } catch (Exception localException) {
+	      localException.toString();
+	    }
+	}
+	
+	private void tryPlay(String paramString, int paramInt) {
+		if(LocalInfo.APVideoisRuning == false) {
+		    AnyPlayUtils.LOG_ERR("LocalPlayer", "exit, tryPlay fail");
+			return;
+		}
+		if (this.mLocalInfo.g_IsLocalPlayer_m3u8) {
+		    AnyPlayUtils.LOG_ERR("LocalPlayer", "exit, tryPlay fail");
+			return;
+	    }
+	    AnyPlayUtils.LOG_ERR("LocalPlayer", "TryPlay to APVideo");
+	    Intent localIntent = new Intent(this, APVideo.class);
+	    Bundle localBundle = new Bundle();
+	    localBundle.putInt("VideoCmd", APPEnum.AirVideoCmd.didTryPlay.GetValue());
+	    localBundle.putString("UriString", paramString);
+	    localBundle.putInt("StartPositon", paramInt);
+	    localBundle.putInt("AirChannel", this.mch);
+	    localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	    localIntent.putExtras(localBundle);
+	    startActivity(localIntent);
+	    this.mtimeHandler.removeCallbacks(this.atimeRunnable);
+	    finish();
 	}
 	
 	private boolean verifyLeg() {
@@ -434,7 +539,7 @@ public class LocalAudioPlayer extends Activity implements
 	}
 	
 	public void onBufferingUpdate(MediaPlayer paramMediaPlayer, int paramInt) {
-	    setProgressValue(paramInt);
+	    setProgressValue(paramInt, mNowSpeed);
 	}
 	
 	public void onCompletion(MediaPlayer paramMediaPlayer) {
@@ -448,39 +553,83 @@ public class LocalAudioPlayer extends Activity implements
 	    super.onConfigurationChanged(paramConfiguration);
 	}
 	
-	
 	protected void onDestroy() {
 	    super.onDestroy();
-	    Log.d("LocalAudioPlayer", "finish");
-	    AnyPlayUtils.is_anyplay = false;
-	    LocalInfo.APVideoisRuning = false;
-	    this.mtimeHandler.removeCallbacks(this.atimeRunnable);
-	    if (this.mVideoView != null) {
-	      this.mVideoView.stopPlayback();
-	    }
-	    unregisterReceiver(this.serStateReceiver);
-	    if (this.mAPController != null) {
-		    unbindService(this.mAPServiceConnection);
-	    }
+	    AnyPlayUtils.LOG_DEBUG("LocalPlayer", "exit");
+	    try {
+
+		    unregisterReceiver(this.serStateReceiver);
+		    if (this.mAPController != null) {
+		    	unbindService(this.mAPServiceConnection);
+		    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 	
+	private void process_video_err(int what, int extra) {
+		switch (what) {
+			case -110:
+				return;
+			case -1007:
+		    	showSangNode(mDevErrString);
+				return;
+			case -1004:
+		    	showSangNode(mNetErrString);
+				return;
+			case 1:
+				if(extra == -8006) {
+					exit();
+					return;
+				}else if(extra == -8007) {
+					showSangNode(mNetErrString);
+					return;
+				}
+			default:
+				break;
+		}
+//	    tryPlay(this.mPath, LocalInfo.curPlayPostion);
+		showSangNode(mNetErrString);
+	}
+
 	public boolean onError(MediaPlayer paramMediaPlayer, int paramInt1, int paramInt2) {
 	    String str = "OnERR arg1=" + paramInt1 + "  arg2=" + paramInt2;
-	    Log.e("LocalVideo", "Err:" + str);
-	    showSangNode(this.mPlayerErrString);
+	    Log.e("LocalPlayer", "Err:" + str);
+	    process_video_err(paramInt1, paramInt2);
 	    return true;
 	}
 	
-	public boolean onInfo(MediaPlayer paramMediaPlayer, int paramInt1, int paramInt2) {
+	public boolean onInfo(MediaPlayer paramMediaPlayer, int what, int extra) {
+		if(what == MediaPlayer.MEDIA_INFO_BUFFERING_START) {
+			startProgressDialog();
+		}else if(what == MediaPlayer.MEDIA_INFO_BUFFERING_END) {
+			stopProgressDialog();
+		}
+
 	    return false;
 	}
 	
+	
 	public boolean onKeyDown(int paramInt, KeyEvent paramKeyEvent) {
 	    if (paramInt == KeyEvent.KEYCODE_BACK) {
-	      Log.d("LocalVideo", "----------------------------onKeyDown");
+	      AnyPlayUtils.LOG_DEBUG("LocalVideo", "onKeyDown");
 	      this.mPublishState.SetMediaVideo(APPEnum.EventState.EventStateStopped.GetValue());
 	      exit();
-	      return true;
+	    }else if (paramInt == 21) { 
+	    	fast_forward(false);
+	    	// left
+	    }else if (paramInt == 22) {
+	    	fast_forward(true);
+	    	// right
+	    }else if (paramInt == 23) {
+	    	if(mVideoView.isPuase()) {
+	    		set_pause(false);
+	    	}else{
+	    		set_pause(true);
+	    	}
+		    showMediaController(3000);
+	    	// ok 
 	    }
 	    return super.onKeyDown(paramInt, paramKeyEvent);
 	}
@@ -492,37 +641,63 @@ public class LocalAudioPlayer extends Activity implements
 	
 	protected void onPause() {
 	    super.onPause();
-	    if (this.mVideoView != null)
+	    if (this.mVideoView != null) {
 	      this.mVideoView.pause();
+	      AnyPlayUtils.LOG_DEBUG("onPause");
+	      int blpos = (int) (mVideoView.getCurrentPosition() * 1000L / mVideoView.getDuration());
+	      mLocalInfo.setCurPlayPostion(blpos);
+	    }
 	    MobclickAgent.onPause(this);
+	    this.mtimeHandler.removeCallbacks(this.atimeRunnable);
 	}
 	
 	public void onPrepared(MediaPlayer paramMediaPlayer) {
-	    Log.i("LocalVideo", "onPrepared total=" + paramMediaPlayer.getDuration());
+	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onPrepared total=" + paramMediaPlayer.getDuration());
+	    int pos = mLocalInfo.getCurPlayPostion();
+	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onPrepared curPlayPostion =" + pos);
 	    this.mPublishState.SetMediaVideo(APPEnum.EventState.EventStatePlaying.GetValue());
-	    if (this.mStartPosition > 0) {
-	      StartSeekTo(this.mStartPosition);
-	    }else{
+	    if (pos > 0) {
+	    	StartSeekTo(pos);
+		}else{
 		    stopProgressDialog();
-	    }
+		}
 	    SendTheard();
+//	    paramMediaPlayer.start();
 	    this.mCheckVideoNetState.start();
 	}
 	
 	protected void onResume() {
 	    super.onResume();
-	    if (this.mVideoView != null)
-	      this.mVideoView.resume();
+	    if (this.mVideoView != null) {
+	      this.mVideoView.start();
+	      AnyPlayUtils.LOG_DEBUG("onResume");
+	    }
 	    MobclickAgent.onResume(this);
+	    this.mtimeHandler.postDelayed(atimeRunnable, 1000);
 	}
 	
 	public void onSeekComplete(MediaPlayer paramMediaPlayer) {
 	    this.mPublishState.SetMediaVideo(APPEnum.EventState.EventStatePlaying.GetValue());
-	    Log.i("LocalVideo", "onSeekComplete");
+	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onSeekComplete");
 	    stopProgressDialog();
 	    this.g_seek_doing = false;
 	    paramMediaPlayer.start();
 	    showMediaController(3000);
+	}
+	
+	@Override  
+    protected void onStart() {  
+        super.onStart();  
+        AnyPlayUtils.LOG_DEBUG("onStart called.");  
+    }  
+	
+	protected void onStop() {
+	    super.onStop();
+	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onStop---------------------------------");
+	    this.mCheckVideoNetState.stop();
+//	    AnyPlayApi.is_anyplay = false;
+//	    LocalInfo.APVideoisRuning = false;
+//	    exit();
 	}
 	
 //	@Override
@@ -546,7 +721,7 @@ public class LocalAudioPlayer extends Activity implements
 //		mDismissHandler.removeMessages(0);
 //		mDismissHandler.sendEmptyMessageDelayed(0, 500);
 //	}
-//	
+	
 //	private int mLayout;
 //	private class MyGestureListener extends SimpleOnGestureListener {
 //		@Override

@@ -32,6 +32,7 @@ import com.fqx.anyplay.api.PublishState;
 import com.fqx.anyplay.api.SangProgressDialog;
 import com.fqx.anyplay.api.Statistics;
 import com.fqx.anyplay.api.VerLeg;
+import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
 import com.fqx.anyplay.service.QiyiStop;
 import com.fqx.sang.video.LibsChecker;
@@ -60,6 +61,7 @@ public class APVideo extends Activity implements
 	public static MediaController sgMediaController;
 	
 	private boolean g_seek_doing = false;
+	private APController mAPController;
 	private APService.MyBinder mAPServerBinder;
 	private AudioManager mAudioManager;
 	private float mBrightness = -1.0F;
@@ -139,6 +141,7 @@ public class APVideo extends Activity implements
 	private ServiceConnection mAPServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
 	      APVideo.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
+	      APVideo.this.mAPController = APVideo.this.mAPServerBinder.getService();
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName)
@@ -236,6 +239,7 @@ public class APVideo extends Activity implements
 	      startProgressDialog();
 	      playVideo(this.mPath, this.mStartPosition);
 	    }else if (i == APPEnum.AirVideoCmd.didTryPlay.GetValue()) {
+	      com.fqx.anyplay.service.AirplayListener.mVideoClass = APVideo.class;
 	      this.mPath = localBundle.getString("UriString");
 	      this.mStartPosition = localBundle.getInt("StartPositon");
 	      int j = localBundle.getInt("AirChannel");
@@ -481,7 +485,7 @@ public class APVideo extends Activity implements
 	    super.onDestroy();
 	    try {
 		    unregisterReceiver(this.serStateReceiver);
-		    if (this.mAPServerBinder != null) {
+		    if (this.mAPController != null) {
 		      unbindService(this.mAPServiceConnection);
 		    }
 		} catch (Exception e) {
