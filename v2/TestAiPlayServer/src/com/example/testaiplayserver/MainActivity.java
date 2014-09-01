@@ -335,11 +335,12 @@ public class MainActivity extends Activity implements BonjourListener,
         AirPlayServiceInfo info1 = new AirPlayServiceInfo(mDeviceId,
                 mDeviceName, 
                 AirPlayServer.getInstance().getPort());
-        mBonjour.publishService(info1);
 
         AirTunesServiceInfo info2 = new AirTunesServiceInfo(mDeviceId, 
                 mDeviceName, 
                 AirTunesServer.getInstance().getPort());
+
+        mBonjour.publishService(info1);
         mBonjour.publishService(info2);
     }
 
