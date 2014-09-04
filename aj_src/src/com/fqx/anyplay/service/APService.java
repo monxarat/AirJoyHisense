@@ -35,17 +35,14 @@ public class APService extends Service implements BonjourListener{
 	  private APResultListener mApResultListener;
 	  private MyBinder mBinder = new MyBinder();
 	  private LocalInfo mLocalInfo;
-	  private Thread mMdnsStarThread;
 	  private PlaybackInfo mPlaybackInfo;
 	  private PublishState mPublishState;
 	  private String mRandomMacString;
 	  private VideoInfo mVideoInfo; 
 
 	  private Bonjour mBonjour = null;
-	  private Handler mPublishHandler;
 	  private boolean m_isEther = false;
 	  private boolean m_isWifi = false;
-	  private final static long TIME_PUBLISH = 16*1000;
 
 	  static {
 	    AnyPlayUtils.LOG_DEBUG("APController", "Loadlib start");
@@ -73,7 +70,6 @@ public class APService extends Service implements BonjourListener{
 	    this.mApController.SetAirTunesServerListener(this.mAirTunesServerListener);
 	    this.mApController.SetAirPlayListener(this.mApResultListener);
 
-	    mPublishHandler = new Handler();
 	    AnyPlayUtils.LOG_DEBUG("APService", "start onCreate~~~");
 	    this.mVideoInfo = VideoInfo.getInstance();
 	    this.mPlaybackInfo = PlaybackInfo.getInstance();
@@ -135,7 +131,9 @@ public class APService extends Service implements BonjourListener{
 	          if (localNetworkInfo.isConnected()) {
 	            AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_ENABLED");
 	            APService.this.m_isEther = true;
-	            APService.this.mLocalInfo.setMac(APService.this.mRandomMacString);
+//	            APService.this.mLocalInfo.setMac(APService.this.mRandomMacString);
+			    APService.this.mLocalInfo.setMacBytes(NetWork.getMacAddress());
+//			    APService.this.mLocalInfo.setMacBytes(AnyPlayUtils.getRandomMacBytes());
 	            APService.this.startAirJoy();
 	          }else{
 		          AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_DISENABLED");
@@ -206,6 +204,7 @@ public class APService extends Service implements BonjourListener{
 //	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirTunes.GetValue(), 200);
 //	    }
 //	    
+	    Log.d("AirplayStart", "################ mBonjour start");
 	    mBonjour.start();
 	    return 1;
 	  }
@@ -233,12 +232,14 @@ public class APService extends Service implements BonjourListener{
 	
 	
 	private void getWifiMac() {
-	    try {
-	      WifiInfo localWifiInfo = ((WifiManager)getSystemService("wifi")).getConnectionInfo();
-	      this.mLocalInfo.setMac(localWifiInfo.getMacAddress());
-	    } catch (Exception localException) {
-	      this.mLocalInfo.setMac(null);
-	    }
+//	    try {
+//	      WifiInfo localWifiInfo = ((WifiManager)getSystemService("wifi")).getConnectionInfo();
+//	      this.mLocalInfo.setMac(localWifiInfo.getMacAddress());
+//	    } catch (Exception localException) {
+//	      this.mLocalInfo.setMac(null);
+//	    }
+	   this.mLocalInfo.setMacBytes(NetWork.getMacAddress());
+
 	}
 	
 	private boolean isAP() {
@@ -262,8 +263,8 @@ public class APService extends Service implements BonjourListener{
 	      Notice.AirJoyStateOK(this);
 	      AnyPlayUtils.LOG_DEBUG("APController", "start(" + i + ")......................................");
 	      this.mPublishState.tryInit();
-		  mApController.AirTunesPublishService(true);
-		  mApController.AirplayPublishService(true);
+//		  mApController.AirTunesPublishService(true);
+//		  mApController.AirplayPublishService(true);
 //	      mPublishHandler.postDelayed(mPublishRunnable, 1000);
 	}
 	
@@ -345,8 +346,10 @@ public class APService extends Service implements BonjourListener{
 	public void onStarted() {
 		// TODO Auto-generated method stub
 		 Log.d("AirPlay", String.format("Bonjour onStarted"));
-		 byte[] mDeviceId = NetWork.getMacAddress();
+//		 byte[] mDeviceId = NetWork.getMacAddress();
+		 byte[] mDeviceId = mLocalInfo.getMacBytes();
 
+		 Log.d("AirPlay", "Bonjour onStarted ---- ID=" + mDeviceId);
 	     AirPlayServiceInfo info1 = new AirPlayServiceInfo(mDeviceId,
 	                mLocalInfo.getName(), 
 	                mLocalInfo.getPort());
@@ -364,7 +367,7 @@ public class APService extends Service implements BonjourListener{
 	@Override
 	public void onStartFailed() {
 		// TODO Auto-generated method stub
-		
+		AnyPlayUtils.LOG_DEBUG("BonjourListener", "onStartFailed");
 	}
 
 	/* (non-Javadoc)

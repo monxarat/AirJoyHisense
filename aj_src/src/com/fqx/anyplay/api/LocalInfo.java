@@ -1,5 +1,6 @@
 package com.fqx.anyplay.api;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -35,6 +36,7 @@ public class LocalInfo {
   private String mCachePath;
   private Context mContext;
   private String mMac;
+  private byte[] mMacBytes;
   private String mMode;
   private String mName;
   private int mPort;
@@ -60,6 +62,7 @@ public class LocalInfo {
     isSysRuning = true;
     ReadMetaData();
     setCurPlayPostion(0);
+    mMacBytes = new byte[6];
 
     this.mServerState = APPEnum.ServiceState.Init.GetValue();
     makeCatchDir(this.mContext);
@@ -222,5 +225,17 @@ public class LocalInfo {
 
   public void setServerState(int paramInt) {
     this.mServerState = paramInt;
+  }
+
+  public byte[] getMacBytes() {
+	return mMacBytes;
+  }
+
+  public void setMacBytes(byte[] mMacBytes) {
+	  for(int i=0; i<6; i++) {
+		this.mMacBytes[i] = mMacBytes[i];
+	  }
+	  mMac = AnyPlayUtils.getMacBybytes(mMacBytes);
+	  Log.e("setMacBytes", " MAC:" + mMac);
   }
 }

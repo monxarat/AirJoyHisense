@@ -1,9 +1,13 @@
 
 package com.airjoy.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -18,7 +22,8 @@ public class NetWork {
 
     private static byte[] mMacAddress = null;
 
-    public static byte[] getMacAddress() {
+    @SuppressLint("NewApi")
+	public static byte[] getMacAddress() {
         final int hwAddrLengthInBytes = 6;
         if (mMacAddress == null) {
             try {
@@ -49,29 +54,45 @@ public class NetWork {
         return mMacAddress;
     }
 
-    public static byte[] getLocalIpInt(Context context) {
-        WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-
-        if (!wm.isWifiEnabled()) {
-            return null;
-        }
-
-        WifiInfo wi = wm.getConnectionInfo();
-        if (wi == null)
-            return null;
-
-        return intToBytes(wi.getIpAddress());
+    public static byte[] getLocalIpInt(Context context) { 
+    	try {  
+            for (Enumeration<NetworkInterface> en = NetworkInterface  
+                    .getNetworkInterfaces(); en.hasMoreElements();) {  
+                NetworkInterface intf = en.nextElement();  
+                
+                for (Enumeration<InetAddress> enumIpAddr = intf  
+                        .getInetAddresses(); enumIpAddr.hasMoreElements();) {  
+                    InetAddress inetAddress = enumIpAddr.nextElement();  
+                    if (!inetAddress.isLoopbackAddress()&& (inetAddress instanceof Inet4Address)) {  
+            Log.e("WifiPreference IpAddress", " --------------------- IP=" + inetAddress.getAddress().toString());  
+                    	return inetAddress.getAddress();
+                    }  
+                }  
+            }  
+        } catch (SocketException ex) {
+            Log.e("WifiPreference IpAddress", ex.toString());  
+        }  
+        return null;  
     }
 
-    public static String getLocalIpString(Context context) {
-        WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-
-        if (!wm.isWifiEnabled()) {
-            return null;
-        }
-
-        WifiInfo wi = wm.getConnectionInfo();
-        return intToString(wi.getIpAddress());
+    public static String getLocalIpString(Context context) { 
+    	try {  
+            for (Enumeration<NetworkInterface> en = NetworkInterface  
+                    .getNetworkInterfaces(); en.hasMoreElements();) {  
+                NetworkInterface intf = en.nextElement();  
+                for (Enumeration<InetAddress> enumIpAddr = intf  
+                        .getInetAddresses(); enumIpAddr.hasMoreElements();) {  
+                    InetAddress inetAddress = enumIpAddr.nextElement();  
+                    if (!inetAddress.isLoopbackAddress()&& (inetAddress instanceof Inet4Address)) {  
+            Log.e("WifiPreference IpAddress", "  ----------------   IP=" + inetAddress.getHostAddress().toString());  
+                    	return inetAddress.getHostAddress().toString();  
+                    }  
+                }  
+            }  
+        } catch (SocketException ex) {
+            Log.e("WifiPreference IpAddress", ex.toString());  
+        }  
+        return null;  
     }
 
     private static String intToString(int i) {

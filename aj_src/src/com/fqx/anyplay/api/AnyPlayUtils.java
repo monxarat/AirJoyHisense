@@ -35,6 +35,7 @@ public class AnyPlayUtils {
   public static AudioInfo gAudioInfo;
   public static volatile boolean is_anyplay;
   private static String mMacString;
+  private static byte[] mMacValue;
 
   public static String  ACTION_PLAYER_CMD = "com.fqx.airjoy.player.cmd";
   static {
@@ -44,6 +45,7 @@ public class AnyPlayUtils {
     is_anyplay = false;
     gAudioInfo = new AudioInfo();
     mMacString = null;
+    mMacValue = null;
   }
 
   private static boolean mIsDebug = true;
@@ -135,6 +137,31 @@ public class AnyPlayUtils {
 	    return ((WifiManager)paramContext.getSystemService(Context.WIFI_SERVICE)).getConnectionInfo().getMacAddress();
 	}
 	
+	private static byte[] mMacbytes = new byte[6];
+	public static byte[] getRandomMacBytes() {
+	    if (mMacValue != null) {
+	    	return mMacValue;
+	    }
+	    Random localRandom = new Random(System.currentTimeMillis());
+	    for (int i = 0; i<6; i++) {
+	    	mMacbytes[i] = (byte) localRandom.nextInt(99);
+	    }
+	    mMacValue = mMacbytes;
+	    return mMacValue;
+	}
+
+	public static String getMacBybytes(byte[] macBytes) {
+	    mMacString = String.format("%02X:%02X:%02X:%02X:%02X:%02X",
+	    		macBytes[0],
+	    		macBytes[1],
+	    		macBytes[2],
+	    		macBytes[3],
+	    		macBytes[4],
+	    		macBytes[5]);
+	    Log.d("getRandomMac", "MAC=" + mMacString);
+	    return mMacString;
+	}
+ 
 	public static String getRandomMac() {
 	    if (mMacString != null) {
 	    	return mMacString;
@@ -156,6 +183,7 @@ public class AnyPlayUtils {
 	    Log.d("getRandomMac", "MAC=" + mMacString);
 	    return mMacString;
 	}
+ 
   
 //  public static String getSuffixFromPath(String path) {
 //		 return path.substring(path.lastIndexOf(".")+1);
