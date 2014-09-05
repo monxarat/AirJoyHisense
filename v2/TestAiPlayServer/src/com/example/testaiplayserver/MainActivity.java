@@ -1,4 +1,4 @@
-
+﻿
 package com.example.testaiplayserver;
 
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.airjoy.bonjour.serviceinfo.AirPlayServiceInfo;
 import com.airjoy.bonjour.serviceinfo.AirTunesServiceInfo;
 import com.airjoy.bonjour.Bonjour;
 import com.airjoy.bonjour.BonjourListener;
+import com.airjoy.util.NetWork;
 import com.example.airplay.R;
 
 import java.util.Map;
@@ -37,7 +38,8 @@ public class MainActivity extends Activity implements BonjourListener,
 
     // 保存设备名称，设备ＩＤ和端口，发布服务时需要用到。
     private String mDeviceName = "HisenseTV";
-    private byte[] mDeviceId = {0x14, (byte) 0xF6, (byte) 0x5A, (byte)0xB9, (byte)0x93, (byte) 0xFC};
+    //private byte[] mDeviceId = {0x14, (byte) 0xF6, (byte) 0x5A, (byte)0xB9, (byte)0x93, (byte) 0xFC};
+    private byte[] mDeviceId = NetWork.getMacAddress();
     private int mAirplayPort = 7000;
     private int mAirtunesPort = 5000;
 
