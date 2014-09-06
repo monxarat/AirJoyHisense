@@ -446,6 +446,7 @@ public class AnyPlayHisense extends Activity {
 
 	protected void onDestroy() {
 	    super.onDestroy();
+	    unregisterReceiver(this.airplay_on_event);
 	    try {
 	      if (this.mAPController != null)
 	        unbindService(this.mAPServiceConnection);
@@ -454,7 +455,8 @@ public class AnyPlayHisense extends Activity {
 	    } catch (Exception localException) {
 	    	localException.printStackTrace();
 	    }
-	    Log.d("AnyPlayHS", "EXIT:");
+
+	    Log.d("AnyPlayHisense", "EXIT:");
 	}
 	
 	public boolean onKeyDown(int paramInt, KeyEvent paramKeyEvent) {

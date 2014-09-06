@@ -155,6 +155,8 @@ public class Bonjour implements ServiceListener {
                     byte[] ip = NetWork.getLocalIpInt(mContext);
                     if (ip == null) {
                     	Log.e(TAG, "JmDNS.create() failed! ip is null");
+                    	
+                        mStatus = Status.Stopped;
                     	mListener.onStartFailed();
                         return;
                     }
@@ -165,14 +167,15 @@ public class Bonjour implements ServiceListener {
                     Log.d(TAG, String.format("JmDNS version: %s (%s)", JmDNS.VERSION,
                             addr.getHostAddress()));
 
+                    mStatus = Status.Started;
                     mListener.onStarted();
                 } catch (IOException e) {
                     Log.e(TAG, "JmDNS.create() failed!");
                     e.printStackTrace();
+                    
+                    mStatus = Status.Stopped;
                     mListener.onStartFailed();
                 }
-
-                mStatus = Status.Started;
             }
         }
     }
@@ -208,8 +211,8 @@ public class Bonjour implements ServiceListener {
                     mWifiLock = null;
                 }
 
-                mListener.onStopped();
                 mStatus = Status.Stopped;
+                mListener.onStopped();
             }
         }
     }
