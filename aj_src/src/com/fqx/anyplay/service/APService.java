@@ -244,12 +244,12 @@ public class APService extends Service implements BonjourListener{
 	}
 	
 	private void stopAirpaly() {
-//	    this.mApController.Airplay_Stop();
 		m_is_stop = true;
 	     if(m_is_start) {
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Start...");
 	    	 return;
 	     }
+	    this.mApController.Airplay_Stop();
 		mBonjour.stop();
 	    AnyPlayUtils.LOG_DEBUG("AirPlay", "Server Stop ");
 	}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest 
-	android:versionCode="205" 
-	android:versionName="2.0.5" 
+	android:versionCode="206" 
+	android:versionName="2.0.6" 
 	package="cn.airjoy.android.service"
   xmlns:android="http://schemas.android.com/apk/res/android">
   <uses-sdk 
@@ -53,19 +53,19 @@
         
 		<!--  203 -->
 		<!--  HisenseBox 
+		-->
         <meta-data android:name="UMENG_APPKEY" android:value="5391299a56240b01b50799fa" />
         <meta-data android:name="DEFAULT_ENABLE" android:value="true" />
         <meta-data android:name="DEFAULT_NAME" android:value="Hisense BOX" />
         <meta-data android:name="USE_TYPE" android:value="BOX" />
-		-->
 
         
 		<!--  HisenseTV 202
-		-->
         <meta-data android:name="UMENG_APPKEY" android:value="50768a4c52701552e7000036" />
         <meta-data android:name="DEFAULT_ENABLE" android:value="false" />
         <meta-data android:name="DEFAULT_NAME" android:value="大屏幕" />
         <meta-data android:name="USE_TYPE" android:value="TV" />
+		-->
 
 
 
