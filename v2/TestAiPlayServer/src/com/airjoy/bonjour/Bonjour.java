@@ -153,8 +153,11 @@ public class Bonjour implements ServiceListener {
 
                 try {
                     byte[] ip = NetWork.getLocalIpInt(mContext);
-                    if (ip == null)
+                    if (ip == null) {
+                    	Log.e(TAG, "JmDNS.create() failed! ip is null");
+                    	mListener.onStartFailed();
                         return;
+                    }
 
                     InetAddress addr = InetAddress.getByAddress(ip);
 
@@ -187,20 +190,22 @@ public class Bonjour implements ServiceListener {
             synchronized (Bonjour.this) {
                 Log.v(TAG, "stop");
                 if (mJmdns != null) {
-                    try {
-                        mJmdns.unregisterAllServices();
-                        mSvcInfoList.clear();
+                	mJmdns.unregisterAllServices();
+                    mSvcInfoList.clear();
 
+                	try {
                         mJmdns.close();
-                        mJmdns = null;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    
+                    mJmdns = null;
                 }
 
                 if (mWifiLock != null) {
                     mWifiLock.setReferenceCounted(false);
                     mWifiLock.release();
+                    mWifiLock = null;
                 }
 
                 mListener.onStopped();
