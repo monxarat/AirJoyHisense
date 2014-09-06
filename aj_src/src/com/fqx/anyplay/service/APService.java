@@ -43,6 +43,8 @@ public class APService extends Service implements BonjourListener{
 	  private Bonjour mBonjour = null;
 	  private boolean m_isEther = false;
 	  private boolean m_isWifi = false;
+	  private boolean m_is_start = false;
+	  private boolean m_is_stop = false;
 
 	  static {
 	    AnyPlayUtils.LOG_DEBUG("APController", "Loadlib start");
@@ -184,26 +186,11 @@ public class APService extends Service implements BonjourListener{
 	      Log.e("AirplayStart", "Start Err");
 	      return -1;
 	    }
-//	    if (!this.mApController.PublishAirplayService()) {
-//	    	Log.e("AirplayStart", " ### ERR: PublishAirplayService fail ");
-//	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirPlay.GetValue(), 400);
-//	    }else{
-//	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirPlay.GetValue(), 200);
-//	    }
-//	    
 	    
 	    if(this.mApController.AirTunesStart(paramString1, paramString2, paramString3) < 0) {
 	    	Log.e("AirTunesStart", "Start Err");
 	    	return -1;
 	    }
-
-//	    if (!this.mApController.PublishAirTunesService()) {
-//	    	Log.e("AirTunesStart", " ### ERR: PublishAirTunesService fail ");
-//	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirTunes.GetValue(), 400);
-//	    }else{
-//	      this.mApResultListener.onResultListener(APPEnum.AirChannel.AirTunes.GetValue(), 200);
-//	    }
-//	    
 	    Log.d("AirplayStart", "################ mBonjour start");
 	    mBonjour.start();
 	    return 1;
@@ -220,24 +207,10 @@ public class APService extends Service implements BonjourListener{
 	}
 	
 	private void StopBonjourThread() {
-//	    AnyPlayUtils.LOG_DEBUG("APController", "StopBonjourThrad...");
-//	    try {
-//	      if (this.mMdnsStarThread == null)
-//	        return;
-//	      this.mApController.mdnsd_stop();
-//	    } catch (Exception localException) {
-//	      Log.e("AirPlay", "StopBonjourThread:" + localException.toString());
-//	    }
 	}
 	
 	
 	private void getWifiMac() {
-//	    try {
-//	      WifiInfo localWifiInfo = ((WifiManager)getSystemService("wifi")).getConnectionInfo();
-//	      this.mLocalInfo.setMac(localWifiInfo.getMacAddress());
-//	    } catch (Exception localException) {
-//	      this.mLocalInfo.setMac(null);
-//	    }
 	   this.mLocalInfo.setMacBytes(NetWork.getMacAddress());
 
 	}
@@ -257,19 +230,26 @@ public class APService extends Service implements BonjourListener{
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "isSwitchON=false");
 	        return;
 	     }
+	     m_is_start = true;
+	     if(m_is_stop) {
+	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Stop...");
+	    	 return;
+	     }
 	      Airplay_Start(this.mLocalInfo.getMac(), this.mLocalInfo.getName(), "AppleTV2,1");
 	      int i = this.mApController.getAirplayPort();
 	      this.mLocalInfo.setPort(i);
 	      Notice.AirJoyStateOK(this);
 	      AnyPlayUtils.LOG_DEBUG("APController", "start(" + i + ")......................................");
 	      this.mPublishState.tryInit();
-//		  mApController.AirTunesPublishService(true);
-//		  mApController.AirplayPublishService(true);
-//	      mPublishHandler.postDelayed(mPublishRunnable, 1000);
 	}
 	
 	private void stopAirpaly() {
 //	    this.mApController.Airplay_Stop();
+		m_is_stop = true;
+	     if(m_is_start) {
+	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Start...");
+	    	 return;
+	     }
 		mBonjour.stop();
 	    AnyPlayUtils.LOG_DEBUG("AirPlay", "Server Stop ");
 	}
@@ -359,6 +339,8 @@ public class APService extends Service implements BonjourListener{
 	                mLocalInfo.getName(), 
 	                mLocalInfo.getPort());
 	     mBonjour.publishService(info2);
+		AnyPlayUtils.SendAirPlaySwitch(APService.this, "START");
+		m_is_start = false;
 	}
 
 	/* (non-Javadoc)
@@ -368,6 +350,7 @@ public class APService extends Service implements BonjourListener{
 	public void onStartFailed() {
 		// TODO Auto-generated method stub
 		AnyPlayUtils.LOG_DEBUG("BonjourListener", "onStartFailed");
+		m_is_start = false;
 	}
 
 	/* (non-Javadoc)
@@ -377,7 +360,11 @@ public class APService extends Service implements BonjourListener{
 	public void onStopped() {
 		// TODO Auto-generated method stub
 		AnyPlayUtils.LOG_DEBUG("BonjourListener", "onStopped");
-		
+		m_is_stop = false;
+		if(m_is_start) {
+			startAirJoy();
+		}
+		AnyPlayUtils.SendAirPlaySwitch(APService.this, "STOP");
 	}
 
 	/* (non-Javadoc)

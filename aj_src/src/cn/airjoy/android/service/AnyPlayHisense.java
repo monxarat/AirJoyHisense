@@ -4,11 +4,14 @@ package cn.airjoy.android.service;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -29,6 +32,7 @@ import com.fqx.anyplay.api.APPEnum;
 import com.fqx.anyplay.api.AnyPlayUtils;
 import com.fqx.anyplay.api.CallBackEvent;
 import com.fqx.anyplay.api.LocalInfo;
+import com.fqx.anyplay.api.SangProgressDialog;
 import com.fqx.anyplay.api.SystemConfig;
 import com.fqx.anyplay.service.APController;
 import com.fqx.anyplay.service.APService;
@@ -102,11 +106,59 @@ public class AnyPlayHisense extends Activity {
 	    setVerInfo();
 	    startAPControllerService();
 	    startAirJoyService();
+	    IntentFilter airPlayOnFilter = new IntentFilter();
+	    airPlayOnFilter.addAction(AnyPlayUtils.ACTION_PLAYER_SWCOMPLETE);
+	    registerReceiver(airplay_on_event, airPlayOnFilter);
+	    
 	    loadDevName();
 	    if(AnyPlayUtils.isNetOK(this) == false) {
 	    	netErr();
 	    }
 	}
+	
+	private BroadcastReceiver airplay_on_event = new BroadcastReceiver() {
+	    public void onReceive(Context paramContext, Intent paramIntent) {
+	      Bundle localBundle = paramIntent.getExtras();
+	      String which = localBundle.getString("Which");
+	      if(which.equals("STOP")) {
+	    	  stopProgressDialog();
+	      }else if(which.equals("START")) {
+	    	  stopProgressDialog();
+	      }
+	    }
+	};
+	
+	private SangProgressDialog progressDialog = null;
+	private void startProgressDialog(String msg) {
+	    try {
+	      if (this.progressDialog == null) {
+	        this.progressDialog = SangProgressDialog.createDialog(this);
+		    this.progressDialog.setOnCannel(new OnCancelListener() {
+				@Override
+				public void onCancel(DialogInterface dialog) {
+					exit();
+				}
+			});
+	      }
+	      progressDialog.setMessage(msg);
+	      this.progressDialog.show();
+	    } catch (Exception localException) {
+	      localException.printStackTrace();
+	    }
+	} 
+	
+	private void stopProgressDialog() {
+	    if (this.progressDialog == null) {
+	    	return;
+	    }
+	    try {
+	      this.progressDialog.dismiss();
+	      this.progressDialog = null;
+	    } catch (Exception localException) {
+	      localException.toString();
+	    }
+	}
+	
 	
 	private ServiceConnection mAJServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
@@ -166,6 +218,7 @@ public class AnyPlayHisense extends Activity {
 			this.mONOFFButton.setText(str2);
 			this.mONOFFTextView.setText(str1);
 			this.mHandler.postDelayed(this.mStartRunnable, 300L);
+			startProgressDialog("正在启动，请稍后...");
 	    }else{
 		    this.mHandler.removeCallbacks(this.mStartRunnable);
 		    LocalInfo.isSwitchON = false;
@@ -175,6 +228,7 @@ public class AnyPlayHisense extends Activity {
 		    this.mONOFFButton.setText(str1);
 		    this.mONOFFTextView.setText(str2);
 		    this.mHandler.postDelayed(this.mStopRunnable, 200L);
+			startProgressDialog("正在关闭，请稍后...");
 	    }
 	}
 	

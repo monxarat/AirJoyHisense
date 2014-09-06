@@ -74,6 +74,18 @@ public class SangProgressDialog extends Dialog {
     mProgressTextView.setText(paramInt + "%");
   }
 
+  
+//  public void setMessage(String msg) {
+//    if (mProgressTextView == null) {
+//    	return;
+//    }
+//	if (mTextView == null) {
+//    	return;
+//    }
+//    mProgressTextView.setText(" ");
+//	mTextView.setText(msg);
+//  }
+
   public SangProgressDialog setTitile(String paramString) {
     return customProgressDialog;
   }

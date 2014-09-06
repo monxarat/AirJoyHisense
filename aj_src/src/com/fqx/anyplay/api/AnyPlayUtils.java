@@ -38,6 +38,7 @@ public class AnyPlayUtils {
   private static byte[] mMacValue;
 
   public static String  ACTION_PLAYER_CMD = "com.fqx.airjoy.player.cmd";
+  public static String  ACTION_PLAYER_SWCOMPLETE = "com.fqx.airjoy.sw.complete";
   static {
     ACTION_SERVER_STATE = "com.fqx.airjoy.state";
     ACTION_SERVER_SLIDESHOW = "com.fqx.airjoy.slideshows";
@@ -69,6 +70,15 @@ public class AnyPlayUtils {
 	    Log.e("AirJoy Err", paramString2);
 	}
 	
+	public static void SendAirPlaySwitch(Context paramContext, String sw) {
+	    Intent localIntent = new Intent();
+	    Bundle localBundle = new Bundle();
+	    localBundle.putString("Which", sw);
+	    localIntent.setAction(ACTION_PLAYER_SWCOMPLETE);
+	    localIntent.putExtras(localBundle);
+	    paramContext.sendBroadcast(localIntent);
+	}
+
 	public static void SendServerState(Context paramContext, int paramInt) {
 	    Intent localIntent = new Intent();
 	    Bundle localBundle = new Bundle();
