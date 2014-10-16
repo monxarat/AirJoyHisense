@@ -63,7 +63,7 @@ public class SangProgressDialog extends Dialog {
     if(paramInt < 0) {
 	    mTextView.setText(MDEFAULEMSG_STRING);
     }else {
-	    mTextView.setText(MDEFAULEMSG_STRING + paramInt + "bytes/s");
+	    mTextView.setText(MDEFAULEMSG_STRING + paramInt + " KB/s");
 	}
   }
 

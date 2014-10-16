@@ -116,10 +116,13 @@ public class LocalPlayer extends Activity implements
 	private long get_now_speed() {
 //		long nbytes  = TrafficStats.getUidRxBytes(mUid);
 		long nbytes  = TrafficStats.getTotalRxBytes();
-		mNowSpeed = nbytes - mlastbytes;
+		mNowSpeed = (nbytes - mlastbytes) / 1024;
 		if((progressDialog != null) && (mlastbytes !=0)) {
 			progressDialog.setSpeed((int) mNowSpeed);
 		}
+//		AnyPlayUtils.LOG_ERR("get_now_speed", "mNowSpeed=" + nbytes);
+//		AnyPlayUtils.LOG_ERR("get_now_speed", "mlastbytes=" + mlastbytes);
+//		AnyPlayUtils.LOG_ERR("get_now_speed", "mNowSpeed=" + mNowSpeed);
 		mlastbytes = nbytes;
 		return mNowSpeed;
 	}
@@ -227,20 +230,29 @@ public class LocalPlayer extends Activity implements
 	    LocalInfo.APVideoisRuning = false;
 	    this.mtimeHandler.removeCallbacks(this.atimeRunnable);
 		if (this.mVideoView != null) { 
-			this.mVideoView.stopPlayback();
+			try {
+				this.mVideoView.stopPlayback();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	    finish();
 	}
 	
 	private void set_pause(boolean isTrue) {
-		if(isTrue) {
-	          this.mVideoView.pause();
-	          this.mCheckVideoNetState.stop();
-		      AnyPlayUtils.LOG_DEBUG("handleIntent", "Video State: pause");
-		}else{
-	          this.mVideoView.start();
-	          this.mCheckVideoNetState.start();
-		      AnyPlayUtils.LOG_DEBUG("handleIntent", "Video State: start");
+		try {
+			if(isTrue) {
+		          this.mVideoView.pause();
+		          this.mCheckVideoNetState.stop();
+			      AnyPlayUtils.LOG_DEBUG("handleIntent", "Video State: pause");
+			}else{
+		          this.mVideoView.start();
+		          this.mCheckVideoNetState.start();
+			      AnyPlayUtils.LOG_DEBUG("handleIntent", "Video State: start");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
@@ -338,13 +350,18 @@ public class LocalPlayer extends Activity implements
 		if(pos < 0) {
 			pos = 0;
 		}
-	    startProgressDialog();
-	    int i = (int)(1000 * pos);
-	    AnyPlayUtils.LOG_ERR("playSeekto", "---------------------- POS:" + i);
-	    this.mVideoView.seekTo(i);
-	    setMediaContollerCurProcess(pos);
-	    this.mSeektoValue = pos;
-	    this.g_seek_doing = true;
+		try {
+		    startProgressDialog();
+		    int i = (int)(1000 * pos);
+		    AnyPlayUtils.LOG_ERR("playSeekto", "---------------------- POS:" + i);
+		    this.mVideoView.seekTo(i);
+		    setMediaContollerCurProcess(pos);
+		    this.mSeektoValue = pos;
+		    this.g_seek_doing = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 	
 	private void playVideo(String paramString, long paramLong) {
@@ -368,14 +385,14 @@ public class LocalPlayer extends Activity implements
 	}
 	
 	private void sendVideoProcess() {
+	    int i;
 	    LocalInfo.APVideoisRuning = true;
 	    Intent localIntent = new Intent();
 	    Bundle localBundle = new Bundle();
 	    long l1 = this.mVideoView.getDuration();
 	    long l2 = this.mVideoView.getCurrentPosition();
-	    int i;
+	    get_now_speed();
 	    if (this.g_seek_doing) {
-	      get_now_speed();
 	      i = (int)this.mSeektoValue;
 	    } else {
 	       i = (int)(l2 / 1000L);
@@ -574,11 +591,8 @@ public class LocalPlayer extends Activity implements
 		}else if(what == MediaPlayer.MEDIA_INFO_BUFFERING_END) {
 			stopProgressDialog();
 		}
-
 	    return false;
 	}
-	
-	
 	
 	public boolean onKeyDown(int keyVale, KeyEvent keyEvent) {
 	    AnyPlayUtils.LOG_DEBUG("LocalVideo", "onKeyDown key=" + keyVale);

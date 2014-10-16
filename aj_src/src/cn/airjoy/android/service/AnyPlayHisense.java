@@ -136,7 +136,8 @@ public class AnyPlayHisense extends Activity {
 		    this.progressDialog.setOnCannel(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
-					exit();
+					stopProgressDialog();
+					AnyPlayHisense.this.finish();
 				}
 			});
 	      }
@@ -217,18 +218,22 @@ public class AnyPlayHisense extends Activity {
 			this.mAJServerBinder.reStart();
 			this.mONOFFButton.setText(str2);
 			this.mONOFFTextView.setText(str1);
-			this.mHandler.postDelayed(this.mStartRunnable, 300L);
-			startProgressDialog("正在启动，请稍后...");
+			if(mAPServerBinder.isStarted() == false) {
+				this.mHandler.postDelayed(this.mStartRunnable, 300L);
+				startProgressDialog("正在启动，请稍后...");
+			}
 	    }else{
 		    this.mHandler.removeCallbacks(this.mStartRunnable);
 		    LocalInfo.isSwitchON = false;
-		    this.mAPServerBinder.stop();
 		    this.mAJServerBinder.stop();
 		    this.mSystemConfig.setSwitchON(false);
 		    this.mONOFFButton.setText(str1);
 		    this.mONOFFTextView.setText(str2);
-		    this.mHandler.postDelayed(this.mStopRunnable, 200L);
-			startProgressDialog("正在关闭，请稍后...");
+			if(mAPServerBinder.isStarted()) {
+				startProgressDialog("正在关闭，请稍后...");
+			    this.mAPServerBinder.stop();
+			    this.mHandler.postDelayed(this.mStopRunnable, 200L);
+			}
 	    }
 	}
 	

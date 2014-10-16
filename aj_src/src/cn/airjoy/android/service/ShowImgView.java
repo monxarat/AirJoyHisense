@@ -275,9 +275,9 @@ public class ShowImgView extends Activity {
 	
 	private void callbackEvt() {
 	    this.mSangNote.dismiss();
-	    startActivity(new Intent(this, AnyPlayHisense.class));
+//	    startActivity(new Intent(this, AnyPlayHisense.class));
 
-	    AnyPlayUtils.LOG_DEBUG("Exit 3");
+	    AnyPlayUtils.LOG_DEBUG("ShowImgView exit !");
 	    finish();
 	}
 	

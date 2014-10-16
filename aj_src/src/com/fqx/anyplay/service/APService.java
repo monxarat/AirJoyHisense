@@ -39,6 +39,7 @@ public class APService extends Service implements BonjourListener{
 	  private PublishState mPublishState;
 	  private String mRandomMacString;
 	  private VideoInfo mVideoInfo; 
+	  private Handler mHandler;
 
 	  private Bonjour mBonjour = null;
 	  private boolean m_isEther = false;
@@ -53,9 +54,9 @@ public class APService extends Service implements BonjourListener{
 	      System.loadLibrary("bonjour_aj");
 	      System.loadLibrary("ssl_aj");
 	      System.loadLibrary("crypto_aj");
-	      System.loadLibrary("airplay");
-	      System.loadLibrary("airtunes");
-	      System.loadLibrary("jniAnyplay");
+	      System.loadLibrary("airplay_ap");
+	      System.loadLibrary("airtunes_ap");
+	      System.loadLibrary("jniAnyplay_ap");
 	      AnyPlayUtils.LOG_DEBUG("APController", "Loadlib ok");
 	    } catch (Exception localException) {
 	      Log.e("APController", "Loadlib ERR=" + localException.toString());
@@ -95,6 +96,7 @@ public class APService extends Service implements BonjourListener{
 	    localIntentFilter3.addAction("android.intent.action.SCREEN_OFF");
 	    registerReceiver(this.MyWifiReciver, localIntentFilter3);
 	    this.mPublishState = PublishState.getInstance();
+	    mHandler = new Handler();
 
 	    isAP();
 	}
@@ -231,6 +233,10 @@ public class APService extends Service implements BonjourListener{
 	        return;
 	     }
 	     m_is_start = true;
+//	     if(mBonjour.isStarted()) {
+//	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Stop...");
+//	    	 return;
+//	     }
 	     if(m_is_stop) {
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Stop...");
 	    	 return;
@@ -245,6 +251,10 @@ public class APService extends Service implements BonjourListener{
 	
 	private void stopAirpaly() {
 		m_is_stop = true;
+//	     if(mBonjour.isStarted() == false) {
+//	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Start...");
+//	    	 return;
+//	     }
 	     if(m_is_start) {
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Start...");
 	    	 return;
@@ -291,6 +301,10 @@ public class APService extends Service implements BonjourListener{
 	
 	    public APController getService() {
 	      return APService.this.mApController;
+	    }
+	    
+	    public boolean isStarted() {
+	    	return mBonjour.isStarted();
 	    }
 	
 	    public void reName(String paramString) {
@@ -343,6 +357,13 @@ public class APService extends Service implements BonjourListener{
 		m_is_start = false;
 	}
 
+	private Runnable mRunnable = new Runnable() {
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			startAirJoy();
+		}
+	};
 	/* (non-Javadoc)
 	 * @see com.airjoy.bonjour.BonjourListener#onStartFailed()
 	 */
@@ -351,6 +372,7 @@ public class APService extends Service implements BonjourListener{
 		// TODO Auto-generated method stub
 		AnyPlayUtils.LOG_DEBUG("BonjourListener", "onStartFailed");
 		m_is_start = false;
+		mHandler.postDelayed(mRunnable, 500);
 	}
 
 	/* (non-Javadoc)
