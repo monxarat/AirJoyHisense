@@ -32,7 +32,7 @@ public class Bonjour implements ServiceListener {
     private Context mContext = null;
     private Status mStatus = Status.Stopped;
     
-    private enum Status {
+    public enum Status {
         Stopped,
         Stopping,
         Started,
@@ -59,6 +59,10 @@ public class Bonjour implements ServiceListener {
 
     public boolean isStarted() {
         return (mStatus == Status.Starting || mStatus == Status.Started); 
+    }
+
+    public Status getStatus() {
+        return mStatus;
     }
 
     public void start() {
