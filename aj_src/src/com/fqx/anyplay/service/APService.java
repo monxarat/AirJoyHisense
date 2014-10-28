@@ -18,6 +18,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.airjoy.bonjour.Bonjour;
+import com.airjoy.bonjour.Bonjour.Status;
 import com.airjoy.bonjour.BonjourListener;
 import com.airjoy.bonjour.serviceinfo.AirPlayServiceInfo;
 import com.airjoy.bonjour.serviceinfo.AirTunesServiceInfo;
@@ -44,8 +45,8 @@ public class APService extends Service implements BonjourListener{
 	  private Bonjour mBonjour = null;
 	  private boolean m_isEther = false;
 	  private boolean m_isWifi = false;
-	  private boolean m_is_start = false;
-	  private boolean m_is_stop = false;
+	  private boolean m_is_starting = false;
+//	  private boolean m_is_stop = false;
 
 	  static {
 	    AnyPlayUtils.LOG_DEBUG("APController", "Loadlib start");
@@ -54,9 +55,9 @@ public class APService extends Service implements BonjourListener{
 	      System.loadLibrary("bonjour_aj");
 	      System.loadLibrary("ssl_aj");
 	      System.loadLibrary("crypto_aj");
-	      System.loadLibrary("airplay_ap");
-	      System.loadLibrary("airtunes_ap");
-	      System.loadLibrary("jniAnyplay_ap");
+	      System.loadLibrary("airplay");
+	      System.loadLibrary("airtunes");
+	      System.loadLibrary("jniAnyplay");
 	      AnyPlayUtils.LOG_DEBUG("APController", "Loadlib ok");
 	    } catch (Exception localException) {
 	      Log.e("APController", "Loadlib ERR=" + localException.toString());
@@ -102,61 +103,88 @@ public class APService extends Service implements BonjourListener{
 	}
 	
 
-	
 	private BroadcastReceiver MyWifiReciver = new BroadcastReceiver() {
 	    public void onReceive(Context paramContext, Intent paramIntent) {
 	      String str = paramIntent.getAction();
-		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "ACTION:" + str);
-	      if ((str.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) || (str.equals("android.net.wifi.STATE_CHANGE"))) {
-	      	int wifiState = paramIntent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);   
-		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "wifiState:" + wifiState);
-	        switch (wifiState) {   
-	            case WifiManager.WIFI_STATE_DISABLED:   
-		        	AnyPlayUtils.LOG_DEBUG("WIFI_STATE_CHANGED", "WIFI_STATE_DISABLED");
-			        APService.this.m_isWifi = false;
-			        if (APService.this.m_isEther)
-			        	break;
-			        APService.this.stopAirpaly();
-			        APService.this.SendNetErr();
-	                break;   
-	            case WifiManager.WIFI_STATE_ENABLED:   
-		        	AnyPlayUtils.LOG_DEBUG("WIFI_STATE_CHANGED", "WIFI_STATE_ENABLED");
-			        APService.this.m_isWifi = true;
-			        APService.this.getWifiMac();
-			        APService.this.startAirJoy();
-	                break;   
-	        	}
-	       }else if (str.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-	          NetworkInfo localNetworkInfo = ((ConnectivityManager)paramContext.getSystemService(Context.CONNECTIVITY_SERVICE)).getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
-	          if (localNetworkInfo == null) {
-	        	  AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "localNetworkInfo = null");
-	        	  return;
-	          }
-	          if (localNetworkInfo.isConnected()) {
-	            AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_ENABLED");
-	            APService.this.m_isEther = true;
-//	            APService.this.mLocalInfo.setMac(APService.this.mRandomMacString);
-			    APService.this.mLocalInfo.setMacBytes(NetWork.getMacAddress());
-//			    APService.this.mLocalInfo.setMacBytes(AnyPlayUtils.getRandomMacBytes());
-	            APService.this.startAirJoy();
-	          }else{
+	      if (str.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+	    	  ConnectivityManager mConnectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);  
+	    	  NetworkInfo netInfo = mConnectivityManager.getActiveNetworkInfo();    
+	          if(netInfo != null && netInfo.isAvailable()) {  
+	        	  // 0 TYPE_MOBILE 
+	        	  // 1 TYPE_WIFI
+	        	  // 9 TYPE_ETHERNET
+	        	  AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_ENABLED NetInfoType:" + netInfo.getType());
+				  APService.this.mLocalInfo.setMacBytes(NetWork.getMacAddress());
+		          APService.this.startAirJoy();
+	          } else {  
+	             ////////网络断开  
 		          AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_DISENABLED");
-		          APService.this.m_isEther = false;
-		          if (APService.this.m_isWifi)
-		        	  return;
 		          APService.this.stopAirpaly();
 		          APService.this.SendNetErr();
-	          }
-	        }else if (str.equals("android.intent.action.SCREEN_ON")) {
-	        	AnyPlayUtils.LOG_DEBUG("AirPlay", "ACTION_SCREEN_ON");
-	        	APService.this.startAirJoy();
-	        }else if (str.equals("android.intent.action.SCREEN_OFF")) {
-	        	AnyPlayUtils.LOG_DEBUG("AirPlay", "ACTION_SCREEN_OFF");
-	        	APService.this.stopAirpaly();
-	      }
+	         }  
+		  }
 	    }
 	  };
 	
+	
+//	private BroadcastReceiver MyWifiReciver = new BroadcastReceiver() {
+//	    public void onReceive(Context paramContext, Intent paramIntent) {
+//	      String str = paramIntent.getAction();
+//		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "ACTION:" + str);
+//	      if ((str.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) || (str.equals("android.net.wifi.STATE_CHANGE"))) {
+//	      	int wifiState = paramIntent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);   
+//		 AnyPlayUtils.LOG_DEBUG("MyWifiReciver", "wifiState:" + wifiState);
+//	        switch (wifiState) {   
+//	            case WifiManager.WIFI_STATE_DISABLED:   
+//		        	AnyPlayUtils.LOG_DEBUG("WIFI_STATE_CHANGED", "WIFI_STATE_DISABLED");
+//			        APService.this.m_isWifi = false;
+//			        if (APService.this.m_isEther)
+//			        	break;
+//			        APService.this.stopAirpaly();
+//			        APService.this.SendNetErr();
+//	                break;   
+//	            case WifiManager.WIFI_STATE_ENABLED:   
+//		        	AnyPlayUtils.LOG_DEBUG("WIFI_STATE_CHANGED", "WIFI_STATE_ENABLED");
+//			        APService.this.m_isWifi = true;
+//	    	        APService.this.m_isEther = false;
+//			        APService.this.getWifiMac();
+//			        APService.this.startAirJoy();
+//	                break;   
+//	        	}
+//	       }else if (str.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+//	          NetworkInfo localNetworkInfo = ((ConnectivityManager)paramContext.getSystemService(Context.CONNECTIVITY_SERVICE)).getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
+//	          if (localNetworkInfo == null) {
+//	        	  AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "localNetworkInfo = null");
+//	        	  return;
+//	          }
+//	          if (localNetworkInfo.isConnected()) {
+//	            AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_ENABLED");
+//	            APService.this.m_isEther = true;
+//			    APService.this.m_isWifi = false;
+////	            APService.this.mLocalInfo.setMac(APService.this.mRandomMacString);
+//			    APService.this.mLocalInfo.setMacBytes(NetWork.getMacAddress());
+////			    APService.this.mLocalInfo.setMacBytes(AnyPlayUtils.getRandomMacBytes());
+//	            APService.this.startAirJoy();
+//	          }else{
+//		          AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "STATE_DISENABLED");
+//		          APService.this.m_isEther = false;
+//		          if (APService.this.m_isWifi) {
+//			          AnyPlayUtils.LOG_DEBUG("CONNECTIVITY_ACTION", "#ERR WIFI Connect!");
+//		        	  return;
+//		          }
+//		          APService.this.stopAirpaly();
+//		          APService.this.SendNetErr();
+//	          }
+//	        }else if (str.equals("android.intent.action.SCREEN_ON")) {
+//	        	AnyPlayUtils.LOG_DEBUG("AirPlay", "ACTION_SCREEN_ON");
+//	        	APService.this.startAirJoy();
+//	        }else if (str.equals("android.intent.action.SCREEN_OFF")) {
+//	        	AnyPlayUtils.LOG_DEBUG("AirPlay", "ACTION_SCREEN_OFF");
+//	        	APService.this.stopAirpaly();
+//	      }
+//	    }
+//	  };
+//	
 	
 	private BroadcastReceiver send_event = new BroadcastReceiver() {
 	    public void onReceive(Context paramContext, Intent paramIntent) {
@@ -232,12 +260,13 @@ public class APService extends Service implements BonjourListener{
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "isSwitchON=false");
 	        return;
 	     }
-	     m_is_start = true;
 //	     if(mBonjour.isStarted()) {
 //	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Stop...");
 //	    	 return;
 //	     }
-	     if(m_is_stop) {
+	     m_is_starting = true;
+	     if(mBonjour.getStatus() != Status.Stopped) {
+//	     if(m_is_stop) {
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Stop...");
 	    	 return;
 	     }
@@ -250,12 +279,12 @@ public class APService extends Service implements BonjourListener{
 	}
 	
 	private void stopAirpaly() {
-		m_is_stop = true;
+//		m_is_stop = true;
 //	     if(mBonjour.isStarted() == false) {
 //	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Start...");
 //	    	 return;
 //	     }
-	     if(m_is_start) {
+		if(mBonjour.getStatus() != Status.Started) {
 	        AnyPlayUtils.LOG_DEBUG("startAirJoy", "Waiting Start...");
 	    	 return;
 	     }
@@ -303,8 +332,8 @@ public class APService extends Service implements BonjourListener{
 	      return APService.this.mApController;
 	    }
 	    
-	    public boolean isStarted() {
-	    	return mBonjour.isStarted();
+	    public Status getStartus() {
+	    	return mBonjour.getStatus();
 	    }
 	
 	    public void reName(String paramString) {
@@ -354,7 +383,7 @@ public class APService extends Service implements BonjourListener{
 	                mLocalInfo.getPort());
 	     mBonjour.publishService(info2);
 		AnyPlayUtils.SendAirPlaySwitch(APService.this, "START");
-		m_is_start = false;
+		m_is_starting = false;
 	}
 
 	private Runnable mRunnable = new Runnable() {
@@ -371,7 +400,7 @@ public class APService extends Service implements BonjourListener{
 	public void onStartFailed() {
 		// TODO Auto-generated method stub
 		AnyPlayUtils.LOG_DEBUG("BonjourListener", "onStartFailed");
-		m_is_start = false;
+		m_is_starting = false;
 		mHandler.postDelayed(mRunnable, 500);
 	}
 
@@ -382,8 +411,9 @@ public class APService extends Service implements BonjourListener{
 	public void onStopped() {
 		// TODO Auto-generated method stub
 		AnyPlayUtils.LOG_DEBUG("BonjourListener", "onStopped");
-		m_is_stop = false;
-		if(m_is_start) {
+//		m_is_stop = false;
+//		if(mBonjour.getStatus() == Status.Starting) {
+		if(m_is_starting) {
 			startAirJoy();
 		}
 		AnyPlayUtils.SendAirPlaySwitch(APService.this, "STOP");

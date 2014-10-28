@@ -50,6 +50,8 @@
     <string name="confirm">确认</string>
     <string name="cancel">取消</string>
     <string name="modefy">修改</string>
+    <string name="stating">正在打开</string>
+    <string name="closing">正在关闭</string>
     <string name="note">提示</string>
     <string name="updata">更新</string>
     <string name="localCatch">/anyplay/catch_img/</string>

@@ -26,6 +26,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.airjoy.bonjour.Bonjour.Status;
 import com.fqx.airjoy.server.AirJoy;
 import com.fqx.airjoy.service.AJService;
 import com.fqx.anyplay.api.APPEnum;
@@ -122,8 +124,10 @@ public class AnyPlayHisense extends Activity {
 	      String which = localBundle.getString("Which");
 	      if(which.equals("STOP")) {
 	    	  stopProgressDialog();
+			  setState(Status.Stopped);
 	      }else if(which.equals("START")) {
 	    	  stopProgressDialog();
+			  setState(Status.Started);
 	      }
 	    }
 	};
@@ -160,6 +164,14 @@ public class AnyPlayHisense extends Activity {
 	    }
 	}
 	
+	private boolean is_try_opt() {
+	    if(AnyPlayUtils.isNetOK(this) == false) {
+	    	netErr();
+	    	return false;
+	    }
+	    return true;
+	}
+	
 	
 	private ServiceConnection mAJServiceConnection = new ServiceConnection() {
 	    public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder) {
@@ -176,19 +188,24 @@ public class AnyPlayHisense extends Activity {
 	      AnyPlayHisense.this.mAPServerBinder = ((APService.MyBinder)paramIBinder);
 	      AnyPlayHisense.this.mAPController = AnyPlayHisense.this.mAPServerBinder.getService();
 	      AnyPlayHisense.this.openONOFFState(true);
+	      setState(mAPServerBinder.getStartus());
 	    }
 	
 	    public void onServiceDisconnected(ComponentName paramComponentName) {
 	    }
 	};
 	private View.OnClickListener mDevNameClickListener = new View.OnClickListener() {
-	    public void onClick(View paramView) {
-	      AnyPlayHisense.this.EvtModefyDevName();
+	    public void onClick(View paramView) { 
+	    	if(is_try_opt()) {
+		    	AnyPlayHisense.this.EvtModefyDevName();
+	    	}
 	    }
 	};
 	private View.OnClickListener mONOFFClickListener = new View.OnClickListener() {
 	    public void onClick(View paramView) {
-	      AnyPlayHisense.this.EvtOnoff();
+	    	if(is_try_opt()) { 
+	    		AnyPlayHisense.this.EvtOnoff();
+	    	}
 	    }
 	};
 	private Runnable mStartRunnable = new Runnable() {
@@ -208,31 +225,58 @@ public class AnyPlayHisense extends Activity {
 	    this.mDialog.show();
 	}
 	
-	private void EvtOnoff() {
-	    String str1 = getResources().getString(R.string.open);
-	    String str2 = getResources().getString(R.string.close);
-	    if (this.mONOFFButton.getText().toString().endsWith(str1)) {
-			this.mHandler.removeCallbacks(this.mStopRunnable);
+	private void setState(Status status) {
+	    String open = getResources().getString(R.string.open);
+	    String close = getResources().getString(R.string.close);
+		if(status == Status.Started) {
+			this.mONOFFButton.setText(close);
+			this.mONOFFTextView.setText(open);
 			this.mSystemConfig.setSwitchON(true);
 			LocalInfo.isSwitchON = true;
+		}else if(status == Status.Stopped) {
+		    this.mONOFFButton.setText(open);
+		    this.mONOFFTextView.setText(close);
+		    LocalInfo.isSwitchON = false;
+		}else if(status == Status.Stopping) {
+		    this.mONOFFTextView.setText(getResources().getString(R.string.closing));
+		}else if(status == Status.Starting) {
+		    this.mONOFFTextView.setText(getResources().getString(R.string.stating));
+		}
+	}
+	private void EvtOnoff() {
+		Status mStatus;
+	    String str1 = getResources().getString(R.string.open);
+	    String str2 = getResources().getString(R.string.close);
+	    mStatus = mAPServerBinder.getStartus();
+	    if (this.mONOFFButton.getText().toString().endsWith(str1)) {
+			this.mHandler.removeCallbacks(this.mStopRunnable);
 			this.mAJServerBinder.reStart();
-			this.mONOFFButton.setText(str2);
-			this.mONOFFTextView.setText(str1);
-			if(mAPServerBinder.isStarted() == false) {
+//			this.mSystemConfig.setSwitchON(true);
+//			LocalInfo.isSwitchON = true;
+//			this.mONOFFButton.setText(str2);
+//			this.mONOFFTextView.setText(str1);
+//			if(mAPServerBinder.isStarted() == false) {
+			if(mStatus == Status.Stopped) {
 				this.mHandler.postDelayed(this.mStartRunnable, 300L);
 				startProgressDialog("正在启动，请稍后...");
+			}else if(mStatus == Status.Starting) {
+				startProgressDialog("正在启动，请稍后...");
+				setState(mStatus);
 			}
 	    }else{
 		    this.mHandler.removeCallbacks(this.mStartRunnable);
-		    LocalInfo.isSwitchON = false;
 		    this.mAJServerBinder.stop();
-		    this.mSystemConfig.setSwitchON(false);
-		    this.mONOFFButton.setText(str1);
-		    this.mONOFFTextView.setText(str2);
-			if(mAPServerBinder.isStarted()) {
+//		    LocalInfo.isSwitchON = false;
+//		    this.mSystemConfig.setSwitchON(false);
+//		    this.mONOFFButton.setText(str1);
+//		    this.mONOFFTextView.setText(str2);
+			if(mStatus == Status.Started) {
 				startProgressDialog("正在关闭，请稍后...");
 			    this.mAPServerBinder.stop();
 			    this.mHandler.postDelayed(this.mStopRunnable, 200L);
+			}else if(mStatus == Status.Stopping) {
+				startProgressDialog("正在关闭，请稍后...");
+				setState(mStatus);
 			}
 	    }
 	}
