@@ -33,7 +33,7 @@ public class APAirTunesServerListener implements AirTunesServerListener
 	    this.mContext = paramContext;
 	    this.is_show = false;
 	    this.mHandler = new Handler();
-	    this.isAirTunesEnable = false;
+	    this.isAirTunesEnable = true;
 	}
 	
 	public static APAirTunesServerListener getInstance(Context paramContext) {

@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.Bundle;
@@ -38,13 +37,10 @@ public class APService extends Service implements BonjourListener{
 	  private LocalInfo mLocalInfo;
 	  private PlaybackInfo mPlaybackInfo;
 	  private PublishState mPublishState;
-	  private String mRandomMacString;
 	  private VideoInfo mVideoInfo; 
 	  private Handler mHandler;
 
 	  private Bonjour mBonjour = null;
-	  private boolean m_isEther = false;
-	  private boolean m_isWifi = false;
 	  private boolean m_is_starting = false;
 //	  private boolean m_is_stop = false;
 
@@ -77,7 +73,6 @@ public class APService extends Service implements BonjourListener{
 	    AnyPlayUtils.LOG_DEBUG("APService", "start onCreate~~~");
 	    this.mVideoInfo = VideoInfo.getInstance();
 	    this.mPlaybackInfo = PlaybackInfo.getInstance();
-	    this.mRandomMacString = AnyPlayUtils.getRandomMac();
 	    StartBonjourThread();
 	    this.mLocalInfo = LocalInfo.getInstance(this);
 	    this.mLocalInfo.setServerState(APPEnum.ServiceState.Fail.GetValue());

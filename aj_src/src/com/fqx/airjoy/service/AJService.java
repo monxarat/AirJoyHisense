@@ -49,9 +49,9 @@ public class AJService extends Service {
   }
 
   private void AJStart() {
-    this.mAirJoy.ServerStart();
-    this.mAirJoy.nsdStart();
-    this.mAirJoy.publishService();
+//    this.mAirJoy.ServerStart();
+//    this.mAirJoy.nsdStart();
+//    this.mAirJoy.publishService();
   }
 
   private void AJStop() {
@@ -82,9 +82,7 @@ public class AJService extends Service {
     this.mAirJoy.setVideoListener(this.mAJVideo);
     this.mAirJoy.setMediaListener(this.mAJMediaListener);
     this.mAirJoy.config(this.mLocalInfo.getName(), this.mLocalInfo.getMac(), AJEnum.DeviceType.DeviceTypeTv.GetValue());
-    this.mAirJoy.ServerStart();
-    this.mAirJoy.nsdStart();
-    this.mAirJoy.publishService();
+    AJStart();
     this.mAJVideoInfo = AJVideoInfo.getInstance();
     this.mAJPlayBackInfo = AJPlayBackInfo.getInstance();
     IntentFilter localIntentFilter1 = new IntentFilter();
